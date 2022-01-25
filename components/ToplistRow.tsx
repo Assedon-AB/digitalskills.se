@@ -4,9 +4,9 @@ import { useState } from "react";
 interface ToplistRowProps {
   dataObject: {
     name: string,
-      num: string,
+      num: number,
 
-      forecast: string,
+      forecast: number,
  
       
     };
@@ -31,7 +31,7 @@ const ToplistRow = ({ dataObject }: ToplistRowProps) => {
 
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${dataObject.forecast > dataObject.num ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                       {dataObject.forecast}
                     </span>
                   </td>

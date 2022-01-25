@@ -5,19 +5,19 @@ const Home: NextPage = () => {
 
   const data = [
     {
-      name: 'Jane Cooper',
-      num: '132',
-      forecast: '247',
+      name: 'Värde 1',
+      num: 132,
+      forecast: 243,
     },
     {
-      name: 'Jane Cooper',
-      num: '245',
-      forecast: '329',
+      name: 'Värde 2',
+      num: 245,
+      forecast: 123,
     },
     {
-      name: 'Jane Cooper',
-      num: '564',
-      forecast: '632',
+      name: 'Värde 3',
+      num: 564,
+      forecast: 632,
       }
     // More people...
   ]

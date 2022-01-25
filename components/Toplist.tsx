@@ -5,8 +5,8 @@ import ToplistRow from "./ToplistRow";
 interface ToplistProps {
     data: {
     name: string,
-      num: string,
-      forecast: string,
+      num: number,
+      forecast: number,
     }[];
     title: string
   
