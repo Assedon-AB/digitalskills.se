@@ -3,19 +3,16 @@ import { useState } from "react";
 import ToplistRow from "./ToplistRow";
 
 interface ToplistProps {
-    people: {
+    data: {
     name: string,
-      title: string,
-      
-      role: string,
-
-      image: string
+      num: string,
+      forecast: string,
     }[];
     title: string
   
   }
 
-const Toplist = ({ people, title }: ToplistProps) => {
+const Toplist = ({ data, title }: ToplistProps) => {
   
   return (
     <div className="flex flex-col">
@@ -48,8 +45,8 @@ const Toplist = ({ people, title }: ToplistProps) => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {people.map((person) => (
-                <ToplistRow person={person}></ToplistRow>
+              {data.map((dataObject) => (
+                <ToplistRow dataObject={dataObject}></ToplistRow>
               ))}
             </tbody>
           </table>
