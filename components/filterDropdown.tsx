@@ -17,13 +17,13 @@ interface FilterDropdownProps {
 
 const FilterDropdown = ({ chosenMode }: FilterDropdownProps) => {
   const [mode, setMode] = useState(chosenMode);
-  const modes = ['Antal annonser', 'Prognos']
+  const modes = ['Antal annonser', 'Prognos 12 mån']
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left w-40">
     <div>
-      <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-        {chosenMode}
-        <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+      <Menu.Button className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-xs font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+        {mode}
+        <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5 " aria-hidden="true" />
       </Menu.Button>
     </div>
 
@@ -41,15 +41,15 @@ const FilterDropdown = ({ chosenMode }: FilterDropdownProps) => {
           {modes.map((mode) => (
             <Menu.Item>
             {({ active }) => (
-              <a
-                href="#"
+              <button
+                onClick={() => setMode(mode)}
                 className={classNames(
                   active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block px-4 py-2 text-xs'
+                  'block px-4 py-2 text-xs w-full text-left'
                 )}
               >
                 {mode}
-              </a>
+              </button>
             )}
           </Menu.Item>
           ))}
