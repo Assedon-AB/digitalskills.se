@@ -21,13 +21,13 @@ const ToplistRow = ({ dataObject }: ToplistRowProps) => {
                     <div className="flex items-center">
                      
                       <div className="ml-0">
-                        <div className="text-sm font-medium text-gray-900">{dataObject.name}</div>
+                        <div className="text-xs font-medium text-gray-900">{dataObject.name}</div>
 
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{dataObject.num}</div>
+                    <div className="text-xs text-gray-900">{dataObject.num}</div>
 
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
