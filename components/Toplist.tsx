@@ -1,5 +1,6 @@
 
 import { reverse } from "dns";
+import Link from "next/link";
 import { useState } from "react";
 import { setEnvironmentData } from "worker_threads";
 import FilterDropdown from "./filterDropdown";
@@ -33,8 +34,17 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
     ));
   }
 
+  function setRedirect(category: string) {
+    var href = "/index"
+    if(category == "Topplista kompetenser") {href = "/kompetenser"}
+    else if(category == "Topplista yrken") {href ="/yrken"}
+    return <Link href={href}>
+    <a className="uppercase font-medium text-gray-500">se alla</a>
+  </Link>
+  }
+
   return (
-    <div className="flex flex-col pt-8 xl:px-4" >
+    <div className="flex flex-col pt-8 xl:px-4 py-8" >
     <div className="-my-2 overflow-hidden sm:-mx-6 lg:-mx-8">
       <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div className="shadow overflow-hidden border-b border-gray-200 rounded-lg">
@@ -88,7 +98,16 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
             <tbody className="bg-white divide-y divide-gray-200">
              
               {sortBy(data, mode)}
+
             </tbody>
+            <tr className="bg-gray-50">
+                <td></td>
+                <td className="px-6 py-4">
+                 { setRedirect(category)}
+              
+                </td>
+                <td></td>
+            </tr>
           </table>
         </div>
       </div>
