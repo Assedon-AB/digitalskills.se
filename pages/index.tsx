@@ -113,7 +113,7 @@ const Home: NextPage = () => {
 
 
   return (
-    <div className=" bg-slate-200 w-full h-full px-4 lg:px-8">
+    <div className=" bg-slate-200 w-full h-full sm:px-4 lg:px-8">
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
         <h2 className="text-4xl px-4">Översikt</h2>
         <h3 className="text-2xl px-5 py-8">Info</h3>
