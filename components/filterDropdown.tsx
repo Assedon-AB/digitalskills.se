@@ -8,7 +8,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 interface FilterDropdownProps {
    
     initMode: string,
-    updateSort: Function,
+    updateShow: Function,
   
   }
 
@@ -17,15 +17,15 @@ interface FilterDropdownProps {
   }
 
  
-const FilterDropdown = ({ initMode, updateSort }: FilterDropdownProps) => {
+const FilterDropdown = ({ initMode, updateShow }: FilterDropdownProps) => {
   const [mode, setMode] = useState(initMode);
 
 
-  const modes = ['Antal annonser', 'Prognos 12 mån']
+  const modes = ['Prognos 12 mån', 'Trend 12 mån']
   
   
   useEffect(() => {
-    updateSort(mode);
+    updateShow(mode);
   }, [mode]);
 
   

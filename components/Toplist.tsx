@@ -5,6 +5,7 @@ import { useState } from "react";
 import { setEnvironmentData } from "worker_threads";
 import FilterDropdown from "./filterDropdown";
 import ToplistRow from "./ToplistRow";
+import {SortAscendingIcon} from '@heroicons/react/solid';
 
 interface ToplistProps {
     data: {
@@ -18,18 +19,32 @@ interface ToplistProps {
   }
 
 const Toplist = ({ data, title , category}: ToplistProps) => {
-  const [mode, setMode] = useState('Antal annonser')
-  const changeModeData = (arg: string) => {
-    setMode(arg);
+  const [sortMode, setSortMode] = useState('Antal annonser')
+  const [showMode, setShowMode] = useState('Prognos 12 mån')
+  
+  const changeData = (arg: string) => {
+    setShowMode(arg);
+    setSortMode('Antal annonser');
   };
   
-  function sortBy(arr: any[], mode: string) {
+  function sortBy(arr: any[], mode: string, showWhat: string) {
+    console.log(mode)
     var prop = 'num'
+    var show = 'forecast'
+    var filteredList: {'name': string, 'num': number, 'data': number}[] = []
     if(mode == "Antal annonser") {prop = 'num'}
     else if(mode == "Prognos 12 mån") {prop = "forecast"}
-   data = arr.sort((a, b) => b[prop] - a[prop]);
-              
-    return data.map((dataObject) => (
+    else if(mode == "Trend 12 mån") {prop = "trend"}
+    if(showWhat == "Prognos 12 mån") {show = "forecast"}
+    else if(showWhat == "Trend 12 mån") {show = "trend"}
+    data = arr.sort((a, b) => b[prop] - a[prop]);
+    for (const index in data) {
+      filteredList.push({'name': arr[index]['name'], 'num': arr[index]['num'], 'data': arr[index][show]})
+    }
+
+    
+
+    return filteredList.map((dataObject) => (
       <ToplistRow dataObject={dataObject}></ToplistRow>
     ));
   }
@@ -67,7 +82,7 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
                   scope="col"
                   className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
                 >
-                 <FilterDropdown initMode="Antal annonser" updateSort = {changeModeData}></FilterDropdown>
+                 <FilterDropdown initMode="Prognos 12 mån" updateShow = {changeData}></FilterDropdown>
                 </th>
                 
                 
@@ -75,21 +90,27 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
               <tr>
                 <th
                   scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
                 >
                   {title}
                 </th>
                 <th
                   scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="py-3 px-6 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
                 >
-                  Alla annonser
+                  <div className="flex flex-row">
+                  Annonser
+                  <button onClick={()=> setSortMode("Alla annonser")}><SortAscendingIcon className="h-5 w-5 text-gray-500 ml-2"/></button>
+                 </div>
+                  
                 </th>
                 <th
                   scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider "
                 >
-                  Prognos 3 mån
+                  <div className="flex flex-row">{showMode}
+                  <button onClick={()=> setSortMode(showMode)}><SortAscendingIcon className="h-5 w-5 text-gray-500 ml-2"/></button></div>
+                  
                 </th>
                 
                 
@@ -97,7 +118,7 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
              
-              {sortBy(data, mode)}
+              {sortBy(data, sortMode, showMode)}
 
             </tbody>
             <tr className="bg-gray-50">
