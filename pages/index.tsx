@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
 
 const Home: NextPage = () => {
@@ -130,12 +131,26 @@ const Home: NextPage = () => {
     }
   ]
 
+  const attentionCardData = [
+    {title: "Trend", description: "Jämför senaste månadsdata historisk bakåt."},
+    {title: "Prognos", description: "Framskrivning görs med hjälp av exponentiell utjämning."},
+    {title: "Hämtad senast", description: "Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31."}
+  ]
+
 
   return (
     <div className=" bg-slate-200 w-full h-full sm:px-4 lg:px-8">
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
-        <h2 className="text-4xl px-4">Översikt</h2>
-        <h3 className="text-2xl px-5 py-8">Info</h3>
+        <div className="flex flex-col sm:flex-row"><div className="flex flex-col w-12/12 sm:w-6/12"><h2 className="text-4xl ">Översikt</h2></div>
+        <div className="flex flex-col w-12/12 sm:w-6/12">
+          {attentionCardData.map((dataObject) => (
+            <div className="py-2 px4"><AttentionCard title={dataObject.title} description={dataObject.description}></AttentionCard></div>
+    ))}
+        
+     </div>
+        </div>
+        
+       
         <div className="flex flex-col xl:flex-row justify-between">
           <div className="flex flex-col">
 
