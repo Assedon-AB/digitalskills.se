@@ -24,7 +24,7 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
   
   const changeData = (arg: string) => {
     setShowMode(arg);
-    setSortMode('Antal annonser');
+    setSortMode('Antal annonser')
   };
   
   function sortBy(arr: any[], mode: string, showWhat: string) {
@@ -45,7 +45,7 @@ const Toplist = ({ data, title , category}: ToplistProps) => {
     
 
     return filteredList.map((dataObject) => (
-      <ToplistRow dataObject={dataObject}></ToplistRow>
+      <ToplistRow dataObject={dataObject} show= {showMode}></ToplistRow>
     ));
   }
 

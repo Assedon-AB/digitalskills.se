@@ -10,12 +10,13 @@ interface ToplistRowProps {
  
       
     };
+    show: string;
 
   
   }
 
-const ToplistRow = ({ dataObject }: ToplistRowProps) => {
-  
+const ToplistRow = ({ dataObject , show}: ToplistRowProps) => {
+  console.log(dataObject)
   return (
     <tr key={dataObject.name}>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -32,12 +33,15 @@ const ToplistRow = ({ dataObject }: ToplistRowProps) => {
 
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    {dataObject.name == "Prognos 12 mån" ?  <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${dataObject.data > dataObject.num ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {
+                    show == "Trend 12 mån" ?  
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${dataObject.data > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    {`${dataObject.data} %`} 
+                  </span> :
+                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${dataObject.data > dataObject.num ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                       {dataObject.data}
-                    </span> : 
-                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${dataObject.data > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                     {dataObject.data} %
-                   </span>}
+                    </span> 
+                     }
                    
                   </td>
                   
