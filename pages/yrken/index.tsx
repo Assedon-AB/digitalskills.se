@@ -6,11 +6,13 @@ import StatsCard from "../../components/StatsCard";
 
 const OccupationsOverview: NextPage = () => {
   return (
-    <article className="max-w-6xl px-4 mx-auto pt-24">
+    <div className="bg-slate-200 w-full h-full ">
+    <article className="max-w-6xl px-4 mx-auto pt-24 min-h-screen">
       <SearchBar />
       <Chart />
       <StatsCard month={-12} year={26} name="React" />
     </article>
+    </div>
   );
 };
 
