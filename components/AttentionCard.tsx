@@ -15,7 +15,7 @@ const AttentionCard = ({ title, description}: AttentionCardProps) => {
   return (
     
 
-<div className="flex flex-col p-4 bg-white shadow-md hover:shodow-lg sm:rounded-2xl">
+<div className="flex flex-col p-4 bg-white shadow  sm:rounded-lg">
 	<div className="flex items-center justify-between">
 		<div className="flex items-center">
         <InformationCircleIcon className="h-6 w-6 text-orange-500 ml-2"/>

@@ -141,7 +141,7 @@ const Home: NextPage = () => {
   return (
     <div className=" bg-slate-200 w-full h-full sm:px-4 lg:px-8">
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
-        <div className="flex flex-col sm:flex-row"><div className="flex flex-col w-12/12 sm:w-6/12"><h2 className="text-4xl ">Översikt</h2></div>
+        <div className="flex flex-col sm:flex-row"><div className="flex flex-col w-12/12 sm:w-6/12"><h2 className="text-4xl ">Översikt</h2><p className="py-8 pr-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></div>
         <div className="flex flex-col w-12/12 sm:w-6/12">
           {attentionCardData.map((dataObject) => (
             <div className="py-2 px4"><AttentionCard title={dataObject.title} description={dataObject.description}></AttentionCard></div>
