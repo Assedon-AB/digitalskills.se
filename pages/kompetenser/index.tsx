@@ -5,6 +5,8 @@ import Chart from "../../components/Chart";
 import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
+import { mockupData } from "../../lib/mockupData";
+
 const CompetencesOverview: NextPage = () => {
 
   const skillData = [
@@ -71,13 +73,12 @@ const CompetencesOverview: NextPage = () => {
 
   ]
   return (
-    <div className="bg-slate-200 w-full h-full min-h-screen">
-    <article className="max-w-6xl px-4 mx-auto pt-24">
-      <SearchBar />
-      <Chart />
-      <StatsCard month={-12} year={26} name="React" />
-      <FullTable  data={skillData} title="Namn" category="Topplista kompetenser"></FullTable>
-    </article>
+    <div className="bg-slate-200 w-full h-full min-h-screen py-12">
+      <article className="max-w-6xl px-4 mx-auto pt-24">
+        <SearchBar placeholder="Sök kompetenser" />
+        <Chart name="React" data={mockupData} />
+        <StatsCard month={-12} year={26} name="React" />
+      </article>
     </div>
   );
 };

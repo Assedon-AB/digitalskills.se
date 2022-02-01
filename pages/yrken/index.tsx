@@ -6,6 +6,8 @@ import StatsCard from "../../components/StatsCard";
 import FullTableListRow from "../../components/FullTableListRow";
 import FullTable from "../../components/FullTable";
 
+import { mockupData } from "../../lib/mockupData";
+
 const OccupationsOverview: NextPage = () => {
 
 
@@ -73,13 +75,12 @@ const OccupationsOverview: NextPage = () => {
   ]
 
   return (
-    <div className="bg-slate-200 w-full h-full ">
-    <article className="max-w-6xl px-4 mx-auto pt-24 min-h-screen">
-      <SearchBar />
-      <Chart />
-      <StatsCard month={-12} year={26} name="React" />
-      <FullTable  data={occupationData} title="Namn" category="Topplista kompetenser"></FullTable>
-    </article>
+    <div className="bg-slate-200 w-full h-full min-h-screen py-12">
+      <article className="max-w-6xl px-4 mx-auto pt-24">
+        <SearchBar placeholder="Sök yrken" />
+        <Chart name="Frontend-utvecklare" data={mockupData} />
+        <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
+      </article>
     </div>
   );
 };

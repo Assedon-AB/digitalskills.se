@@ -6,7 +6,7 @@ interface StatsCardProps {
 
 export default function StatsCard({ name, month, year }: StatsCardProps) {
   return (
-    <div className="bg-white px-8 py-8 w-full border rounded-md mb-4 flex divide-x">
+    <div className="bg-white px-8 py-8 w-full border rounded-md flex divide-x">
       <div className="w-1/2 flex flex-col justify-center items-center">
         <p>
           Tillväxt <span className="text-blue-600 font-semibold">{name}</span>{" "}
