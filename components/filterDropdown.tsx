@@ -21,7 +21,7 @@ const FilterDropdown = ({ initMode, updateShow }: FilterDropdownProps) => {
   const [mode, setMode] = useState(initMode);
 
 
-  const modes = ['Prognos 12 mån', 'Trend 12 mån']
+  const modes = ['Prognos 3 mån', 'Prognos 6 mån', 'Prognos 12 mån','Trend 3 mån','Trend 6 mån','Trend 12 mån']
   
   
   useEffect(() => {

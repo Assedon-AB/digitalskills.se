@@ -10,7 +10,12 @@ interface ToplistProps {
   data: {
     name: string;
     num: number;
-    forecast: number;
+    forecast3: number,
+    forecast6: number,
+    forecast12: number,
+    trend3: number,
+    trend6: number,
+    trend12: number,
   }[];
   title: string;
   category: string;
@@ -18,7 +23,7 @@ interface ToplistProps {
 
 const Toplist = ({ data, title, category }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
-  const [showMode, setShowMode] = useState("Prognos 12 mån");
+  const [showMode, setShowMode] = useState("Prognos 3 mån");
 
   const changeData = (arg: string) => {
     setShowMode(arg);
@@ -28,19 +33,36 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   function sortBy(arr: any[], mode: string, showWhat: string) {
     console.log(mode);
     var prop = "num";
-    var show = "forecast";
+    var show = "forecast3";
     var filteredList: { name: string; num: number; data: number }[] = [];
     if (mode == "Antal annonser") {
       prop = "num";
+    } else if (mode == "Prognos 3 mån") {
+      prop = "forecas3t";
+    } else if (mode == "Prognos 6 mån") {
+      prop = "forecast6";
     } else if (mode == "Prognos 12 mån") {
-      prop = "forecast";
+      prop = "forecast12";
+    } else if (mode == "Trend 3 mån") {
+      prop = "trend3";
+    } else if (mode == "Trend 6 mån") {
+      prop = "trend6";
     } else if (mode == "Trend 12 mån") {
-      prop = "trend";
+      prop = "trend12";
     }
-    if (showWhat == "Prognos 12 mån") {
-      show = "forecast";
+    
+    if (showWhat == "Prognos 3 mån") {
+      show = "forecast3";
+    } else if (showWhat == "Prognos 6 mån") {
+      show = "forecast6";
+    } else if (showWhat == "Prognos 12 mån") {
+      show = "forecast12";
+    } else if (showWhat == "Trend 3 mån") {
+      show = "trend3";
+    } else if (showWhat == "Trend 6 mån") {
+      show = "trend6";
     } else if (showWhat == "Trend 12 mån") {
-      show = "trend";
+      show = "trend12";
     }
     data = arr.sort((a, b) => b[prop] - a[prop]);
     for (const index in data) {
@@ -93,7 +115,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                     className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     <FilterDropdown
-                      initMode="Prognos 12 mån"
+                      initMode="Prognos 3 mån"
                       updateShow={changeData}
                     ></FilterDropdown>
                   </th>

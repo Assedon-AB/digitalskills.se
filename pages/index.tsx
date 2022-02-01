@@ -8,62 +8,102 @@ const Home: NextPage = () => {
     {
       name: 'React',
       num: 536,
-      forecast: 637,
-      trend: 19
+      forecast3: 637,
+      forecast6: 612,
+      forecast12: 644,
+      trend3: 19,
+      trend6: 12,
+      trend12: 6
     },
     {
       name: 'Javascript',
       num: 492,
-      forecast: 594,
-      trend: 20
+      forecast3: 594,
+      forecast6: 546,
+      forecast12: 563,
+      trend3: 20,
+      trend6: 12,
+      trend12: 22,
     },
     {
       name: 'Cybersäkerhet',
       num: 457,
-      forecast: 612,
-      trend: 34
+      forecast3: 612,
+      forecast6: 590,
+      forecast12: 601,
+      trend3: 14,
+      trend6: 20,
+      trend12: 19,
     },
     {
       name: 'Flutter',
       num: 249,
-      forecast: 369,
-      trend: 48
+      forecast3: 369,
+      forecast6: 373,
+      forecast12: 375,
+      trend3: -6,
+      trend6: 20,
+      trend12: 48,
     },
     {
       name: 'Python',
       num: 399,
-      forecast: 632,
-      trend: 58
+      forecast3: 590,
+      forecast6: 493,
+      forecast12: 632,
+      trend3: 15,
+      trend6: 31,
+      trend12: 58,
     },
     {
       name: 'Erlang',
       num: 200,
-      forecast: 225,
-      trend: 42
+      forecast3: 206,
+      forecast6: 213,
+      forecast12: 225,
+      trend3: 8,
+      trend6: 19,
+      trend12: 42,
     },
     {
       name: '.Net',
       num: 159,
-      forecast: 142,
-      trend: -11
+      forecast3: 131,
+      forecast6: 150,
+      forecast12: 142,
+      trend3: -8,
+      trend6: -16,
+      trend12: -11,
     },
     {
       name: 'C++',
       num: 143,
-      forecast: 121,
-      trend: -15
+      forecast3: 121,
+      forecast6: 134,
+      forecast12: 111,
+      trend3: -1,
+      trend6: 2,
+      trend12: -15,
     },
     {
       name: 'F#',
       num: 96,
-      forecast: 100,
-      trend: 4
+      forecast3: 100,
+      forecast6: 113,
+      forecast12: 109,
+      trend3: 4,
+      trend6: 20,
+      trend12: 20,
     },
     {
       name: 'Maskininlärning',
       num: 263,
-      forecast: 600,
-      trend: 228
+      forecast3: 313,
+      forecast6: 363,
+      forecast12: 398,
+      trend3: 20,
+      trend6: 26,
+      trend12: 34,
     }
 
   ]
@@ -72,62 +112,102 @@ const Home: NextPage = () => {
     {
       name: 'Databasadministratör',
       num: 141,
-      forecast: 243,
-      trend: 72
+      forecast3: 243,
+      forecast6: 269,
+      forecast12: 255,
+      trend3: 21,
+      trend6: 53,
+      trend12: 72,
     },
     {
       name: 'Front-endutvecklare',
       num: 499,
-      forecast: 512,
-      trend: 3
+      forecast3: 512,
+      forecast6: 509,
+      forecast12: 527,
+      trend3: 12,
+      trend6: -1,
+      trend12: 5,
     },
     {
       name: 'IT-supporttekniker',
       num: 200,
-      forecast: 183,
-      trend: -8
+      forecast3: 183,
+      forecast6: 200,
+      forecast12: 212,
+      trend3: -3,
+      trend6: -12,
+      trend12: -8,
     },
     {
       name: 'Back-endutvecklare',
       num: 233,
-      forecast: 328,
-      trend: 41
+      forecast3: 328,
+      forecast6: 361,
+      forecast12: 390,
+      trend3: 26,
+      trend6: 39,
+      trend12: 41,
     },
     {
       name: 'Projektledare',
       num: 401,
-      forecast: 412,
-      trend: 3
+      forecast3: 412,
+      forecast6: 426,
+      forecast12: 399,
+      trend3: 11,
+      trend6: 16,
+      trend12: 13,
     },
     {
       name: 'Full-stackutvecklare',
       num: 436,
-      forecast: 539,
-      trend: 24
+      forecast3: 539,
+      forecast6: 501,
+      forecast12: 496,
+      trend3: 20,
+      trend6: 26,
+      trend12: 24,
     },
     {
       name: 'Systemadministratör',
       num: 212,
-      forecast: 67,
-      trend: -69
+      forecast3: 67,
+      forecast6: 363,
+      forecast12: 398,
+      trend3: 12,
+      trend6: -26,
+      trend12: -69,
     },
     {
       name: 'QA-expert',
       num: 196,
-      forecast: 178,
-      trend: -10
+      forecast3: 178,
+      forecast6: 363,
+      forecast12: 398,
+      trend3: 14,
+      trend6: -12,
+      trend12: -10,
     },
     {
       name: 'Användbarhetsexpert',
       num: 75,
-      forecast: 236,
-      trend: 314
+      forecast3: 236,
+      forecast6: 212,
+      forecast12: 197,
+      trend3: 8,
+      trend6: 16,
+      trend12: 14,
     },
     {
       name: 'IT-säkerhetsspecialist',
       num: 33,
-      forecast: 145,
-      trend: 466
+      forecast3: 145,
+      forecast6: 112,
+      forecast12: 90,
+      trend3: 23,
+      trend6: 19,
+      trend12: 24,
     }
   ]
 
