@@ -9,7 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import faker from "faker";
 
 ChartJS.register(
   CategoryScale,
@@ -21,34 +20,35 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: "top" as const,
-    },
-    title: {
-      display: true,
-      text: "Antal förekomster av React på månadsbasis",
-    },
-  },
-};
+interface ChartData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    borderColor: string;
+    backgroundColor: string;
+  }[];
+}
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
+interface ChartProps {
+  name: string;
+  data: ChartData;
+}
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "React",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+export default function Chart({ name, data }: ChartProps) {
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: `Antal förekomster av ${name} på månadsbasis`,
+      },
     },
-  ],
-};
+  };
 
-export default function Chart() {
   return (
     <>
       <div className="bg-white p-4 w-full border rounded-md mb-4">
