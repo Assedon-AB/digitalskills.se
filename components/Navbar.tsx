@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const router = useRouter();
 
   return (
     <nav className="p-4 max-w-6xl mx-auto flex items-end">
@@ -58,17 +60,41 @@ const Navbar = () => {
       >
         <li>
           <Link href="/om-digspec">
-            <a className="hover:text-blue-500">Om Digspec</a>
+            <a
+              className={`pb-2 hover:text-blue-500 ${
+                router.pathname.includes("om-digspec")
+                  ? "border-b-2 border-blue-500"
+                  : ""
+              }`}
+            >
+              Om Digspec
+            </a>
           </Link>
         </li>
         <li>
           <Link href="/kompetenser">
-            <a className="hover:text-blue-500">Kompetenser</a>
+            <a
+              className={`pb-2 hover:text-blue-500 ${
+                router.pathname.includes("kompetenser")
+                  ? "border-b-2 border-blue-500"
+                  : ""
+              }`}
+            >
+              Kompetenser
+            </a>
           </Link>
         </li>
         <li>
           <Link href="/yrken">
-            <a className="hover:text-blue-500">Yrken</a>
+            <a
+              className={`pb-2 hover:text-blue-500 ${
+                router.pathname.includes("yrken")
+                  ? "border-b-2 border-blue-500"
+                  : ""
+              }`}
+            >
+              Yrken
+            </a>
           </Link>
         </li>
       </ul>
