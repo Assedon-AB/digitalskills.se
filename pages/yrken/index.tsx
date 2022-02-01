@@ -80,6 +80,7 @@ const OccupationsOverview: NextPage = () => {
         <SearchBar placeholder="Sök yrken" />
         <Chart name="Frontend-utvecklare" data={mockupData} />
         <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
+        <FullTable  data={occupationData} title="Namn" category="Topplista kompetenser"></FullTable>
       </article>
     </div>
   );

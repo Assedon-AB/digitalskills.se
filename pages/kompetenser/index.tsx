@@ -78,6 +78,7 @@ const CompetencesOverview: NextPage = () => {
         <SearchBar placeholder="Sök kompetenser" />
         <Chart name="React" data={mockupData} />
         <StatsCard month={-12} year={26} name="React" />
+        <FullTable  data={skillData} title="Namn" category="Topplista kompetenser"></FullTable>
       </article>
     </div>
   );
