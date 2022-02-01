@@ -107,23 +107,23 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                   </th>
                   <th
                     scope="col"
-                    className="py-3 px-6 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
+                    className={`py-3 px-6 text-left text-[10px] font-medium ${sortMode == 'Alla annonser' ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider`}
                   >
                     <div className="flex flex-row">
                       Annonser
                       <button onClick={() => setSortMode("Alla annonser")}>
-                        <SortAscendingIcon className="h-5 w-5 text-gray-500 ml-2" />
+                        <SortAscendingIcon className={`h-5 w-5  ${sortMode == 'Alla annonser' ? 'text-blue-500': 'text-gray-500'} ml-2`} />
                       </button>
                     </div>
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider "
+                    className={`py-3 px-6 text-left text-[10px] font-medium ${sortMode == showMode ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider`}
                   >
                     <div className="flex flex-row">
                       {showMode}
                       <button onClick={() => setSortMode(showMode)}>
-                        <SortAscendingIcon className="h-5 w-5 text-gray-500 ml-2" />
+                        <SortAscendingIcon className={`h-5 w-5  ${sortMode == showMode ? 'text-blue-500': 'text-gray-500'} ml-2`} />
                       </button>
                     </div>
                   </th>
