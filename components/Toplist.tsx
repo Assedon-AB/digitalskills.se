@@ -25,6 +25,10 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
   const [showMode, setShowMode] = useState("Prognos 3 mån");
 
+  function classNames(...classes: any[]) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   const changeData = (arg: string) => {
     setShowMode(arg);
     setSortMode("Antal annonser");
@@ -38,7 +42,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     if (mode == "Antal annonser") {
       prop = "num";
     } else if (mode == "Prognos 3 mån") {
-      prop = "forecas3t";
+      prop = "forecast3";
     } else if (mode == "Prognos 6 mån") {
       prop = "forecast6";
     } else if (mode == "Prognos 12 mån") {
@@ -129,12 +133,16 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium ${sortMode == 'Alla annonser' ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider`}
+                    className={classNames(
+                      sortMode != showMode ? 'text-blue-500': 'text-gray-500',
+                      'py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider'
+                    )}
+                   
                   >
                     <div className="flex flex-row">
                       Annonser
                       <button onClick={() => setSortMode("Alla annonser")}>
-                        <SortAscendingIcon className={`h-5 w-5  ${sortMode == 'Alla annonser' ? 'text-blue-500': 'text-gray-500'} ml-2`} />
+                        <SortAscendingIcon className={`h-5 w-5  ${sortMode != showMode ? 'text-blue-500': 'text-gray-500'} ml-2`} />
                       </button>
                     </div>
                   </th>
