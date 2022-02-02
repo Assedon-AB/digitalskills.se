@@ -3,20 +3,19 @@ import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
 
 const Home: NextPage = () => {
-
   const skillData = [
     {
-      name: 'React',
+      name: "React",
       num: 536,
       forecast3: 637,
       forecast6: 612,
       forecast12: 644,
       trend3: 19,
       trend6: 12,
-      trend12: 6
+      trend12: 6,
     },
     {
-      name: 'Javascript',
+      name: "Javascript",
       num: 492,
       forecast3: 594,
       forecast6: 546,
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
       trend12: 22,
     },
     {
-      name: 'Cybersäkerhet',
+      name: "Cybersäkerhet",
       num: 457,
       forecast3: 612,
       forecast6: 590,
@@ -36,7 +35,7 @@ const Home: NextPage = () => {
       trend12: 19,
     },
     {
-      name: 'Flutter',
+      name: "Flutter",
       num: 249,
       forecast3: 369,
       forecast6: 373,
@@ -46,7 +45,7 @@ const Home: NextPage = () => {
       trend12: 48,
     },
     {
-      name: 'Python',
+      name: "Python",
       num: 399,
       forecast3: 590,
       forecast6: 493,
@@ -56,7 +55,7 @@ const Home: NextPage = () => {
       trend12: 58,
     },
     {
-      name: 'Erlang',
+      name: "Erlang",
       num: 200,
       forecast3: 206,
       forecast6: 213,
@@ -66,7 +65,7 @@ const Home: NextPage = () => {
       trend12: 42,
     },
     {
-      name: '.Net',
+      name: ".Net",
       num: 159,
       forecast3: 131,
       forecast6: 150,
@@ -76,7 +75,7 @@ const Home: NextPage = () => {
       trend12: -11,
     },
     {
-      name: 'C++',
+      name: "C++",
       num: 143,
       forecast3: 121,
       forecast6: 134,
@@ -86,7 +85,7 @@ const Home: NextPage = () => {
       trend12: -15,
     },
     {
-      name: 'F#',
+      name: "F#",
       num: 96,
       forecast3: 100,
       forecast6: 113,
@@ -96,7 +95,7 @@ const Home: NextPage = () => {
       trend12: 20,
     },
     {
-      name: 'Maskininlärning',
+      name: "Maskininlärning",
       num: 263,
       forecast3: 313,
       forecast6: 363,
@@ -104,13 +103,12 @@ const Home: NextPage = () => {
       trend3: 20,
       trend6: 26,
       trend12: 34,
-    }
-
-  ]
+    },
+  ];
 
   const occupationData = [
     {
-      name: 'Databasadministratör',
+      name: "Databasadministratör",
       num: 141,
       forecast3: 243,
       forecast6: 269,
@@ -120,7 +118,7 @@ const Home: NextPage = () => {
       trend12: 72,
     },
     {
-      name: 'Front-endutvecklare',
+      name: "Front-endutvecklare",
       num: 499,
       forecast3: 512,
       forecast6: 509,
@@ -130,7 +128,7 @@ const Home: NextPage = () => {
       trend12: 5,
     },
     {
-      name: 'IT-supporttekniker',
+      name: "IT-supporttekniker",
       num: 200,
       forecast3: 183,
       forecast6: 200,
@@ -140,7 +138,7 @@ const Home: NextPage = () => {
       trend12: -8,
     },
     {
-      name: 'Back-endutvecklare',
+      name: "Back-endutvecklare",
       num: 233,
       forecast3: 328,
       forecast6: 361,
@@ -150,7 +148,7 @@ const Home: NextPage = () => {
       trend12: 41,
     },
     {
-      name: 'Projektledare',
+      name: "Projektledare",
       num: 401,
       forecast3: 412,
       forecast6: 426,
@@ -160,7 +158,7 @@ const Home: NextPage = () => {
       trend12: 13,
     },
     {
-      name: 'Full-stackutvecklare',
+      name: "Full-stackutvecklare",
       num: 436,
       forecast3: 539,
       forecast6: 501,
@@ -170,7 +168,7 @@ const Home: NextPage = () => {
       trend12: 24,
     },
     {
-      name: 'Systemadministratör',
+      name: "Systemadministratör",
       num: 212,
       forecast3: 67,
       forecast6: 363,
@@ -180,7 +178,7 @@ const Home: NextPage = () => {
       trend12: -69,
     },
     {
-      name: 'QA-expert',
+      name: "QA-expert",
       num: 196,
       forecast3: 178,
       forecast6: 363,
@@ -190,7 +188,7 @@ const Home: NextPage = () => {
       trend12: -10,
     },
     {
-      name: 'Användbarhetsexpert',
+      name: "Användbarhetsexpert",
       num: 75,
       forecast3: 236,
       forecast6: 212,
@@ -200,7 +198,7 @@ const Home: NextPage = () => {
       trend12: 14,
     },
     {
-      name: 'IT-säkerhetsspecialist',
+      name: "IT-säkerhetsspecialist",
       num: 33,
       forecast3: 145,
       forecast6: 112,
@@ -208,42 +206,79 @@ const Home: NextPage = () => {
       trend3: 23,
       trend6: 19,
       trend12: 24,
-    }
-  ]
+    },
+  ];
 
   const attentionCardData = [
-    {title: "Trend", description: "Jämför senaste månadsdata historisk bakåt."},
-    {title: "Prognos", description: "Framskrivning görs med hjälp av exponentiell utjämning."},
-    {title: "Hämtad senast", description: "Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31."}
-  ]
-
+    {
+      title: "Trend",
+      description: "Jämför senaste månadsdata historisk bakåt.",
+    },
+    {
+      title: "Prognos",
+      description: "Framskrivning görs med hjälp av exponentiell utjämning.",
+    },
+    {
+      title: "Hämtad senast",
+      description:
+        "Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31.",
+    },
+  ];
 
   return (
     <div className=" bg-slate-200 w-full h-full sm:px-4 lg:px-8">
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
-        <div className="flex flex-col sm:flex-row"><div className="flex flex-col w-12/12 sm:w-6/12"><h2 className="text-4xl ">Översikt</h2><p className="pt-4 pb-4 pr-8 text-sm">Tillväxtverket och Universitetskanslersämbetet har av regeringen fått i uppdrag att tillsammans analysera och föreslå hur kompetensförsörjningen av digital spetskompetens kan utvecklas både kort- och långsiktigt. Vi ska starta en dialog om samverkan mellan berörda aktörer, i syfte att öka tillgången på digital spetskompetens. </p>
-        <p className=" pr-8 text-sm">I uppdraget ingår också att så långt det är möjligt säkerställa en förbättrad tillgång till statistik och prognoser över efterfrågan och tillgången på digital spetskompetens på svensk arbetsmarknad. </p>
+        <div className="flex flex-col sm:flex-row">
+          <div className="flex flex-col w-12/12 sm:w-6/12">
+            <h2 className="text-4xl ">Översikt</h2>
+            <p className="pt-4 pb-4 pr-8 text-sm">
+              Tillväxtverket och Universitetskanslersämbetet har av regeringen
+              fått i uppdrag att tillsammans analysera och föreslå hur
+              kompetensförsörjningen av digital spetskompetens kan utvecklas
+              både kort- och långsiktigt. Vi ska starta en dialog om samverkan
+              mellan berörda aktörer, i syfte att öka tillgången på digital
+              spetskompetens.{" "}
+            </p>
+            <p className=" pr-8 text-sm">
+              I uppdraget ingår också att så långt det är möjligt säkerställa en
+              förbättrad tillgång till statistik och prognoser över efterfrågan
+              och tillgången på digital spetskompetens på svensk arbetsmarknad.{" "}
+            </p>
+          </div>
+          <div className="flex flex-col w-12/12 sm:w-6/12">
+            {attentionCardData.map((dataObject) => (
+              <div
+                key={"attentionCard-" + dataObject.title}
+                className="py-2 px4"
+              >
+                <AttentionCard
+                  title={dataObject.title}
+                  description={dataObject.description}
+                ></AttentionCard>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col w-12/12 sm:w-6/12">
-          {attentionCardData.map((dataObject) => (
-            <div className="py-2 px4"><AttentionCard title={dataObject.title} description={dataObject.description}></AttentionCard></div>
-    ))}
-        
-     </div>
-        </div>
-        
-       
+
         <div className="flex flex-col xl:flex-row justify-between">
           <div className="flex flex-col">
-
-            <Toplist data={skillData} title="Namn" category="Topplista kompetenser"></Toplist></div>
+            <Toplist
+              data={skillData}
+              title="Namn"
+              category="Topplista kompetenser"
+            ></Toplist>
+          </div>
           <div className="flex flex-col">
-
-            <Toplist data={occupationData} title="Namn" category="Topplista yrken"></Toplist></div>
+            <Toplist
+              data={occupationData}
+              title="Namn"
+              category="Topplista yrken"
+            ></Toplist>
+          </div>
         </div>
       </article>
     </div>
-  )
+  );
 };
 
 export default Home;
