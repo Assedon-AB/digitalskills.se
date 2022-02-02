@@ -206,7 +206,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
+                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
                       sortMode == "Prognos 3 mån"
                         ? "text-blue-500"
                         : "text-gray-500"
@@ -227,7 +227,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
+                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
                       sortMode == "Prognos 6 mån"
                         ? "text-blue-500"
                         : "text-gray-500"
@@ -248,7 +248,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
+                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
                       sortMode == "Prognos 12 mån"
                         ? "text-blue-500"
                         : "text-gray-500"
