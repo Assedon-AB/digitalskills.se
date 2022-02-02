@@ -1,5 +1,3 @@
-import faker from "faker";
-
 const labels = [
   "2014/01/01",
   "2014/02/01",
@@ -99,9 +97,9 @@ const labels = [
   "2021/12/01",
 ];
 
-const seriesData = labels.map(() =>
-  faker.datatype.number({ min: 100, max: 400 })
-);
+const seriesData = Array(labels.length)
+  .fill(1)
+  .map((_, index) => index * 10 + Math.floor(Math.random() * 100));
 
 export const mockupData = {
   labels,

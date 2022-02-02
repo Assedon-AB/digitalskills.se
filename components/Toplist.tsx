@@ -1,7 +1,5 @@
-import { reverse } from "dns";
 import Link from "next/link";
 import { useState } from "react";
-import { setEnvironmentData } from "worker_threads";
 import FilterDropdown from "./filterDropdown";
 import ToplistRow from "./ToplistRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
@@ -10,12 +8,12 @@ interface ToplistProps {
   data: {
     name: string;
     num: number;
-    forecast3: number,
-    forecast6: number,
-    forecast12: number,
-    trend3: number,
-    trend6: number,
-    trend12: number,
+    forecast3: number;
+    forecast6: number;
+    forecast12: number;
+    trend3: number;
+    trend6: number;
+    trend12: number;
   }[];
   title: string;
   category: string;
@@ -26,7 +24,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   const [showMode, setShowMode] = useState("Prognos 3 mån");
 
   function classNames(...classes: any[]) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(" ");
   }
 
   const changeData = (arg: string) => {
@@ -54,7 +52,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     } else if (mode == "Trend 12 mån") {
       prop = "trend12";
     }
-    
+
     if (showWhat == "Prognos 3 mån") {
       show = "forecast3";
     } else if (showWhat == "Prognos 6 mån") {
@@ -77,8 +75,12 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
       });
     }
 
-    return filteredList.map((dataObject) => (
-      <ToplistRow dataObject={dataObject} show={showMode}></ToplistRow>
+    return filteredList.map((dataObject, index) => (
+      <ToplistRow
+        key={"toplist-row-" + index}
+        dataObject={dataObject}
+        show={showMode}
+      ></ToplistRow>
     ));
   }
 
@@ -134,26 +136,39 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                   <th
                     scope="col"
                     className={classNames(
-                      sortMode != showMode ? 'text-blue-500': 'text-gray-500',
-                      'py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider'
+                      sortMode != showMode ? "text-blue-500" : "text-gray-500",
+                      "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
-                   
                   >
                     <div className="flex flex-row">
                       Annonser
                       <button onClick={() => setSortMode("Alla annonser")}>
-                        <SortAscendingIcon className={`h-5 w-5  ${sortMode != showMode ? 'text-blue-500': 'text-gray-500'} ml-2`} />
+                        <SortAscendingIcon
+                          className={`h-5 w-5  ${
+                            sortMode != showMode
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
                       </button>
                     </div>
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium ${sortMode == showMode ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider`}
+                    className={`py-3 px-6 text-left text-[10px] font-medium ${
+                      sortMode == showMode ? "text-blue-500" : "text-gray-500"
+                    } uppercase tracking-wider`}
                   >
                     <div className="flex flex-row">
                       {showMode}
                       <button onClick={() => setSortMode(showMode)}>
-                        <SortAscendingIcon className={`h-5 w-5  ${sortMode == showMode ? 'text-blue-500': 'text-gray-500'} ml-2`} />
+                        <SortAscendingIcon
+                          className={`h-5 w-5  ${
+                            sortMode == showMode
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
                       </button>
                     </div>
                   </th>
