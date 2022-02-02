@@ -126,7 +126,7 @@ const FullTable = ({ data, title , category}: FullTableProps) => {
                 </th>
                 <th
                   scope="col"
-                  className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${sortMode == "Prognos 3 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
+                  className={`px-6 py-3 text-left text-[10px]  font-medium text-gray-500 ${sortMode == "Prognos 3 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
                 >
                   <div className="flex flex-row">3 mån
                   <button onClick={()=> setSortMode("Prognos 3 mån")}><SortAscendingIcon className={`h-5 w-5 text-gray-500 ${sortMode == "Prognos 3 mån" ? 'text-blue-500': 'text-gray-500'} ml-2`}/></button></div>
@@ -134,7 +134,7 @@ const FullTable = ({ data, title , category}: FullTableProps) => {
                 </th>
                 <th
                   scope="col"
-                  className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${sortMode == "Prognos 6 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
+                  className={`px-6 py-3 text-left text-[10px]  font-medium text-gray-500 ${sortMode == "Prognos 6 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
                 >
                   <div className="flex flex-row">6 mån
                   <button onClick={()=> setSortMode("Prognos 6 mån")}><SortAscendingIcon className={`h-5 w-5 text-gray-500 ${sortMode == "Prognos 6 mån" ? 'text-blue-500': 'text-gray-500'} ml-2`}/></button></div>
@@ -142,7 +142,7 @@ const FullTable = ({ data, title , category}: FullTableProps) => {
                 </th>
                 <th
                   scope="col"
-                  className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${sortMode == "Prognos 12 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
+                  className={`px-6 py-3 text-left text-[10px]  font-medium text-gray-500 ${sortMode == "Prognos 12 mån" ? 'text-blue-500': 'text-gray-500'} uppercase tracking-wider `}
                 >
                   <div className="flex flex-row">12 mån
                   <button onClick={()=> setSortMode("Prognos 12 mån")}><SortAscendingIcon className={`h-5 w-5 text-gray-500 ${sortMode == "Prognos 12 mån" ? 'text-blue-500': 'text-gray-500'} ml-2`}/></button></div>
