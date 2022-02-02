@@ -27,23 +27,23 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
 
-        <h2 className="text-2xl mb-4">
+        <h2 className="text-2xl mb-4 mt-8">
           Vanligt efterfrågade kompetenser för {occupationId}
         </h2>
         <SmallCard text="TypeScript" href="/kompetenser/TypeScript" />
         <SmallCard text="Angular.js" href="/kompetenser/Angularjs" />
         <SmallCard text="Vue.js" href="/kompetenser/Vuejs" />
 
-        <h2 className="text-2xl mb-4">
+        <h2 className="text-2xl mb-4 mt-8">
           Vanligt efterfrågade egenskaper för {occupationId}
         </h2>
         <SmallCard text="Noggranhet" />
         <SmallCard text="Logiskt tänkande" />
 
-        <h2 className="text-2xl mb-4">Relaterade yrken</h2>
+        <h2 className="text-2xl mb-4 mt-8">Relaterade yrken</h2>
         <SmallCard text="Backend-utvecklare" href="/yrken/Backend-utvecklare" />
 
-        <h2 className="text-xl mb-4">Källor</h2>
+        <h2 className="text-xl mb-4 mt-8">Källor</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -69,4 +69,3 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
-

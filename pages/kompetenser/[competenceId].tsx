@@ -28,7 +28,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competenceId }) => {
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
 
-        <h2 className="text-2xl mb-4">
+        <h2 className="text-2xl mb-4 mt-8">
           Yrken som ofta efterfrågar {competenceId}
         </h2>
         <SmallCard
@@ -36,12 +36,12 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competenceId }) => {
           href="/yrken/Frontend-utvecklare"
         />
 
-        <h2 className="text-2xl mb-4">Relaterade kompetenser</h2>
+        <h2 className="text-2xl mb-4 mt-8">Relaterade kompetenser</h2>
         <SmallCard text="TypeScript" href="/kompetenser/TypeScript" />
         <SmallCard text="Angular.js" href="/kompetenser/Angularjs" />
         <SmallCard text="Vue.js" href="/kompetenser/Vuejs" />
 
-        <h2 className="text-xl mb-4">Källor</h2>
+        <h2 className="text-xl mb-4 mt-8">Källor</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
