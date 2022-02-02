@@ -49,6 +49,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
       <FullTableListRow
         key={"full-table-list-row-" + index}
         dataObject={dataObject}
+        category={category}
       ></FullTableListRow>
     ));
   }

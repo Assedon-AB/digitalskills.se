@@ -9,7 +9,6 @@ interface ToplistRowProps {
 }
 
 const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
-  console.log(dataObject);
   return (
     <tr key={dataObject.name}>
       <td className="px-6 py-4 whitespace-nowrap">

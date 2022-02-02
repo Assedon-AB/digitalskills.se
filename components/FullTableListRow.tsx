@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 interface FullTableListRowProps {
+  category: string;
   dataObject: {
     name: string;
     num: number;
@@ -11,7 +14,7 @@ interface FullTableListRowProps {
   };
 }
 
-const FullTableListRow = ({ dataObject }: FullTableListRowProps) => {
+const FullTableListRow = ({ dataObject, category }: FullTableListRowProps) => {
   return (
     <tr key={dataObject.name}>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -93,13 +96,13 @@ const FullTableListRow = ({ dataObject }: FullTableListRowProps) => {
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <button>
-          <span
+        <Link href={`/${category}/${dataObject.name}`}>
+          <a
             className={`px-2 inline-flex leading-5 text-[10px] font-medium text-gray-500 uppercase}`}
           >
             SE MER
-          </span>{" "}
-        </button>
+          </a>
+        </Link>
       </td>
     </tr>
   );

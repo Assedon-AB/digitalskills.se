@@ -8,20 +8,19 @@ import FullTable from "../../components/FullTable";
 import { mockupData } from "../../lib/mockupData";
 
 const CompetencesOverview: NextPage = () => {
-
   const skillData = [
     {
-      name: 'React',
+      name: "React",
       num: 536,
       forecast3: 637,
       forecast6: 612,
       forecast12: 644,
       trend3: 19,
       trend6: 12,
-      trend12: 6
+      trend12: 6,
     },
     {
-      name: 'Javascript',
+      name: "Javascript",
       num: 492,
       forecast3: 594,
       forecast6: 546,
@@ -31,7 +30,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 22,
     },
     {
-      name: 'Cybersäkerhet',
+      name: "Cybersäkerhet",
       num: 457,
       forecast3: 612,
       forecast6: 590,
@@ -41,7 +40,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 19,
     },
     {
-      name: 'Flutter',
+      name: "Flutter",
       num: 249,
       forecast3: 369,
       forecast6: 373,
@@ -51,7 +50,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 48,
     },
     {
-      name: 'Python',
+      name: "Python",
       num: 399,
       forecast3: 590,
       forecast6: 493,
@@ -61,7 +60,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 58,
     },
     {
-      name: 'Erlang',
+      name: "Erlang",
       num: 200,
       forecast3: 206,
       forecast6: 213,
@@ -71,7 +70,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 42,
     },
     {
-      name: '.Net',
+      name: ".Net",
       num: 159,
       forecast3: 131,
       forecast6: 150,
@@ -81,7 +80,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: -11,
     },
     {
-      name: 'C++',
+      name: "C++",
       num: 143,
       forecast3: 121,
       forecast6: 134,
@@ -91,7 +90,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: -15,
     },
     {
-      name: 'F#',
+      name: "F#",
       num: 96,
       forecast3: 100,
       forecast6: 113,
@@ -101,7 +100,7 @@ const CompetencesOverview: NextPage = () => {
       trend12: 20,
     },
     {
-      name: 'Maskininlärning',
+      name: "Maskininlärning",
       num: 263,
       forecast3: 313,
       forecast6: 363,
@@ -109,16 +108,19 @@ const CompetencesOverview: NextPage = () => {
       trend3: 20,
       trend6: 26,
       trend12: 34,
-    }
-
-  ]
+    },
+  ];
   return (
     <div className="bg-slate-200 w-full h-full min-h-screen py-12">
       <article className="max-w-6xl px-4 mx-auto pt-24">
         <SearchBar placeholder="Sök kompetenser" />
         <Chart name="React" data={mockupData} />
         <StatsCard month={-12} year={26} name="React" />
-        <FullTable  data={skillData} title="Namn" category="Topplista kompetenser"></FullTable>
+        <FullTable
+          data={skillData}
+          title="Namn"
+          category="kompetenser"
+        ></FullTable>
       </article>
     </div>
   );

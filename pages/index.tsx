@@ -228,7 +228,7 @@ const Home: NextPage = () => {
   return (
     <div className=" bg-slate-200 w-full h-full sm:px-4 lg:px-8">
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row px-4">
           <div className="flex flex-col w-12/12 sm:w-6/12">
             <h2 className="text-4xl ">Översikt</h2>
             <p className="pt-4 pb-4 pr-8 text-sm">

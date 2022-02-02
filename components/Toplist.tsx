@@ -33,7 +33,6 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   };
 
   function sortBy(arr: any[], mode: string, showWhat: string) {
-    console.log(mode);
     var prop = "num";
     var show = "forecast3";
     var filteredList: { name: string; num: number; data: number }[] = [];
