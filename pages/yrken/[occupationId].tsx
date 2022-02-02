@@ -2,7 +2,8 @@ import type { NextPage, GetServerSideProps } from "next";
 
 import Chart from "../../components/Chart";
 import SmallCard from "../../components/SmallCard";
-import { mockupData } from "../../lib/mockupData";
+import GeoTable from "../../components/GeoTable";
+import { mockupData, geoMockupData } from "../../lib/mockupData";
 
 interface OccupationPageProps {
   occupationId: string;
@@ -26,6 +27,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
         <Chart name={occupationId} data={mockupData} />
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
+        <GeoTable data={geoMockupData} title="Kommun" />
 
         <h2 className="text-2xl mb-4 mt-8">
           Vanligt efterfrågade kompetenser för {occupationId}

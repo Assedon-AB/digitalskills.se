@@ -118,3 +118,36 @@ export const mockupData = {
     },
   ],
 };
+
+export const geoMockupData = [
+  {
+    name: "Stockholm",
+    num: 123,
+    organisations_num: 40,
+  },
+  {
+    name: "Uppsala",
+    num: 68,
+    organisations_num: 21,
+  },
+  {
+    name: "Malmö",
+    num: 53,
+    organisations_num: 4,
+  },
+  {
+    name: "Gotland",
+    num: 21,
+    organisations_num: 5,
+  },
+  {
+    name: "Göteborg",
+    num: 40,
+    organisations_num: 20,
+  },
+  {
+    name: "Skellefteå",
+    num: 5,
+    organisations_num: 2,
+  },
+];
