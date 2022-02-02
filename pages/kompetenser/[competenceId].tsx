@@ -14,17 +14,6 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competenceId }) => {
     <div className="bg-slate-200 w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl font-semibold mb-8">{competenceId}</h1>
-        <h2 className="text-2xl mb-4">Beskrivning</h2>
-        <p className="tracking-wide lg:w-3/4 font-light mb-8">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus
-          nisi, sollicitudin ac dolor et, eleifend lacinia ex. Aenean eget
-          aliquam augue, vitae elementum felis. Curabitur egestas feugiat velit
-          quis molestie. Donec blandit sit amet justo fermentum gravida.
-          Pellentesque sem est, pellentesque vitae eleifend porta, pretium
-          condimentum felis. Suspendisse vel ultrices eros. Cras in sem libero.
-          Ut dignissim id quam eget molestie. Fusce facilisis dolor risus, vitae
-        </p>
-
         <Chart name={competenceId} data={mockupData} />
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
