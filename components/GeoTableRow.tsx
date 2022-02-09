@@ -18,7 +18,7 @@ const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableLis
   useEffect(() => {
     updateShow(mode);
   }, [mode]);
-
+  dataObject.details.sort((a, b) => b["antal"] - a["antal"]);
   return (
     
     <tr key={dataObject.name} onClick={() => {mode == dataObject.name ? setMode(""): setMode(dataObject.name)}}>
