@@ -8,12 +8,19 @@ interface GeoTableProps {
     name: string;
     num: number;
     organisations_num: number;
+    details: {antal: number, organisation: string}[];
   }[];
   title: string;
 }
 
 const GeoTable = ({ data, title }: GeoTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
+  const [showMode, setShowMode] = useState("");
+
+  const changeData = (arg: string) => {
+    setShowMode(arg);
+  };
+
 
   function sortBy(arr: any[], mode: string) {
     var prop = "num";
@@ -29,6 +36,8 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
       <GeoTableRow
         key={"geo-list-row-" + index}
         dataObject={dataObject}
+        updateShow={changeData}
+        incomingMode={showMode}
       ></GeoTableRow>
     ));
   }
@@ -73,13 +82,13 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
+                    className={`px-6 py-3 text-left text-[10px]  font-medium text-gray-500 ${
                       sortMode == "Antal rekryterande organisationer"
                         ? "text-blue-500"
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                    <div className="flex flex-row">
+                    <div className="flex flex-row ">
                       Antal rekryterande organisationer
                       <button
                         onClick={() =>
@@ -96,6 +105,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                       </button>
                     </div>
                   </th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
