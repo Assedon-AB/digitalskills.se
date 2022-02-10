@@ -42,9 +42,15 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
     } else if (mode == "Trend 12 mån") {
       prop = "trend12";
     }
+    else if (mode == "Namn") {
+      
+      prop = "name"
+    }
 
     data = arr.sort((a, b) => b[prop] - a[prop]);
-
+    if (prop == "name") {
+      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+    }
     return data.map((dataObject, index) => (
       <FullTableListRow
         key={"full-table-list-row-" + index}
@@ -103,9 +109,20 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
+                    className={`px-6 py-3 text-left text-[10px] font-medium ${ sortMode == "Namn" ? "text-blue-500" : "text-gray-500"} uppercase tracking-wider`}
                   >
+                    <div className="flex flex-row">
                     {title}
+                    <button onClick={() => setSortMode("Namn")}>
+                        <SortAscendingIcon
+                          className={`h-5 w-5  ${
+                            sortMode == "Namn"
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
+                      </button>
+                      </div>
                   </th>
                   <th
                     scope="col"
@@ -117,6 +134,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         "Prognos 3 mån",
                         "Prognos 6 mån",
                         "Prognos 12 mån",
+                        "Namn"
                       ].indexOf(sortMode) >= 0
                         ? "text-gray-500"
                         : "text-blue-500"
@@ -134,6 +152,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               "Prognos 3 mån",
                               "Prognos 6 mån",
                               "Prognos 12 mån",
+                              "Namn"
                             ].indexOf(sortMode) >= 0
                               ? "text-gray-500"
                               : "text-blue-500"

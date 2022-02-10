@@ -28,10 +28,14 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
       prop = "num";
     } else if (mode == "Antal rekryterande organisationer") {
       prop = "organisations_num";
+    } else if(mode == "Kommun") {
+      prop = "name"
     }
 
     data = arr.sort((a, b) => b[prop] - a[prop]);
-
+    if (prop == "name") {
+      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+    }
     return data.map((dataObject, index) => (
       <GeoTableRow
         key={"geo-list-row-" + index}
@@ -50,16 +54,27 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th
+                <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
+                    className={`px-6 py-3 text-left text-[10px] font-medium ${ sortMode == "Kommun" ? "text-blue-500" : "text-gray-500"} uppercase tracking-wider`}
                   >
+                    <div className="flex flex-row">
                     {title}
+                    <button onClick={() => setSortMode("Kommun")}>
+                        <SortAscendingIcon
+                          className={`h-5 w-5  ${
+                            sortMode == "Kommun"
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
+                      </button>
+                      </div>
                   </th>
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium text-gray-500 ${
-                      ["Antal rekryterande organisationer"].indexOf(sortMode) >=
+                      ["Antal rekryterande organisationer", "Kommun"].indexOf(sortMode) >=
                       0
                         ? "text-gray-500"
                         : "text-blue-500"
@@ -70,7 +85,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                       <button onClick={() => setSortMode("Alla annonser")}>
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
-                            ["Antal rekryterande organisationer"].indexOf(
+                            ["Antal rekryterande organisationer", "Kommun"].indexOf(
                               sortMode
                             ) >= 0
                               ? "text-gray-500"
