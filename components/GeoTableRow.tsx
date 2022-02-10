@@ -31,7 +31,7 @@ const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableLis
               :  <div className="font-medium">{dataObject.name}</div>}
               {mode == dataObject.name ? 
               dataObject.details.map((detailObject, index) => (
-              <div className="text-transparent">{"empty"}</div>
+              <div className="text-transparent py-1">{"empty"}</div>
               )): null}
          
             </div>
@@ -45,7 +45,7 @@ const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableLis
               :  <div>{dataObject.num}</div>}
         {mode == dataObject.name ? 
               dataObject.details.map((detailObject, index) => (
-              <div>{detailObject.antal}</div>
+              <div className="py-1">{detailObject.antal}</div>
               )): null}
    
          
@@ -60,7 +60,7 @@ const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableLis
               :  <div>{dataObject.organisations_num}</div>}
         {mode == dataObject.name ? 
               dataObject.details.map((detailObject, index) => (
-              <div>{detailObject.organisation}</div>
+              <div className="py-1">{detailObject.organisation}</div>
               )): null}
           
 
