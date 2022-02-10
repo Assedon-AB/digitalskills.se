@@ -58,9 +58,9 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                     scope="col"
                     className={`px-6 py-3 text-left text-[10px] font-medium ${ sortMode == "Kommun" ? "text-blue-500" : "text-gray-500"} uppercase tracking-wider`}
                   >
+                    <button onClick={() => setSortMode("Kommun")}>
                     <div className="flex flex-row">
                     {title}
-                    <button onClick={() => setSortMode("Kommun")}>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Kommun"
@@ -68,8 +68,8 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </button>
                       </div>
+                      </button>
                   </th>
                   <th
                     scope="col"
@@ -80,9 +80,9 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                         : "text-blue-500"
                     } uppercase tracking-wider`}
                   >
+                      <button onClick={() => setSortMode("Alla annonser")}>
                     <div className="flex flex-row">
                       Annonser
-                      <button onClick={() => setSortMode("Alla annonser")}>
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                             ["Antal rekryterande organisationer", "Kommun"].indexOf(
@@ -92,8 +92,8 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                               : "text-blue-500"
                           }  text-gray-500 ml-2`}
                         />
-                      </button>
                     </div>
+                      </button>
                   </th>
                   <th
                     scope="col"
@@ -103,13 +103,13 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                    <div className="flex flex-row ">
-                      Antal rekryterande organisationer
                       <button
                         onClick={() =>
                           setSortMode("Antal rekryterande organisationer")
                         }
                       >
+                    <div className="flex flex-row ">
+                      Antal rekryterande organisationer
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Antal rekryterande organisationer"
@@ -117,8 +117,8 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </button>
                     </div>
+                      </button>
                   </th>
                   <th></th>
                 </tr>
