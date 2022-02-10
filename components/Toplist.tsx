@@ -144,9 +144,10 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                     )}
                   >
                   
+                   
+                    <button onClick={() => setSortMode("Namn")}>
                     <div className="flex flex-row">
                     {title}
-                    <button onClick={() => setSortMode("Namn")}>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
@@ -154,8 +155,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </button>
                       </div>
+                      </button>
                   </th>
                   <th
                     scope="col"
@@ -164,9 +165,9 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
+                      <button onClick={() => setSortMode("Alla annonser")}>
                     <div className="flex flex-row">
                       Annonser
-                      <button onClick={() => setSortMode("Alla annonser")}>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode != showMode && sortMode != "Namn"
@@ -174,8 +175,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </button>
                     </div>
+                      </button>
                   </th>
                   <th
                     scope="col"
@@ -183,9 +184,9 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                       sortMode == showMode ? "text-blue-500" : "text-gray-500"
                     } uppercase tracking-wider`}
                   >
+                      <button onClick={() => setSortMode(showMode)}>
                     <div className="flex flex-row">
                       {showMode}
-                      <button onClick={() => setSortMode(showMode)}>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == showMode
@@ -193,8 +194,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </button>
                     </div>
+                      </button>
                   </th>
                 </tr>
               </thead>

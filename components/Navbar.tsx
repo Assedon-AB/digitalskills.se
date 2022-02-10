@@ -58,19 +58,7 @@ const Navbar = () => {
               : "translate-x-full md:translate-x-0"
           } duration-500 transition ease-in-out`}
       >
-        <li>
-          <Link href="/om-digspec">
-            <a
-              className={`pb-2 hover:text-blue-500 ${
-                router.pathname.includes("om-digspec")
-                  ? "border-b-2 border-blue-500"
-                  : ""
-              }`}
-            >
-              Om Digspec
-            </a>
-          </Link>
-        </li>
+       
         <li>
           <Link href="/kompetenser">
             <a
@@ -94,6 +82,19 @@ const Navbar = () => {
               }`}
             >
               Yrken
+            </a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/om-digspec">
+            <a
+              className={`pb-2 hover:text-blue-500 ${
+                router.pathname.includes("om-digspec")
+                  ? "border-b-2 border-blue-500"
+                  : ""
+              }`}
+            >
+              Om Digspec
             </a>
           </Link>
         </li>
