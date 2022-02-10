@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="p-4 max-w-6xl mx-auto flex items-end">
       <Link href="/">
-        <a className="text-2xl block">Digspec</a>
+        <a className="text-2xl block">{"<Digital spetskompetens>"}</a>
       </Link>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
