@@ -51,6 +51,10 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     } else if (mode == "Trend 12 mån") {
       prop = "trend12";
     }
+    else if (mode == "Namn") {
+      
+      prop = "name"
+    }
 
     if (showWhat == "Prognos 3 mån") {
       show = "forecast3";
@@ -65,7 +69,13 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     } else if (showWhat == "Trend 12 mån") {
       show = "trend12";
     }
+    console.log(prop)
+    console.log(arr)
     data = arr.sort((a, b) => b[prop] - a[prop]);
+    if (prop == "name") {
+      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+    }
+    console.log(data)
     for (const index in data) {
       filteredList.push({
         name: arr[index]["name"],
@@ -128,14 +138,29 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider"
+                    className={classNames(
+                      sortMode == "Namn" ? "text-blue-500" : "text-gray-500",
+                      "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
+                    )}
                   >
+                  
+                    <div className="flex flex-row">
                     {title}
+                    <button onClick={() => setSortMode("Namn")}>
+                        <SortAscendingIcon
+                          className={`h-5 w-5  ${
+                            sortMode == "Namn"
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
+                      </button>
+                      </div>
                   </th>
                   <th
                     scope="col"
                     className={classNames(
-                      sortMode != showMode ? "text-blue-500" : "text-gray-500",
+                      sortMode != showMode && sortMode != "Namn" ? "text-blue-500" : "text-gray-500",
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
@@ -144,7 +169,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                       <button onClick={() => setSortMode("Alla annonser")}>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
-                            sortMode != showMode
+                            sortMode != showMode && sortMode != "Namn"
                               ? "text-blue-500"
                               : "text-gray-500"
                           } ml-2`}
