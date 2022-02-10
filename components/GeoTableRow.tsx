@@ -6,13 +6,17 @@ interface FullTableListRowProps {
     name: string;
     num: number;
     organisations_num: number;
-    details: {antal: number, organisation: string}[];
+    details: { antal: number; organisation: string }[];
   };
   updateShow: Function;
   incomingMode: string;
 }
 
-const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableListRowProps) => {
+const FullTableListRow = ({
+  incomingMode,
+  dataObject,
+  updateShow,
+}: FullTableListRowProps) => {
   const [mode, setMode] = useState(incomingMode);
 
   useEffect(() => {
@@ -20,60 +24,82 @@ const FullTableListRow = ({ incomingMode, dataObject, updateShow }: FullTableLis
   }, [mode]);
   dataObject.details.sort((a, b) => b["antal"] - a["antal"]);
   return (
-    
-    <tr key={dataObject.name} onClick={() => {mode == dataObject.name ? setMode(""): setMode(dataObject.name)}}>
+    <tr
+      key={dataObject.name}
+      onClick={() => {
+        mode == dataObject.name ? setMode("") : setMode(dataObject.name);
+      }}
+    >
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
             <div className="text-xs font-medium text-gray-900 flex flex-col ">
-              {mode == dataObject.name ? 
-              <div className="font-bold">{dataObject.name}</div>
-              :  <div className="font-medium">{dataObject.name}</div>}
-              {mode == dataObject.name ? 
-              dataObject.details.map((detailObject, index) => (
-              <div className="text-transparent py-1">{"empty"}</div>
-              )): null}
-         
+              {mode == dataObject.name ? (
+                <div className="font-bold">{dataObject.name}</div>
+              ) : (
+                <div className="font-medium">{dataObject.name}</div>
+              )}
+              {mode == dataObject.name
+                ? dataObject.details.map((detailObject, index) => (
+                    <div
+                      className="text-transparent py-1"
+                      key={`empty-row-${index}`}
+                    >
+                      {"empty"}
+                    </div>
+                  ))
+                : null}
             </div>
           </div>
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="text-xs text-gray-900 flex flex-col">
-        {mode == dataObject.name ? 
-              <div className="font-bold">{dataObject.num}</div>
-              :  <div>{dataObject.num}</div>}
-        {mode == dataObject.name ? 
-              dataObject.details.map((detailObject, index) => (
-              <div className="py-1">{detailObject.antal}</div>
-              )): null}
-   
-         
-         
+          {mode == dataObject.name ? (
+            <div className="font-bold">{dataObject.num}</div>
+          ) : (
+            <div>{dataObject.num}</div>
+          )}
+          {mode == dataObject.name
+            ? dataObject.details.map((detailObject, index) => (
+                <div key={`row-count-${index}`} className="py-1">
+                  {detailObject.antal}
+                </div>
+              ))
+            : null}
         </div>
-        
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-      <div className="text-xs text-gray-900 flex flex-col">
-      {mode == dataObject.name ? 
-              <div className="font-bold">{dataObject.organisations_num}</div>
-              :  <div>{dataObject.organisations_num}</div>}
-        {mode == dataObject.name ? 
-              dataObject.details.map((detailObject, index) => (
-              <div className="py-1">{detailObject.organisation}</div>
-              )): null}
-          
-
+        <div className="text-xs text-gray-900 flex flex-col">
+          {mode == dataObject.name ? (
+            <div className="font-bold">{dataObject.organisations_num}</div>
+          ) : (
+            <div>{dataObject.organisations_num}</div>
+          )}
+          {mode == dataObject.name
+            ? dataObject.details.map((detailObject, index) => (
+                <div key={`row-org-geo-${index}`} className="py-1">
+                  {detailObject.organisation}
+                </div>
+              ))
+            : null}
         </div>
-     
       </td>
       <td>
-      <div className="text-gray-900 flex flex-col">
-        {mode == dataObject.name ? <ChevronUpIcon className="mr-1 ml-2 h-5 w-5 stroke-gray-300" aria-hidden="true" /> : <ChevronDownIcon className="mr-1 ml-2 h-5 w-5 stroke-gray-300" aria-hidden="true" />}
-       
-        
+        <div className="text-gray-900 flex flex-col">
+          {mode == dataObject.name ? (
+            <ChevronUpIcon
+              className="mr-1 ml-2 h-5 w-5 stroke-gray-300"
+              aria-hidden="true"
+            />
+          ) : (
+            <ChevronDownIcon
+              className="mr-1 ml-2 h-5 w-5 stroke-gray-300"
+              aria-hidden="true"
+            />
+          )}
         </div>
-        </td>
+      </td>
     </tr>
   );
 };
