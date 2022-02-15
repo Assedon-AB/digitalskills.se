@@ -62,7 +62,7 @@ const Navbar = () => {
         <li>
           <Link href="/kompetenser">
             <a
-              className={`pb-2 hover:text-[#b2b2be]text-sm font-bold ${
+              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("kompetenser")
                 ? "text-[#007078]"
                 : "text-[#C1531B]"
