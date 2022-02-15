@@ -7,9 +7,9 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="p-4 max-w-6xl mx-auto flex items-end">
+    <nav className="p-4 max-w-6xl mx-auto flex items-baseline">
       <Link href="/">
-        <a className="text-2xl block">{"<Digital spetskompetens>"}</a>
+        <a className="text-2xl block text-[#C1531B]">{"<Digital spetskompetens>"}</a>
       </Link>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
@@ -62,10 +62,10 @@ const Navbar = () => {
         <li>
           <Link href="/kompetenser">
             <a
-              className={`pb-2 hover:text-blue-500 ${
+              className={`pb-2 hover:text-[#b2b2be]text-sm font-bold ${
                 router.pathname.includes("kompetenser")
-                  ? "border-b-2 border-blue-500"
-                  : ""
+                ? "text-[#007078]"
+                : "text-[#C1531B]"
               }`}
             >
               Kompetenser
@@ -75,23 +75,23 @@ const Navbar = () => {
         <li>
           <Link href="/yrken">
             <a
-              className={`pb-2 hover:text-blue-500 ${
+              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("yrken")
-                  ? "border-b-2 border-blue-500"
-                  : ""
+                  ? "text-[#007078]"
+                  : "text-[#C1531B]"
               }`}
             >
               Yrken
             </a>
           </Link>
         </li>
-        <li>
+        <li >
           <Link href="/om-digspec">
             <a
-              className={`pb-2 hover:text-blue-500 ${
+              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("om-digspec")
-                  ? "border-b-2 border-blue-500"
-                  : ""
+                ? "text-[#007078]"
+                : "text-[#C1531B]"
               }`}
             >
               Om Digspec
