@@ -9,7 +9,12 @@ const getCompetencies = async () => {
       Origin: ORIGIN,
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+      return [];
+    });
 
   return competencies;
 };
@@ -21,7 +26,12 @@ const getCompetence = async (competenceId: string) => {
       Origin: ORIGIN,
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+      return [];
+    });
 
   return competence;
 };
@@ -33,7 +43,12 @@ const getOccupations = async () => {
       Origin: ORIGIN,
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+      return [];
+    });
 
   return competencies;
 };
@@ -45,7 +60,12 @@ const getOccupation = async (occupationId: string) => {
       Origin: ORIGIN,
       "Content-Type": "application/json",
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+      return [];
+    });
 
   return occupation;
 };

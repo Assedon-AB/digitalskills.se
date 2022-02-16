@@ -20,7 +20,6 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
-        {/* <SearchBar placeholder="Sök yrken" /> */}
         <Chart name="Frontend-utvecklare" data={mockupData} />
         <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
         <FullTable data={occupations} title="Namn" category="yrken"></FullTable>
@@ -30,16 +29,21 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
 };
 
 export async function getServerSideProps() {
-  const occupations = await getOccupations();
+  const occupationsRaw = await getOccupations();
+
+  let occupations = [];
+  if (!occupationsRaw.hasOwnProperty("error")) {
+    occupations = occupationsRaw.map((occupation: any) => ({
+      ...occupation,
+      num:
+        occupation.ad_series.values[occupation.ad_series.values.length - 1] ??
+        null,
+    }));
+  }
 
   return {
     props: {
-      occupations: occupations.map((occupation: any) => ({
-        ...occupation,
-        num:
-          occupation.ad_series.values[occupation.ad_series.values.length - 1] ??
-          null,
-      })),
+      occupations,
     },
   };
 }

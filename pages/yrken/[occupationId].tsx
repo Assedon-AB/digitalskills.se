@@ -5,32 +5,32 @@ import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
 import { mockupData, geoMockupData } from "../../lib/mockupData";
 
+import { DigspecData } from "../../interfaces/Digspec";
 import { getOccupation } from "../../lib/helpers";
 
 interface OccupationPageProps {
-  occupationId: string;
-  occupation;
+  occupation: DigspecData;
 }
-const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
+const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl font-semibold mb-8">{occupationId}</h1>
+        <h1 className="text-4xl font-semibold mb-8">{occupation.name}</h1>
 
-        <Chart name={occupationId} data={mockupData} />
+        <Chart name={occupation.name} data={mockupData} />
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
         <GeoTable data={geoMockupData} title="Kommun" />
 
         <h2 className="text-2xl mb-4 mt-8">
-          Vanligt efterfrågade kompetenser för {occupationId}
+          Vanligt efterfrågade kompetenser för {occupation.name}
         </h2>
         <SmallCard text="TypeScript" href="/kompetenser/TypeScript" />
         <SmallCard text="Angular.js" href="/kompetenser/Angularjs" />
         <SmallCard text="Vue.js" href="/kompetenser/Vuejs" />
 
         <h2 className="text-2xl mb-4 mt-8">
-          Vanligt efterfrågade egenskaper för {occupationId}
+          Vanligt efterfrågade egenskaper för {occupation.name}
         </h2>
         <SmallCard text="Noggranhet" />
         <SmallCard text="Logiskt tänkande" />

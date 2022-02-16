@@ -85,29 +85,39 @@ const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
 };
 
 export async function getServerSideProps() {
-  const competencies: DigspecData[] = await getCompetencies();
-  const occupations: DigspecData[] = await getOccupations();
+  const competenciesRaw: DigspecData[] = await getCompetencies();
+  const occupationsRaw: DigspecData[] = await getOccupations();
+
+  let competencies: DigspecData[] = [];
+  if (!competenciesRaw.hasOwnProperty("error")) {
+    competencies = competenciesRaw
+      .map((skill) => ({
+        ...skill,
+        num: skill.ad_series.values[skill.ad_series.values.length - 1] ?? null,
+      }))
+      .filter((s) => s.num)
+      .sort((a, b) => b.num - a.num)
+      .slice(0, 100);
+  }
+
+  let occupations: DigspecData[] = [];
+  if (!occupationsRaw.hasOwnProperty("error")) {
+    occupations = occupationsRaw
+      .map((occupation) => ({
+        ...occupation,
+        num:
+          occupation.ad_series.values[occupation.ad_series.values.length - 1] ??
+          null,
+      }))
+      .filter((o) => o.num)
+      .sort((a, b) => b.num - a.num)
+      .slice(0, 100);
+  }
 
   return {
     props: {
-      competencies: competencies
-        .map((skill) => ({
-          ...skill,
-          num:
-            skill.ad_series.values[skill.ad_series.values.length - 1] ?? null,
-        }))
-        .filter((s) => s.num)
-        .sort((a, b) => b.num - a.num),
-      occupations: occupations
-        .map((occupation) => ({
-          ...occupation,
-          num:
-            occupation.ad_series.values[
-              occupation.ad_series.values.length - 1
-            ] ?? null,
-        }))
-        .filter((o) => o.num)
-        .sort((a, b) => b.num - a.num),
+      competencies,
+      occupations,
     },
   };
 }

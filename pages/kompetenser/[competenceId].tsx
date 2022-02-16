@@ -5,27 +5,32 @@ import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
 import { mockupData, geoMockupData } from "../../lib/mockupData";
 
+import { DigspecData } from "../../interfaces/Digspec";
+import { getCompetence } from "../../lib/helpers";
+
 interface CompetencePageProps {
-  competenceId: string;
+  competence: DigspecData;
 }
 
-const CompetencePage: NextPage<CompetencePageProps> = ({ competenceId }) => {
+const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl font-semibold mb-8">{competenceId}</h1>
-        <Chart name={competenceId} data={mockupData} />
+        <h1 className="text-4xl font-semibold mb-8">{competence.name}</h1>
+        <Chart name={competence.name} data={mockupData} />
 
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
         <GeoTable data={geoMockupData} title="Kommun" />
 
         <h2 className="text-2xl mb-4 mt-8">
-          Yrken som ofta efterfrågar {competenceId}
+          Yrken som ofta efterfrågar {competence.name}
         </h2>
-        <SmallCard
-          text="Frontend-utvecklare"
-          href="/yrken/Frontend-utvecklare"
-        />
+        {Object.keys(competence.jobs)
+          .sort((a, b) => competence.jobs[b] - competence.jobs[a])
+          .slice(0, 8)
+          .map((name) => (
+            <SmallCard text={name} />
+          ))}
 
         <h2 className="text-2xl mb-4 mt-8">Relaterade kompetenser</h2>
         <SmallCard text="TypeScript" href="/kompetenser/TypeScript" />
@@ -50,11 +55,13 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competenceId }) => {
 export default CompetencePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const competenceId = context.params?.competenceId;
+  const competenceId = context.params?.competenceId?.split("-")[1];
+
+  const competence = await getCompetence(competenceId);
 
   return {
     props: {
-      competenceId,
+      competence,
     },
   };
 };
