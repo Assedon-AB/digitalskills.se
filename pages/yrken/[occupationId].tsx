@@ -5,8 +5,11 @@ import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
 import { mockupData, geoMockupData } from "../../lib/mockupData";
 
+import { getOccupation } from "../../lib/helpers";
+
 interface OccupationPageProps {
   occupationId: string;
+  occupation;
 }
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
   return (
@@ -53,11 +56,14 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
 export default OccupationPage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const occupationId = context.params?.occupationId;
+  const occupationId = context.params?.occupationId?.split("-")[1];
+
+  const occupation = getOccupation(occupationId);
 
   return {
     props: {
       occupationId,
+      occupation,
     },
   };
 };

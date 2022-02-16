@@ -4,17 +4,10 @@ import FilterDropdown from "./filterDropdown";
 import ToplistRow from "./ToplistRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
+import { DigspecData } from "../interfaces/Digspec";
+
 interface ToplistProps {
-  data: {
-    name: string;
-    num: number;
-    forecast3: number;
-    forecast6: number;
-    forecast12: number;
-    trend3: number;
-    trend6: number;
-    trend12: number;
-  }[];
+  data: DigspecData[];
   title: string;
   category: string;
 }
@@ -33,64 +26,80 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   };
 
   function sortBy(arr: any[], mode: string, showWhat: string) {
+    var preProp: string = "";
     var prop = "num";
     var show = "forecast3";
     var filteredList: { name: string; num: number; data: number }[] = [];
     if (mode == "Antal annonser") {
+      preProp = "";
       prop = "num";
     } else if (mode == "Prognos 3 mån") {
-      prop = "forecast3";
+      preProp = "prediction_percentages";
+      prop = "month_3";
     } else if (mode == "Prognos 6 mån") {
-      prop = "forecast6";
+      preProp = "prediction_percentages";
+      prop = "month_6";
     } else if (mode == "Prognos 12 mån") {
-      prop = "forecast12";
+      preProp = "prediction_percentages";
+      prop = "month_12";
     } else if (mode == "Trend 3 mån") {
-      prop = "trend3";
+      preProp = "trend_percentages";
+      prop = "month_3";
     } else if (mode == "Trend 6 mån") {
-      prop = "trend6";
+      preProp = "trend_percentages";
+      prop = "month_6";
     } else if (mode == "Trend 12 mån") {
-      prop = "trend12";
-    }
-    else if (mode == "Namn") {
-      
-      prop = "name"
+      preProp = "trend_percentages";
+      prop = "month_12";
+    } else if (mode == "Namn") {
+      prop = "name";
+      preProp = "";
     }
 
     if (showWhat == "Prognos 3 mån") {
-      show = "forecast3";
+      show = "month_3";
     } else if (showWhat == "Prognos 6 mån") {
-      show = "forecast6";
+      show = "month_6";
     } else if (showWhat == "Prognos 12 mån") {
-      show = "forecast12";
+      show = "month_12";
     } else if (showWhat == "Trend 3 mån") {
-      show = "trend3";
+      show = "month_3";
     } else if (showWhat == "Trend 6 mån") {
-      show = "trend6";
+      show = "month_6";
     } else if (showWhat == "Trend 12 mån") {
-      show = "trend12";
+      show = "month_12";
     }
-    console.log(prop)
-    console.log(arr)
-    data = arr.sort((a, b) => b[prop] - a[prop]);
+    let newData = [];
+    if (preProp) {
+      newData = arr.sort((a, b) => b[preProp][prop] - a[preProp][prop]);
+    } else {
+      newData = arr.sort((a, b) => b[prop] - a[prop]);
+    }
+
     if (prop == "name") {
-      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+      newData = arr.sort((a, b) => a["name"].localeCompare(b["name"]));
     }
-    console.log(data)
-    for (const index in data) {
+    for (const index in newData) {
       filteredList.push({
         name: arr[index]["name"],
         num: arr[index]["num"],
-        data: arr[index][show],
+        data: arr[index][
+          showWhat.includes("Prognos")
+            ? "prediction_percentages"
+            : "trend_percentages"
+        ][show],
       });
     }
 
-    return filteredList.map((dataObject, index) => (
-      <ToplistRow
-        key={"toplist-row-" + index}
-        dataObject={dataObject}
-        show={showMode}
-      ></ToplistRow>
-    ));
+    return filteredList
+      .slice(0, 15) // To only show top 15
+      .map((dataObject, index) => (
+        <ToplistRow
+          key={"toplist-row-" + index}
+          dataObject={dataObject}
+          show={showMode}
+        ></ToplistRow>
+      ));
   }
 
   function setRedirect(category: string) {
@@ -143,11 +152,9 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
-                  
-                   
                     <button onClick={() => setSortMode("Namn")}>
-                    <div className="flex flex-row">
-                    {title}
+                      <div className="flex flex-row">
+                        {title}
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
@@ -156,18 +163,20 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                           } ml-2`}
                         />
                       </div>
-                      </button>
+                    </button>
                   </th>
                   <th
                     scope="col"
                     className={classNames(
-                      sortMode != showMode && sortMode != "Namn" ? "text-blue-500" : "text-gray-500",
+                      sortMode != showMode && sortMode != "Namn"
+                        ? "text-blue-500"
+                        : "text-gray-500",
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
-                      <button onClick={() => setSortMode("Alla annonser")}>
-                    <div className="flex flex-row">
-                      Annonser
+                    <button onClick={() => setSortMode("Alla annonser")}>
+                      <div className="flex flex-row">
+                        Annonser
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode != showMode && sortMode != "Namn"
@@ -175,8 +184,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -184,9 +193,9 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                       sortMode == showMode ? "text-blue-500" : "text-gray-500"
                     } uppercase tracking-wider`}
                   >
-                      <button onClick={() => setSortMode(showMode)}>
-                    <div className="flex flex-row">
-                      {showMode}
+                    <button onClick={() => setSortMode(showMode)}>
+                      <div className="flex flex-row">
+                        {showMode}
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == showMode
@@ -194,8 +203,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                 </tr>
               </thead>

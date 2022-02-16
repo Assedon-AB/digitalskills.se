@@ -14,7 +14,7 @@ const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
-            <div className="text-xs font-medium text-gray-900">
+            <div className="text-xs font-medium text-gray-900 capitalize">
               {dataObject.name}
             </div>
           </div>
@@ -32,17 +32,17 @@ const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {`${dataObject.data} %`}
+            {`${dataObject.data.toFixed(1)} %`}
           </span>
         ) : (
           <span
             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              dataObject.data > dataObject.num
+              dataObject.data > 0
                 ? "bg-green-100 text-green-800"
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {dataObject.data}
+            {dataObject.data.toFixed(1)}%
           </span>
         )}
       </td>

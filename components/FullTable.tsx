@@ -3,17 +3,10 @@ import { useState } from "react";
 import FullTableListRow from "./FullTableListRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
+import { DigspecData } from "../interfaces/Digspec";
+
 interface FullTableProps {
-  data: {
-    name: string;
-    num: number;
-    forecast3: number;
-    forecast6: number;
-    forecast12: number;
-    trend3: number;
-    trend6: number;
-    trend12: number;
-  }[];
+  data: DigspecData[];
   title: string;
   category: string;
 }
@@ -21,40 +14,55 @@ interface FullTableProps {
 const FullTable = ({ data, title, category }: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
-  const changeData = (arg: string) => {
-    setSortMode("Antal annonser");
-  };
-
   function sortBy(arr: any[], mode: string) {
+    let preProp = "";
     var prop = "num";
     if (mode == "Antal annonser") {
       prop = "num";
+      preProp = "";
     } else if (mode == "Prognos 3 mån") {
-      prop = "forecast3";
+      prop = "month_3";
+      preProp = "prediction_percentages";
     } else if (mode == "Prognos 6 mån") {
-      prop = "forecast6";
+      preProp = "prediction_percentages";
+      prop = "month_6";
     } else if (mode == "Prognos 12 mån") {
-      prop = "forecast12";
+      preProp = "prediction_percentages";
+      prop = "month_12";
     } else if (mode == "Trend 3 mån") {
-      prop = "trend3";
+      preProp = "trend_percentages";
+      prop = "month_3";
     } else if (mode == "Trend 6 mån") {
-      prop = "trend6";
+      preProp = "trend_percentages";
+      prop = "month_6";
     } else if (mode == "Trend 12 mån") {
-      prop = "trend12";
-    }
-    else if (mode == "Namn") {
-      
-      prop = "name"
+      preProp = "trend_percentages";
+      prop = "month_12";
+    } else if (mode == "Namn") {
+      prop = "name";
+      preProp = "";
     }
 
-    data = arr.sort((a, b) => b[prop] - a[prop]);
-    if (prop == "name") {
-      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+    let newData = [];
+    if (preProp) {
+      newData = arr.sort((a, b) => {
+        if (b[preProp] && a[preProp]) {
+          return b[preProp][prop] - a[preProp][prop];
+        } else {
+          return -1;
+        }
+      });
+    } else {
+      newData = arr.sort((a, b) => b[prop] - a[prop]);
     }
-    return data.map((dataObject, index) => (
+    if (prop == "name") {
+      newData = arr.sort((a, b) => a["name"].localeCompare(b["name"]));
+    }
+
+    return newData.map((d, index) => (
       <FullTableListRow
-        key={"full-table-list-row-" + index}
-        dataObject={dataObject}
+        key={d._id}
+        data={d}
         category={category}
       ></FullTableListRow>
     ));
@@ -69,16 +77,16 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
     }
     return (
       <Link href={href}>
-        <a className="uppercase font-medium text-gray-500">se alla</a>
+        <a className="uppercase font-medium text-gray-500">se alla</a>{" "}
       </Link>
     );
   }
 
   return (
     <div className="flex flex-col pt-8  py-8">
-      <div className="-my-2 overflow-hidden sm:-mx-6 lg:-mx-8">
+      <div className="-my-2 overflow-y-hidden overflow-x-scroll sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <div className="shadow max-h-screen overflow-y-scroll border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -109,11 +117,13 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                 <tr>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium ${ sortMode == "Namn" ? "text-blue-500" : "text-gray-500"} uppercase tracking-wider`}
+                    className={`px-6 py-3 text-left text-[10px] font-medium ${
+                      sortMode == "Namn" ? "text-blue-500" : "text-gray-500"
+                    } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode("Namn")}>
-                    <div className="flex flex-row">
-                    {title}
+                      <div className="flex flex-row">
+                        {title}
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
@@ -122,7 +132,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                           } ml-2`}
                         />
                       </div>
-                      </button>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -134,15 +144,15 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         "Prognos 3 mån",
                         "Prognos 6 mån",
                         "Prognos 12 mån",
-                        "Namn"
+                        "Namn",
                       ].indexOf(sortMode) >= 0
                         ? "text-gray-500"
                         : "text-blue-500"
                     } uppercase tracking-wider`}
                   >
-                      <button onClick={() => setSortMode("Alla annonser")}>
-                    <div className="flex flex-row">
-                      Annonser
+                    <button onClick={() => setSortMode("Alla annonser")}>
+                      <div className="flex flex-row">
+                        Annonser
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                             [
@@ -152,14 +162,14 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               "Prognos 3 mån",
                               "Prognos 6 mån",
                               "Prognos 12 mån",
-                              "Namn"
+                              "Namn",
                             ].indexOf(sortMode) >= 0
                               ? "text-gray-500"
                               : "text-blue-500"
                           }  text-gray-500 ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -169,9 +179,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Trend 3 mån")}>
-                    <div className="flex flex-row">
-                      3 mån
+                    <button onClick={() => setSortMode("Trend 3 mån")}>
+                      <div className="flex flex-row">
+                        3 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Trend 3 mån"
@@ -179,8 +189,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -190,9 +200,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Trend 6 mån")}>
-                    <div className="flex flex-row">
-                      6 mån
+                    <button onClick={() => setSortMode("Trend 6 mån")}>
+                      <div className="flex flex-row">
+                        6 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Trend 6 mån"
@@ -200,8 +210,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -211,9 +221,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Trend 12 mån")}>
-                    <div className="flex flex-row">
-                      12 mån
+                    <button onClick={() => setSortMode("Trend 12 mån")}>
+                      <div className="flex flex-row">
+                        12 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Trend 12 mån"
@@ -221,8 +231,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -232,9 +242,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Prognos 3 mån")}>
-                    <div className="flex flex-row">
-                      3 mån
+                    <button onClick={() => setSortMode("Prognos 3 mån")}>
+                      <div className="flex flex-row">
+                        3 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Prognos 3 mån"
@@ -242,8 +252,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -253,9 +263,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Prognos 6 mån")}>
-                    <div className="flex flex-row">
-                      6 mån
+                    <button onClick={() => setSortMode("Prognos 6 mån")}>
+                      <div className="flex flex-row">
+                        6 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Prognos 6 mån"
@@ -263,8 +273,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -274,9 +284,9 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button onClick={() => setSortMode("Prognos 12 mån")}>
-                    <div className="flex flex-row">
-                      12 mån
+                    <button onClick={() => setSortMode("Prognos 12 mån")}>
+                      <div className="flex flex-row">
+                        12 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Prognos 12 mån"
@@ -284,8 +294,8 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
