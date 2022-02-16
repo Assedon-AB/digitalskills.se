@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import NavbarSearch from "./NavbarSearch";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -9,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="p-4 max-w-6xl mx-auto flex items-baseline">
       <Link href="/">
-        <a className="text-2xl block text-[#C1531B]">{"<Digital spetskompetens>"}</a>
+        <a className="text-2xl block text-[#C1531B] font-bold">{"<Digital Spetskompetens>"}</a>
       </Link>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
@@ -85,6 +86,7 @@ const Navbar = () => {
             </a>
           </Link>
         </li>
+        
         <li >
           <Link href="/om-digspec">
             <a
@@ -97,6 +99,9 @@ const Navbar = () => {
               Om Digspec
             </a>
           </Link>
+        </li>
+        <li>
+          <NavbarSearch placeholder="Sök"></NavbarSearch>
         </li>
       </ul>
     </nav>

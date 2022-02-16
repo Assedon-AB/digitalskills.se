@@ -292,6 +292,104 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
                   ></th>
                 </tr>
+                <tr>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                  Branschen
+                
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                   2798
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>59%</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>87%</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>112%</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>3200</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>3400</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>3780</span>
+                     
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                   
+                     
+                  </th>
+                </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {sortBy(data, sortMode)}
