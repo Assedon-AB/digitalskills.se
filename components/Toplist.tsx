@@ -16,6 +16,8 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
   const [showMode, setShowMode] = useState("Prognos 3 mån");
 
+  const branschData = {name: 'Branschen', numAds: "2798", forecast3: "2893", forecast6: "3060", forecast12: "3200", trend3:"32%",trend6: "64%",trend12: "92%"}
+
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
   }
@@ -24,6 +26,37 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     setShowMode(arg);
     setSortMode("Antal annonser");
   };
+  function getShownBranschData() {
+    var showData = branschData.forecast3
+    switch(showMode) { 
+      case "Prognos 3 mån": { 
+        showData = branschData.forecast3
+         break; 
+      } 
+      case "Prognos 6 mån": { 
+        showData = branschData.forecast6
+         break; 
+      }
+      case "Prognos 12 mån": { 
+        showData = branschData.forecast12
+        break; 
+     } 
+     case "Trend 3 mån": { 
+      showData = branschData.trend3
+      break; 
+      } 
+      case "Trend 6 mån": { 
+        showData = branschData.trend6
+        break; 
+      } 
+      case "Trend 12 mån": { 
+        showData = branschData.trend12
+        break; 
+      } 
+      
+   } 
+    return showData
+  }
 
   function sortBy(arr: any[], mode: string, showWhat: string) {
     var preProp: string = "";
@@ -158,7 +191,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
-                              ? "text-blue-500"
+                              ? "text-[#3A8DDE]"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -180,7 +213,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode != showMode && sortMode != "Namn"
-                              ? "text-blue-500"
+                              ? "text-[#3A8DDE]"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -190,7 +223,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium ${
-                      sortMode == showMode ? "text-blue-500" : "text-gray-500"
+                      sortMode == showMode ? "text-[#3A8DDE]" : "text-gray-500"
                     } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode(showMode)}>
@@ -205,6 +238,37 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                         />
                       </div>
                     </button>
+                  </th>
+                </tr>
+                <tr>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                  {branschData.name}
+                
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                   {branschData.numAds}
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                    
+                  >
+                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                       "bg-green-100 text-green-800"
+                       
+                    }`}>
+                      {getShownBranschData()}
+                    </span>
+                     
                   </th>
                 </tr>
               </thead>

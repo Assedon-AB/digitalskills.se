@@ -17,9 +17,9 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   competencies,
 }) => {
   return (
-    <div className="bg-slate-200 w-full h-full min-h-screen py-12">
-      <article className="max-w-6xl px-4 mx-auto pt-24">
-        <SearchBar placeholder="Sök kompetenser" />
+    <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
+      <article className="max-w-6xl px-4 mx-auto pt-8">
+        {/* <SearchBar placeholder="Sök kompetenser" /> */}
         <Chart name="React" data={mockupData} />
         <StatsCard month={-12} year={26} name="React" />
         <FullTable

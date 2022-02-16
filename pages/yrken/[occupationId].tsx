@@ -13,7 +13,7 @@ interface OccupationPageProps {
 }
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupationId }) => {
   return (
-    <div className="bg-slate-200 w-full h-full min-h-screen py-12">
+    <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl font-semibold mb-8">{occupationId}</h1>
 

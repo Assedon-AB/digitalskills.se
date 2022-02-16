@@ -18,9 +18,9 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   occupations,
 }) => {
   return (
-    <div className="bg-slate-200 w-full h-full min-h-screen py-12">
-      <article className="max-w-6xl px-4 mx-auto pt-24">
-        <SearchBar placeholder="Sök yrken" />
+    <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
+      <article className="max-w-6xl px-4 mx-auto pt-8">
+        {/* <SearchBar placeholder="Sök yrken" /> */}
         <Chart name="Frontend-utvecklare" data={mockupData} />
         <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
         <FullTable data={occupations} title="Namn" category="yrken"></FullTable>
