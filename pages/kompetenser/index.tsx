@@ -19,7 +19,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
         <Chart
-          name={competencies[0].name}
+          name={competencies[0]?.name}
           data={{
             labels: competencies[0].ad_series.labels.concat(
               competencies[0].prediction_series.month_12.labels

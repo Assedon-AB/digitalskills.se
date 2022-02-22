@@ -21,7 +21,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
         <Chart
-          name={occupations[0].name}
+          name={occupations[0]?.name}
           data={{
             labels: occupations[0].ad_series.labels.concat(
               occupations[0].prediction_series.month_12.labels
