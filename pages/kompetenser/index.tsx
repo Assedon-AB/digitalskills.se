@@ -30,7 +30,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const competenciesRaw = await getCompetencies();
 
   let competencies = [];

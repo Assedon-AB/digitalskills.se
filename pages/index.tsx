@@ -84,7 +84,7 @@ const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const competenciesRaw: DigspecData[] = await getCompetencies();
   const occupationsRaw: DigspecData[] = await getOccupations();
 

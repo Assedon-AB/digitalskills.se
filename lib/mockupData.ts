@@ -125,70 +125,68 @@ export const geoMockupData = [
     num: 123,
     organisations_num: 8,
     details: [
-      {antal: 23, organisation: "Företag X"},
-      {antal: 20, organisation: "Företag Y"},
-      {antal: 15, organisation: "Företag Z"},
-      {antal: 17, organisation: "Företag A"},
-      {antal: 5, organisation: "Företag B"},
-      {antal: 33, organisation: "Företag C"},
-      {antal: 6, organisation: "Företag D"},
-      {antal: 4, organisation: "Företag E"}
-    ]
+      { antal: 23, organisation: "Företag X" },
+      { antal: 20, organisation: "Företag Y" },
+      { antal: 15, organisation: "Företag Z" },
+      { antal: 17, organisation: "Företag A" },
+      { antal: 5, organisation: "Företag B" },
+      { antal: 33, organisation: "Företag C" },
+      { antal: 6, organisation: "Företag D" },
+      { antal: 4, organisation: "Företag E" },
+    ],
   },
   {
     name: "Uppsala",
     num: 68,
     organisations_num: 6,
     details: [
-      {antal: 13, organisation: "Företag X"},
-      {antal: 20, organisation: "Företag Y"},
-      {antal: 15, organisation: "Företag Z"},
-      {antal: 17, organisation: "Företag A"},
-      {antal: 1, organisation: "Företag B"},
-      {antal: 2, organisation: "Företag C"}
-    ]
+      { antal: 13, organisation: "Företag X" },
+      { antal: 20, organisation: "Företag Y" },
+      { antal: 15, organisation: "Företag Z" },
+      { antal: 17, organisation: "Företag A" },
+      { antal: 1, organisation: "Företag B" },
+      { antal: 2, organisation: "Företag C" },
+    ],
   },
   {
     name: "Malmö",
     num: 53,
     organisations_num: 2,
     details: [
-      {antal: 20, organisation: "Företag X"},
-      {antal: 33, organisation: "Företag Y"},
-    ]
+      { antal: 20, organisation: "Företag X" },
+      { antal: 33, organisation: "Företag Y" },
+    ],
   },
   {
     name: "Gotland",
     num: 21,
     organisations_num: 3,
     details: [
-      {antal: 6, organisation: "Företag X"},
-      {antal: 8, organisation: "Företag Y"},
-      {antal: 7, organisation: "Företag Z"}
-    ]
+      { antal: 6, organisation: "Företag X" },
+      { antal: 8, organisation: "Företag Y" },
+      { antal: 7, organisation: "Företag Z" },
+    ],
   },
   {
     name: "Göteborg",
     num: 40,
     organisations_num: 9,
     details: [
-      {antal: 3, organisation: "Företag X"},
-      {antal: 6, organisation: "Företag Y"},
-      {antal: 2, organisation: "Företag Z"},
-      {antal: 3, organisation: "Företag A"},
-      {antal: 5, organisation: "Företag B"},
-      {antal: 9, organisation: "Företag C"},
-      {antal: 6, organisation: "Företag D"},
-      {antal: 4, organisation: "Företag E"},
-      {antal: 2, organisation: "Företag F"}
-    ]
+      { antal: 3, organisation: "Företag X" },
+      { antal: 6, organisation: "Företag Y" },
+      { antal: 2, organisation: "Företag Z" },
+      { antal: 3, organisation: "Företag A" },
+      { antal: 5, organisation: "Företag B" },
+      { antal: 9, organisation: "Företag C" },
+      { antal: 6, organisation: "Företag D" },
+      { antal: 4, organisation: "Företag E" },
+      { antal: 2, organisation: "Företag F" },
+    ],
   },
   {
     name: "Skellefteå",
     num: 5,
     organisations_num: 1,
-    details: [
-      {antal: 5, organisation: "Företag X"}
-    ]
+    details: [{ antal: 5, organisation: "Företag X" }],
   },
 ];

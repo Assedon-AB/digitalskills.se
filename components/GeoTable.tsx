@@ -8,7 +8,7 @@ interface GeoTableProps {
     name: string;
     num: number;
     organisations_num: number;
-    details: {antal: number, organisation: string}[];
+    details: { num: number; name: string }[];
   }[];
   title: string;
 }
@@ -21,20 +21,19 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
     setShowMode(arg);
   };
 
-
   function sortBy(arr: any[], mode: string) {
     var prop = "num";
     if (mode == "Antal annonser") {
       prop = "num";
     } else if (mode == "Antal rekryterande organisationer") {
       prop = "organisations_num";
-    } else if(mode == "Kommun") {
-      prop = "name"
+    } else if (mode == "Kommun") {
+      prop = "name";
     }
 
     data = arr.sort((a, b) => b[prop] - a[prop]);
     if (prop == "name") {
-      data = arr.sort((a, b) => a['name'].localeCompare(b['name']));
+      data = arr.sort((a, b) => a["name"].localeCompare(b["name"]));
     }
     return data.map((dataObject, index) => (
       <GeoTableRow
@@ -54,13 +53,15 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                <th
+                  <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium ${ sortMode == "Kommun" ? "text-blue-500" : "text-gray-500"} uppercase tracking-wider`}
+                    className={`px-6 py-3 text-left text-[10px] font-medium ${
+                      sortMode == "Kommun" ? "text-blue-500" : "text-gray-500"
+                    } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode("Kommun")}>
-                    <div className="flex flex-row">
-                    {title}
+                      <div className="flex flex-row">
+                        {title}
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Kommun"
@@ -69,31 +70,33 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                           } ml-2`}
                         />
                       </div>
-                      </button>
+                    </button>
                   </th>
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium text-gray-500 ${
-                      ["Antal rekryterande organisationer", "Kommun"].indexOf(sortMode) >=
-                      0
+                      ["Antal rekryterande organisationer", "Kommun"].indexOf(
+                        sortMode
+                      ) >= 0
                         ? "text-gray-500"
                         : "text-blue-500"
                     } uppercase tracking-wider`}
                   >
-                      <button onClick={() => setSortMode("Alla annonser")}>
-                    <div className="flex flex-row">
-                      Annonser
+                    <button onClick={() => setSortMode("Alla annonser")}>
+                      <div className="flex flex-row">
+                        Annonser
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
-                            ["Antal rekryterande organisationer", "Kommun"].indexOf(
-                              sortMode
-                            ) >= 0
+                            [
+                              "Antal rekryterande organisationer",
+                              "Kommun",
+                            ].indexOf(sortMode) >= 0
                               ? "text-gray-500"
                               : "text-blue-500"
                           }  text-gray-500 ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th
                     scope="col"
@@ -103,13 +106,13 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                      <button
-                        onClick={() =>
-                          setSortMode("Antal rekryterande organisationer")
-                        }
-                      >
-                    <div className="flex flex-row ">
-                      Antal rekryterande organisationer
+                    <button
+                      onClick={() =>
+                        setSortMode("Antal rekryterande organisationer")
+                      }
+                    >
+                      <div className="flex flex-row ">
+                        Antal rekryterande organisationer
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
                             sortMode == "Antal rekryterande organisationer"
@@ -117,37 +120,35 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                    </div>
-                      </button>
+                      </div>
+                    </button>
                   </th>
                   <th></th>
                 </tr>
                 <tr>
-                <th
+                  <th
                     scope="col"
                     className={`px-6 py-3 text-left bg-[#3A8DDE]/25  uppercase tracking-wider`}
                   >
-                   <div className="text-xs font-medium text-gray-900">Hela landet</div>
+                    <div className="text-xs font-medium text-gray-900">
+                      Hela landet
+                    </div>
                   </th>
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left bg-[#3A8DDE]/25 
                         uppercase tracking-wider`}
                   >
-                      
-                      <div className="text-xs font-medium  text-gray-900">310</div>
+                    <div className="text-xs font-medium  text-gray-900">
+                      310
+                    </div>
                   </th>
                   <th
                     scope="col"
                     className={`px-6 py-3 text-left bg-[#3A8DDE]/25
                      uppercase tracking-wider `}
                   >
-                    
-                   
                     <div className="text-xs font-medium  text-gray-900">29</div>
-                       
-                
-                     
                   </th>
                   <th className="bg-[#3A8DDE]/25"></th>
                 </tr>

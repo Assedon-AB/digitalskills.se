@@ -6,7 +6,7 @@ interface FullTableListRowProps {
     name: string;
     num: number;
     organisations_num: number;
-    details: { antal: number; organisation: string }[];
+    details: { num: number; name: string }[];
   };
   updateShow: Function;
   incomingMode: string;
@@ -22,7 +22,7 @@ const FullTableListRow = ({
   useEffect(() => {
     updateShow(mode);
   }, [mode]);
-  dataObject.details.sort((a, b) => b["antal"] - a["antal"]);
+  dataObject.details.sort((a, b) => b["num"] - a["num"]);
   return (
     <tr
       key={dataObject.name}
@@ -63,7 +63,7 @@ const FullTableListRow = ({
           {mode == dataObject.name
             ? dataObject.details.map((detailObject, index) => (
                 <div key={`row-count-${index}`} className="py-1">
-                  {detailObject.antal}
+                  {detailObject.num}
                 </div>
               ))
             : null}
@@ -79,7 +79,7 @@ const FullTableListRow = ({
           {mode == dataObject.name
             ? dataObject.details.map((detailObject, index) => (
                 <div key={`row-org-geo-${index}`} className="py-1">
-                  {detailObject.organisation}
+                  {detailObject.name}
                 </div>
               ))
             : null}

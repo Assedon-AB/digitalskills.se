@@ -24,7 +24,7 @@ interface ChartData {
   labels: string[];
   datasets: {
     label: string;
-    data: number[];
+    data: number[] | { x: string; y: number }[];
     borderColor: string;
     backgroundColor: string;
   }[];

@@ -5,7 +5,7 @@ export interface DigspecData {
   subgroup: string;
   maingroup: string;
   ad_series: { labels: string[]; values: number[] };
-  prediction_series?: {
+  prediction_series: {
     [predSpan: string]: {
       labels: string[];
       values: number[];
@@ -33,7 +33,13 @@ export interface DigspecData {
     [skillname: string]: number;
   };
   geos: {
-    [geoName: string]: number;
+    [geoName: string]: {
+      num: number;
+      organisations_num: number;
+      details: {
+        [employerName: string]: number;
+      };
+    };
   };
   employers: {
     [employer: string]: number;

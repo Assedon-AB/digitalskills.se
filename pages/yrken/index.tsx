@@ -28,7 +28,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const occupationsRaw = await getOccupations();
 
   let occupations = [];

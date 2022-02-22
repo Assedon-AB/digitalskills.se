@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4000/api/v1/";
+const API_URL = process.env.API_URL ?? "http://localhost:4000/api/v1/";
 const API_KEY = process.env.API_KEY ?? "";
 const ORIGIN = process.env.ORIGIN ?? "http://locahost:3000";
 
@@ -54,7 +54,7 @@ const getOccupations = async () => {
 };
 
 const getOccupation = async (occupationId: string) => {
-  const occupation = await fetch(API_URL + "kompetenser/" + occupationId, {
+  const occupation = await fetch(API_URL + "yrken/" + occupationId, {
     headers: {
       "x-api-key": API_KEY,
       Origin: ORIGIN,
