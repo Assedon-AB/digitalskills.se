@@ -12,7 +12,7 @@ const getCompetencies = async () => {
   })
     .then((res) => res.json())
     .catch((err) => {
-      console.log(err);
+      console.log("Error:", err);
       return [];
     });
 
@@ -46,7 +46,7 @@ const getOccupations = async () => {
   })
     .then((res) => res.json())
     .catch((err) => {
-      console.log(err);
+      console.log("Error:", err);
       return [];
     });
 
