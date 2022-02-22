@@ -18,7 +18,33 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
-        <Chart name="React" data={mockupData} />
+        <Chart
+          name={competencies[0].name}
+          data={{
+            labels: competencies[0].ad_series.labels.concat(
+              competencies[0].prediction_series.month_12.labels
+            ),
+            datasets: [
+              {
+                label: "Historisk data",
+                data: competencies[0].ad_series.values,
+                borderColor: "rgb(99, 99, 255)",
+                backgroundColor: "rgba(99, 99, 255, 0.5)",
+              },
+              {
+                label: "Prognos",
+                data: competencies[0].prediction_series.month_12.values.map(
+                  (y, index) => ({
+                    y,
+                    x: competencies[0].prediction_series.month_12.labels[index],
+                  })
+                ),
+                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+              },
+            ],
+          }}
+        />
         <StatsCard month={-12} year={26} name="React" />
         <FullTable
           data={competencies}

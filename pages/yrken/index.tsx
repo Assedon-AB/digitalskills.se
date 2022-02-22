@@ -20,7 +20,33 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
-        <Chart name="Frontend-utvecklare" data={mockupData} />
+        <Chart
+          name={occupations[0].name}
+          data={{
+            labels: occupations[0].ad_series.labels.concat(
+              occupations[0].prediction_series.month_12.labels
+            ),
+            datasets: [
+              {
+                label: "Historisk data",
+                data: occupations[0].ad_series.values,
+                borderColor: "rgb(99, 99, 255)",
+                backgroundColor: "rgba(99, 99, 255, 0.5)",
+              },
+              {
+                label: "Prognos",
+                data: occupations[0].prediction_series.month_12.values.map(
+                  (y, index) => ({
+                    y,
+                    x: occupations[0].prediction_series.month_12.labels[index],
+                  })
+                ),
+                borderColor: "rgb(255, 99, 132)",
+                backgroundColor: "rgba(255, 99, 132, 0.5)",
+              },
+            ],
+          }}
+        />
         <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
         <FullTable data={occupations} title="Namn" category="yrken"></FullTable>
       </article>
