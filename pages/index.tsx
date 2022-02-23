@@ -90,26 +90,13 @@ export async function getStaticProps() {
 
   let competencies: DigspecData[] = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
-    competencies = competenciesRaw
-      .map((skill) => ({
-        ...skill,
-        num: skill.ad_series.values[skill.ad_series.values.length - 1] ?? null,
-      }))
-      .filter((s) => s.num)
-      .sort((a, b) => b.num - a.num)
-      .slice(0, 100);
+    competencies = competenciesRaw.sort((a, b) => b.num - a.num).slice(0, 100);
   }
 
   let occupations: DigspecData[] = [];
   if (!occupationsRaw.hasOwnProperty("error")) {
     occupations = occupationsRaw
-      .map((occupation) => ({
-        ...occupation,
-        num:
-          occupation.ad_series.values[occupation.ad_series.values.length - 1] ??
-          null,
-      }))
-      .filter((o) => o.num)
+      .filter((s) => s.model)
       .sort((a, b) => b.num - a.num)
       .slice(0, 100);
   }
