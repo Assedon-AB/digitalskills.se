@@ -9,9 +9,10 @@ interface FullTableProps {
   data: DigspecData[];
   title: string;
   category: string;
+  industry: any;
 }
 
-const FullTable = ({ data, title, category }: FullTableProps) => {
+const FullTable = ({ data, title, category, industry }: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
   function sortBy(arr: any[], mode: string) {
@@ -315,7 +316,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
-                    2798
+                    {industry.num}
                   </th>
                   <th
                     scope="col"
@@ -325,7 +326,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      59%
+                      {industry.trend_percentages.month_3.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -336,7 +337,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      87%
+                      {industry.trend_percentages.month_6.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -347,7 +348,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      112%
+                      {industry.trend_percentages.month_12.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -358,7 +359,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      3200
+                      {industry.prediction_percentages.month_3.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -369,7 +370,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      3400
+                      {industry.prediction_percentages.month_6.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -380,7 +381,7 @@ const FullTable = ({ data, title, category }: FullTableProps) => {
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
                     >
-                      3780
+                      {industry.prediction_percentages.month_12.toFixed(1)} %
                     </span>
                   </th>
                   <th

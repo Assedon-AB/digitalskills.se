@@ -2,16 +2,21 @@ import type { NextPage } from "next";
 import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
 
-import { getCompetencies, getOccupations } from "../lib/helpers";
+import { getCompetencies, getOccupations, getIndustry } from "../lib/helpers";
 
 import { DigspecData } from "../interfaces/Digspec";
 
 interface HomePageProps {
   competencies: DigspecData[];
   occupations: DigspecData[];
+  industry: any;
 }
 
-const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
+const Home: NextPage<HomePageProps> = ({
+  competencies,
+  occupations,
+  industry,
+}) => {
   const attentionCardData = [
     {
       title: "Trend",
@@ -67,6 +72,7 @@ const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
           <div className="flex flex-col">
             <Toplist
               data={competencies}
+              industry={industry}
               title="Namn"
               category="Topplista kompetenser"
             ></Toplist>
@@ -74,6 +80,7 @@ const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
           <div className="flex flex-col">
             <Toplist
               data={occupations}
+              industry={industry}
               title="Namn"
               category="Topplista yrken"
             ></Toplist>
@@ -87,6 +94,7 @@ const Home: NextPage<HomePageProps> = ({ competencies, occupations }) => {
 export async function getStaticProps() {
   const competenciesRaw: DigspecData[] = await getCompetencies();
   const occupationsRaw: DigspecData[] = await getOccupations();
+  const industry = await getIndustry();
 
   let competencies: DigspecData[] = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
@@ -105,6 +113,7 @@ export async function getStaticProps() {
     props: {
       competencies,
       occupations,
+      industry,
     },
   };
 }

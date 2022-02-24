@@ -4,16 +4,18 @@ import Chart from "../../components/Chart";
 import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
-import { getCompetencies } from "../../lib/helpers";
+import { getCompetencies, getIndustry } from "../../lib/helpers";
 import { mockupData } from "../../lib/mockupData";
 import { DigspecData } from "../../interfaces/Digspec";
 
 interface CompetencesPageProps {
   competencies: DigspecData[];
+  industry: any;
 }
 
 const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   competencies,
+  industry,
 }) => {
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
@@ -55,6 +57,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
         <FullTable
           data={competencies}
           title="Namn"
+          industry={industry}
           category="kompetenser"
         ></FullTable>
       </article>
@@ -64,6 +67,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
 
 export async function getStaticProps() {
   const competenciesRaw = await getCompetencies();
+  const industry = await getIndustry();
 
   let competencies = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
@@ -76,6 +80,7 @@ export async function getStaticProps() {
   return {
     props: {
       competencies,
+      industry,
     },
   };
 }
