@@ -1,21 +1,33 @@
+import Link from "next/link";
+
 interface ToplistRowProps {
   dataObject: {
+    id: string;
     name: string;
     num: number;
 
     data: number;
   };
   show: string;
+  category: string;
 }
 
-const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
+const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
   return (
     <tr key={dataObject.name}>
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
-            <div className="text-xs font-medium text-gray-900 capitalize">
-              {dataObject.name}
+            <div className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500">
+              <Link
+                href={`${
+                  category === "Topplista kompetenser"
+                    ? "/kompetenser"
+                    : "/yrken"
+                }/${dataObject.name}-${dataObject.id}`}
+              >
+                {dataObject.name}
+              </Link>
             </div>
           </div>
         </div>

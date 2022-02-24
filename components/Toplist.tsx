@@ -60,7 +60,12 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     var preProp: string = "";
     var prop = "num";
     var show = "forecast3";
-    var filteredList: { name: string; num: number; data: number }[] = [];
+    var filteredList: {
+      name: string;
+      num: number;
+      data: number;
+      id: string;
+    }[] = [];
     if (mode == "Antal annonser") {
       preProp = "";
       prop = "num";
@@ -112,6 +117,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     }
     for (const index in newData) {
       filteredList.push({
+        id: arr[index]["_id"],
         name: arr[index]["name"],
         num: arr[index]["num"],
         data: arr[index][
@@ -129,6 +135,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
           key={"toplist-row-" + index}
           dataObject={dataObject}
           show={showMode}
+          category={category}
         ></ToplistRow>
       ));
   }
