@@ -70,4 +70,27 @@ const getOccupation = async (occupationId: string) => {
   return occupation;
 };
 
-export { getCompetencies, getOccupations, getOccupation, getCompetence };
+const getIndustry = async () => {
+  const industry = await fetch(API_URL + "bransch", {
+    headers: {
+      "x-api-key": API_KEY,
+      Origin: ORIGIN,
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err);
+      return null;
+    });
+
+  return industry;
+};
+
+export {
+  getCompetencies,
+  getOccupations,
+  getOccupation,
+  getCompetence,
+  getIndustry,
+};

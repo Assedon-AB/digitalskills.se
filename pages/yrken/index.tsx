@@ -5,16 +5,18 @@ import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
 import { mockupData } from "../../lib/mockupData";
-import { getOccupations } from "../../lib/helpers";
+import { getOccupations, getIndustry } from "../../lib/helpers";
 
 import { DigspecData } from "../../interfaces/Digspec";
 
 interface OccupationPageProps {
   occupations: DigspecData[];
+  industry: any;
 }
 
 const OccupationsOverview: NextPage<OccupationPageProps> = ({
   occupations,
+  industry,
 }) => {
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
@@ -53,7 +55,12 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
           }
         />
         <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
-        <FullTable data={occupations} title="Namn" category="yrken"></FullTable>
+        <FullTable
+          data={occupations}
+          industry={industry}
+          title="Namn"
+          category="yrken"
+        ></FullTable>
       </article>
     </div>
   );
@@ -61,6 +68,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
 
 export async function getStaticProps() {
   const occupationsRaw = await getOccupations();
+  const industry = await getIndustry();
 
   let occupations = [];
   if (!occupationsRaw.hasOwnProperty("error")) {
@@ -75,6 +83,7 @@ export async function getStaticProps() {
   return {
     props: {
       occupations,
+      industry,
     },
   };
 }

@@ -10,13 +10,12 @@ interface ToplistProps {
   data: DigspecData[];
   title: string;
   category: string;
+  industry: any;
 }
 
-const Toplist = ({ data, title, category }: ToplistProps) => {
+const Toplist = ({ data, title, category, industry }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
   const [showMode, setShowMode] = useState("Prognos 3 mån");
-
-  const branschData = {name: 'Branschen', numAds: "2798", forecast3: "2893", forecast6: "3060", forecast12: "3200", trend3:"32%",trend6: "64%",trend12: "92%"}
 
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
@@ -27,42 +26,46 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     setSortMode("Antal annonser");
   };
   function getShownBranschData() {
-    var showData = branschData.forecast3
-    switch(showMode) { 
-      case "Prognos 3 mån": { 
-        showData = branschData.forecast3
-         break; 
-      } 
-      case "Prognos 6 mån": { 
-        showData = branschData.forecast6
-         break; 
+    var showData = industry.forecast3;
+    switch (showMode) {
+      case "Prognos 3 mån": {
+        showData = industry.prediction_values.month_3;
+        break;
       }
-      case "Prognos 12 mån": { 
-        showData = branschData.forecast12
-        break; 
-     } 
-     case "Trend 3 mån": { 
-      showData = branschData.trend3
-      break; 
-      } 
-      case "Trend 6 mån": { 
-        showData = branschData.trend6
-        break; 
-      } 
-      case "Trend 12 mån": { 
-        showData = branschData.trend12
-        break; 
-      } 
-      
-   } 
-    return showData
+      case "Prognos 6 mån": {
+        showData = industry.prediction_values.month_6;
+        break;
+      }
+      case "Prognos 12 mån": {
+        showData = industry.prediction_values.month_12;
+        break;
+      }
+      case "Trend 3 mån": {
+        showData = industry.trend_percentages.month_3;
+        break;
+      }
+      case "Trend 6 mån": {
+        showData = industry.trend_percentages.month_6;
+        break;
+      }
+      case "Trend 12 mån": {
+        showData = industry.trend_percentages.month_12;
+        break;
+      }
+    }
+    return showData;
   }
 
   function sortBy(arr: any[], mode: string, showWhat: string) {
     var preProp: string = "";
     var prop = "num";
     var show = "forecast3";
-    var filteredList: { _id: string, name: string; num: number; data: number }[] = [];
+    var filteredList: {
+      name: string;
+      num: number;
+      data: number;
+      id: string;
+    }[] = [];
     if (mode == "Antal annonser") {
       preProp = "";
       prop = "num";
@@ -114,7 +117,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     }
     for (const index in newData) {
       filteredList.push({
-        _id: arr[index]['_id'],
+        id: arr[index]["id"],
         name: arr[index]["name"],
         num: arr[index]["num"],
         data: arr[index][
@@ -129,7 +132,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
       .slice(0, 15) // To only show top 15
       .map((dataObject, index) => (
         <ToplistRow
-          key={dataObject._id}
+          key={dataObject.id}
           dataObject={dataObject}
           show={showMode}
           category={category}
@@ -248,29 +251,30 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
                     className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
-                  {branschData.name}
-                
+                    Branschen
                   </th>
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
-                   {branschData.numAds}
+                    {industry.num}
                   </th>
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
-                    
                   >
-                    <span className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
-                       "bg-green-100 text-green-800"
-                       
-                    }`}>
-                      {getShownBranschData()}
+                    <span
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        getShownBranschData() > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {getShownBranschData().toFixed(1) +
+                        (showMode.includes("Trend") ? " %" : "")}
                     </span>
-                     
                   </th>
                 </tr>
               </thead>

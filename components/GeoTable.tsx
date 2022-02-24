@@ -125,33 +125,6 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                   </th>
                   <th></th>
                 </tr>
-                <tr>
-                  <th
-                    scope="col"
-                    className={`px-6 py-3 text-left bg-[#3A8DDE]/25  uppercase tracking-wider`}
-                  >
-                    <div className="text-xs font-medium text-gray-900">
-                      Hela landet
-                    </div>
-                  </th>
-                  <th
-                    scope="col"
-                    className={`py-3 px-6 text-left bg-[#3A8DDE]/25 
-                        uppercase tracking-wider`}
-                  >
-                    <div className="text-xs font-medium  text-gray-900">
-                      310
-                    </div>
-                  </th>
-                  <th
-                    scope="col"
-                    className={`px-6 py-3 text-left bg-[#3A8DDE]/25
-                     uppercase tracking-wider `}
-                  >
-                    <div className="text-xs font-medium  text-gray-900">29</div>
-                  </th>
-                  <th className="bg-[#3A8DDE]/25"></th>
-                </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {sortBy(data, sortMode)}
