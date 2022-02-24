@@ -29,7 +29,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
   return (
     
     
-      <Link href={setRedirect(dataObject.name, dataObject.id, category)}>
+
     <tr key={dataObject.name}>
        
       <td className="px-6 py-4 whitespace-nowrap">
@@ -77,7 +77,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
       </td>
  
     </tr>
-    </Link>
+  
   );
 };
 
