@@ -117,7 +117,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     }
     for (const index in newData) {
       filteredList.push({
-        id: arr[index]["id"],
+        id: arr[index]["_id"],
         name: arr[index]["name"],
         num: arr[index]["num"],
         data: arr[index][
