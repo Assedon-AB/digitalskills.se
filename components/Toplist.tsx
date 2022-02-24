@@ -62,7 +62,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     var preProp: string = "";
     var prop = "num";
     var show = "forecast3";
-    var filteredList: { name: string; num: number; data: number }[] = [];
+    var filteredList: { _id: string, name: string; num: number; data: number }[] = [];
     if (mode == "Antal annonser") {
       preProp = "";
       prop = "num";
@@ -114,6 +114,7 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
     }
     for (const index in newData) {
       filteredList.push({
+        _id: arr[index]['_id'],
         name: arr[index]["name"],
         num: arr[index]["num"],
         data: arr[index][
@@ -128,9 +129,10 @@ const Toplist = ({ data, title, category }: ToplistProps) => {
       .slice(0, 15) // To only show top 15
       .map((dataObject, index) => (
         <ToplistRow
-          key={"toplist-row-" + index}
+          key={dataObject._id}
           dataObject={dataObject}
           show={showMode}
+          category={category}
         ></ToplistRow>
       ));
   }

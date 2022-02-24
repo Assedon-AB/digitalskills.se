@@ -1,16 +1,36 @@
+import Link from "next/link";
+
 interface ToplistRowProps {
   dataObject: {
+    _id: string;
     name: string;
     num: number;
 
     data: number;
   };
+  category: string;
   show: string;
 }
 
-const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
+const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
+  const setRedirect = (dataName: string,dataId: string, cat: string) => {
+    var retStr = "/index"
+    if (category == "Topplista kompetenser") {
+      retStr = `/kompetenser/${dataName}-${dataId}`
+    }
+    else if(category == "Topplista yrken") {
+      retStr = `/yrken/${dataName}-${dataId}`
+    }
+    return retStr;
+  }
+  
+  
   return (
+    
+    
+      <Link href={setRedirect(dataObject.name, dataObject._id, category)}>
     <tr key={dataObject.name}>
+       
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
@@ -46,7 +66,9 @@ const ToplistRow = ({ dataObject, show }: ToplistRowProps) => {
           </span>
         )}
       </td>
+ 
     </tr>
+    </Link>
   );
 };
 
