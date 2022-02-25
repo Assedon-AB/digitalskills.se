@@ -10,9 +10,11 @@ interface FullTableProps {
   title: string;
   category: string;
   industry: any;
+  updateCompareList: Function;
+  compareList: string[];
 }
 
-const FullTable = ({ data, title, category, industry }: FullTableProps) => {
+const FullTable = ({ data, title, category, industry, updateCompareList, compareList }: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
   function sortBy(arr: any[], mode: string) {
@@ -65,27 +67,15 @@ const FullTable = ({ data, title, category, industry }: FullTableProps) => {
         key={d._id}
         data={d}
         category={category}
+        callback = {updateCompareList}
+        compareList={compareList}
       ></FullTableListRow>
     ));
   }
 
-  function setRedirect(category: string) {
-    var href = "/index";
-    if (category == "Topplista kompetenser") {
-      href = "/kompetenser";
-    } else if (category == "Topplista yrken") {
-      href = "/yrken";
-    }
-    return (
-      <Link href={href}>
-        <a className="uppercase font-medium text-gray-500">se alla</a>{" "}
-      </Link>
-    );
-  }
-
   return (
     <div className="flex flex-col pt-8  py-8">
-      <div className="-my-2 overflow-y-hidden overflow-x-scroll sm:-mx-6 lg:-mx-8">
+      <div className="-my-2 overflow-x-scroll sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow max-h-screen overflow-y-scroll border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
@@ -301,7 +291,9 @@ const FullTable = ({ data, title, category, industry }: FullTableProps) => {
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
-                  ></th>
+                  >
+                    Jämför
+                  </th>
                 </tr>
                 <tr>
                   <th

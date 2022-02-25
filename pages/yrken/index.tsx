@@ -8,6 +8,7 @@ import { mockupData } from "../../lib/mockupData";
 import { getOccupations, getIndustry } from "../../lib/helpers";
 
 import { DigspecData } from "../../interfaces/Digspec";
+import { useState } from "react";
 
 interface OccupationPageProps {
   occupations: DigspecData[];
@@ -18,6 +19,10 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   occupations,
   industry,
 }) => {
+  const [compareList, setCompareList] = useState<any[]>([])
+  const changeCompareList = (arg: string[]) => {
+    setCompareList(arg);
+  };
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
@@ -60,6 +65,8 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
           industry={industry}
           title="Namn"
           category="yrken"
+          updateCompareList={changeCompareList}
+          compareList = {compareList}
         ></FullTable>
       </article>
     </div>

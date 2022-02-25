@@ -7,6 +7,7 @@ import FullTable from "../../components/FullTable";
 import { getCompetencies, getIndustry } from "../../lib/helpers";
 import { mockupData } from "../../lib/mockupData";
 import { DigspecData } from "../../interfaces/Digspec";
+import { useState } from "react";
 
 interface CompetencesPageProps {
   competencies: DigspecData[];
@@ -17,6 +18,12 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   competencies,
   industry,
 }) => {
+
+  const [compareList, setCompareList] = useState<any[]>([])
+  const changeCompareList = (arg: string[]) => {
+    console.log(compareList)
+    setCompareList(arg);
+  };
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
@@ -53,12 +60,15 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
               : mockupData
           }
         />
+     
         <StatsCard month={-12} year={26} name="React" />
         <FullTable
           data={competencies}
           title="Namn"
           industry={industry}
           category="kompetenser"
+          updateCompareList={changeCompareList}
+          compareList = {compareList}
         ></FullTable>
       </article>
     </div>
