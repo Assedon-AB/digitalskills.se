@@ -132,7 +132,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
       .slice(0, 15) // To only show top 15
       .map((dataObject, index) => (
         <ToplistRow
-          key={"toplist-row-" + index}
+          key={dataObject.id}
           dataObject={dataObject}
           show={showMode}
           category={category}

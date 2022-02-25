@@ -8,13 +8,30 @@ interface ToplistRowProps {
 
     data: number;
   };
-  show: string;
   category: string;
+  show: string;
+  
 }
 
 const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
+  const setRedirect = (dataName: string,dataId: string, cat: string) => {
+    var retStr = "/index"
+    if (category == "Topplista kompetenser") {
+      retStr = `/kompetenser/${dataName}-${dataId}`
+    }
+    else if(category == "Topplista yrken") {
+      retStr = `/yrken/${dataName}-${dataId}`
+    }
+    return retStr;
+  }
+  
+  
   return (
+    
+    
+
     <tr key={dataObject.name}>
+       
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
@@ -58,7 +75,9 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
           </span>
         )}
       </td>
+ 
     </tr>
+  
   );
 };
 
