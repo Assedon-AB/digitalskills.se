@@ -7,7 +7,6 @@ import FullTable from "../../components/FullTable";
 import { getCompetencies, getIndustry } from "../../lib/helpers";
 import { mockupData } from "../../lib/mockupData";
 import { DigspecData } from "../../interfaces/Digspec";
-
 interface CompetencesPageProps {
   competencies: DigspecData[];
   industry: any;
@@ -53,7 +52,15 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
               : mockupData
           }
         />
-        <StatsCard month={-12} year={26} name="React" />
+        <StatsCard
+          month={competencies[0].trend_percentages.month_3}
+          month6={competencies[0].trend_percentages.month_6}
+          year={competencies[0].trend_percentages.month_12}
+          industryYear={industry.trend_percentages.month_12}
+          industryMonth6={industry.trend_percentages.month_6}
+          industryMonth={industry.trend_percentages.month_6}
+          name={competencies[0].name}
+        />
         <FullTable
           data={competencies}
           title="Namn"

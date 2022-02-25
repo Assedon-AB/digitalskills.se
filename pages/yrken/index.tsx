@@ -54,7 +54,15 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
               : mockupData
           }
         />
-        <StatsCard month={-12} year={26} name="Frontend-utvecklare" />
+        <StatsCard
+          month={occupations[0].trend_percentages.month_3}
+          month6={occupations[0].trend_percentages.month_6}
+          year={occupations[0].trend_percentages.month_12}
+          industryYear={industry.trend_percentages.month_12}
+          industryMonth6={industry.trend_percentages.month_6}
+          industryMonth={industry.trend_percentages.month_6}
+          name={occupations[0].name}
+        />
         <FullTable
           data={occupations}
           industry={industry}
