@@ -60,7 +60,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
             }))
             .sort((a, b) => b.num - a.num)
             .slice(0, 15)}
-          title="Kommun"
+          title="Område"
         />
 
         <h2 className="text-2xl mb-4 mt-8">
