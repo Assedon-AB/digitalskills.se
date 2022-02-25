@@ -34,7 +34,7 @@ export default function StatsCard({
             }`}
           >
             {month > 0 ? "+" : ""}
-            {month}%
+            {month.toFixed(1)}%
           </h2>
         </div>
         <div className="w-1/3 flex flex-col justify-center items-center">
@@ -48,7 +48,7 @@ export default function StatsCard({
             }`}
           >
             {month6 > 0 ? "+" : ""}
-            {month6}%
+            {month6.toFixed(1)}%
           </h2>
         </div>
 
@@ -63,7 +63,7 @@ export default function StatsCard({
             }`}
           >
             {year > 0 ? "+" : ""}
-            {year}%
+            {year.toFixed(1)}%
           </h2>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function StatsCard({
           </p>
           <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
             {industryMonth > 0 ? "+" : ""}
-            {industryMonth}%
+            {industryMonth.toFixed(1)}%
           </h2>
         </div>
         <div className="w-1/3 flex flex-col justify-center items-center">
@@ -89,7 +89,7 @@ export default function StatsCard({
           </p>
           <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
             {industryMonth6 > 0 ? "+" : ""}
-            {industryMonth6}%
+            {industryMonth6.toFixed(1)}%
           </h2>
         </div>
 
@@ -102,7 +102,7 @@ export default function StatsCard({
           </p>
           <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
             {industryYear > 0 ? "+" : ""}
-            {industryYear}%
+            {industryYear.toFixed(1)}%
           </h2>
         </div>
       </div>
