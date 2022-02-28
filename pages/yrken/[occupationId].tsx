@@ -70,7 +70,15 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
           .sort((a, b) => occupation.skills[b] - occupation.skills[a])
           .slice(0, 8)
           .map((name) => (
-            <SmallCard key={"related-skills-" + name} text={name} />
+            <SmallCard
+              key={"related-competence-" + name}
+              text={name.split("__")[0]}
+              href={
+                name.split("__")[1] !== "noId"
+                  ? "/kompetenser/" + name.split("__")[1]
+                  : undefined
+              }
+            />
           ))}
 
         <h2 className="text-2xl mb-4 mt-8">
@@ -88,18 +96,24 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
           .sort((a, b) => occupation.jobs[b] - occupation.jobs[a])
           .slice(0, 8)
           .map((name) => (
-            <SmallCard key={"related-occupation-" + name} text={name} />
+            <SmallCard
+              key={"related-occupation-" + name}
+              text={name.split("__")[0]}
+              href={
+                name.split("__")[1] !== "noId"
+                  ? "/yrken/" + name.split("__")[1]
+                  : undefined
+              }
+            />
           ))}
 
         <h2 className="text-xl mb-4 mt-8">Källor</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.{" "}
+          All annons data kommer ifrån Swedish Jobtech Dev. Därefter så körs
+          annonserna genom Swedish Jobtech Dev's Enrichment API. Efter att
+          kompetenser, yrken, geo-data, egenskaper och arbetsgivare är
+          extraherat så genomgår det en framskrivning. Därefter så laddas datan
+          upp till vårt API.
         </p>
       </article>
     </div>
