@@ -25,7 +25,9 @@ export default function StatsCard({
       <div className="flex divide-x">
         <div className="w-1/3 flex flex-col justify-center items-center">
           <p className="text-sm">
-            <span className="text-blue-600 text-sm font-semibold">{name}</span>{" "}
+            <span className="text-blue-600 capitalize text-sm font-semibold">
+              {name}
+            </span>{" "}
             senaste 3 mån.
           </p>
           <h2
@@ -39,7 +41,9 @@ export default function StatsCard({
         </div>
         <div className="w-1/3 flex flex-col justify-center items-center">
           <p className="text-sm">
-            <span className="text-blue-600 text-sm font-semibold">{name}</span>{" "}
+            <span className="text-blue-600 capitalize text-sm font-semibold">
+              {name}
+            </span>{" "}
             senaste 6 mån.
           </p>
           <h2
@@ -54,7 +58,9 @@ export default function StatsCard({
 
         <div className="w-1/3 flex flex-col justify-center items-center">
           <p className="text-sm">
-            <span className="text-blue-600 text-sm font-semibold">{name}</span>{" "}
+            <span className="text-blue-600 capitalize text-sm font-semibold">
+              {name}
+            </span>{" "}
             senaste 12 mån.
           </p>
           <h2

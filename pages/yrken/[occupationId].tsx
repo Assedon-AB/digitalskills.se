@@ -14,7 +14,9 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl font-semibold mb-8">{occupation.name}</h1>
+        <h1 className="text-4xl capitalize font-semibold mb-8">
+          {occupation.name}
+        </h1>
 
         <Chart
           name={occupation.name}

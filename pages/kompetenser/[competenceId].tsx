@@ -15,7 +15,9 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
       <article className="max-w-6xl mx-auto px-4">
-        <h1 className="text-4xl font-semibold mb-8">{competence.name}</h1>
+        <h1 className="text-4xl capitalize font-semibold mb-8">
+          {competence.name}
+        </h1>
         <Chart
           name={competence.name}
           data={{
