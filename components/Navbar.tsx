@@ -10,7 +10,12 @@ const Navbar = () => {
   return (
     <nav className="p-4 max-w-6xl mx-auto flex items-baseline">
       <Link href="/">
-        <a className="text-2xl block text-[#C1531B] font-bold">{"<Digital Spetskompetens>"}</a>
+        <a
+          tabIndex={0}
+          className="text-2xl block text-[#C1531B] font-bold focus:outline-none focus:ring focus:ring-violet-300"
+        >
+          {"<Digital Spetskompetens>"}
+        </a>
       </Link>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
@@ -59,23 +64,45 @@ const Navbar = () => {
               : "translate-x-full md:translate-x-0"
           } duration-500 transition ease-in-out`}
       >
-       
-        <li>
+        <li
+          tabIndex={0}
+          className="focus:outline-none focus:ring focus:ring-violet-300"
+        >
+          <Link href="/">
+            <a
+              tabIndex={0}
+              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
+                router.pathname === "/" ? "text-[#007078]" : "text-[#C1531B]"
+              }`}
+            >
+              Översikt
+            </a>
+          </Link>
+        </li>
+        <li
+          tabIndex={0}
+          className="focus:outline-none focus:ring focus:ring-violet-300"
+        >
           <Link href="/kompetenser">
             <a
+              tabIndex={0}
               className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("kompetenser")
-                ? "text-[#007078]"
-                : "text-[#C1531B]"
+                  ? "text-[#007078]"
+                  : "text-[#C1531B]"
               }`}
             >
               Kompetenser
             </a>
           </Link>
         </li>
-        <li>
+        <li
+          tabIndex={0}
+          className="focus:outline-none focus:ring focus:ring-violet-300"
+        >
           <Link href="/yrken">
             <a
+              tabIndex={0}
               className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("yrken")
                   ? "text-[#007078]"
@@ -86,14 +113,18 @@ const Navbar = () => {
             </a>
           </Link>
         </li>
-        
-        <li >
+
+        <li
+          tabIndex={0}
+          className="focus:outline-none focus:ring focus:ring-violet-300"
+        >
           <Link href="/om-digspec">
             <a
+              tabIndex={0}
               className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
                 router.pathname.includes("om-digspec")
-                ? "text-[#007078]"
-                : "text-[#C1531B]"
+                  ? "text-[#007078]"
+                  : "text-[#C1531B]"
               }`}
             >
               Om Digspec
