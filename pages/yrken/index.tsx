@@ -19,7 +19,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   occupations,
   industry,
 }) => {
-  const [compareList, setCompareList] = useState<any[]>([])
+  const [compareList, setCompareList] = useState<any[]>([]);
   const changeCompareList = (arg: string[]) => {
     setCompareList(arg);
   };
@@ -52,6 +52,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
                         })
                       ),
                       borderColor: "rgb(255, 99, 132)",
+                      borderDash: [10, 5],
                       backgroundColor: "rgba(255, 99, 132, 0.5)",
                     },
                   ],
@@ -74,7 +75,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
           title="Namn"
           category="yrken"
           updateCompareList={changeCompareList}
-          compareList = {compareList}
+          compareList={compareList}
         ></FullTable>
       </article>
     </div>

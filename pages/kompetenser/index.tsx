@@ -18,10 +18,9 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   competencies,
   industry,
 }) => {
-
-  const [compareList, setCompareList] = useState<any[]>([])
+  const [compareList, setCompareList] = useState<any[]>([]);
   const changeCompareList = (arg: string[]) => {
-    console.log(compareList)
+    console.log(compareList);
     setCompareList(arg);
   };
   return (
@@ -53,6 +52,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
                         })
                       ),
                       borderColor: "rgb(255, 99, 132)",
+                      borderDash: [10, 5],
                       backgroundColor: "rgba(255, 99, 132, 0.5)",
                     },
                   ],
@@ -75,7 +75,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
           industry={industry}
           category="kompetenser"
           updateCompareList={changeCompareList}
-          compareList = {compareList}
+          compareList={compareList}
         ></FullTable>
       </article>
     </div>

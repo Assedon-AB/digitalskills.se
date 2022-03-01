@@ -27,6 +27,7 @@ interface ChartData {
     data: number[] | { x: string; y: number }[];
     borderColor: string;
     backgroundColor: string;
+    borderDash?: number[];
   }[];
 }
 
@@ -51,7 +52,10 @@ export default function Chart({ name, data }: ChartProps) {
 
   return (
     <>
-      <div className="bg-white p-4 w-full border rounded-md mb-4">
+      <div
+        className="bg-white p-4 w-full border rounded-md mb-4"
+        aria-label={`Graf över ${name} förekomst övertid samt prognos.`}
+      >
         <Line options={options} data={data} />
       </div>
       <p className="mb-16">

@@ -38,6 +38,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                   })
                 ),
                 borderColor: "rgb(255, 99, 132)",
+                borderDash: [10, 5],
                 backgroundColor: "rgba(255, 99, 132, 0.5)",
               },
             ],
