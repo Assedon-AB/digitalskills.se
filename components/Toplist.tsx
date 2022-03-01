@@ -283,7 +283,9 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
               </tbody>
               <tr className="bg-gray-50">
                 <td></td>
-                <td className="px-6 py-4">{setRedirect(category)}</td>
+                <td tabIndex={0} className="px-6 py-4 focus:ring">
+                  {setRedirect(category)}
+                </td>
                 <td></td>
               </tr>
             </table>

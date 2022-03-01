@@ -10,32 +10,28 @@ interface ToplistRowProps {
   };
   category: string;
   show: string;
-  
 }
 
 const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
-  const setRedirect = (dataName: string,dataId: string, cat: string) => {
-    var retStr = "/index"
+  const setRedirect = (dataName: string, dataId: string, cat: string) => {
+    var retStr = "/index";
     if (category == "Topplista kompetenser") {
-      retStr = `/kompetenser/${dataName}-${dataId}`
-    }
-    else if(category == "Topplista yrken") {
-      retStr = `/yrken/${dataName}-${dataId}`
+      retStr = `/kompetenser/${dataName}-${dataId}`;
+    } else if (category == "Topplista yrken") {
+      retStr = `/yrken/${dataName}-${dataId}`;
     }
     return retStr;
-  }
-  
-  
-  return (
-    
-    
+  };
 
+  return (
     <tr key={dataObject.name}>
-       
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
-            <div className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500">
+            <div
+              tabIndex={0}
+              className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500 focus:ring"
+            >
               <Link
                 href={`${
                   category === "Topplista kompetenser"
@@ -75,9 +71,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
           </span>
         )}
       </td>
- 
     </tr>
-  
   );
 };
 
