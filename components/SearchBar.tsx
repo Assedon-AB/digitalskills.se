@@ -1,14 +1,31 @@
+import { useState } from "react";
+
 interface SearchBarProps {
   placeholder: string;
+  handleSearch: (q: string) => void;
 }
 
-export default function SearchBar({ placeholder }: SearchBarProps) {
+export default function SearchBar({
+  placeholder,
+  handleSearch,
+}: SearchBarProps) {
+  const [q, setQ] = useState("");
+
   return (
-    <div className="flex mb-4">
+    <form
+      className="flex mb-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearch(q);
+      }}
+    >
       <input
         type="text"
         placeholder={placeholder}
         className="px-4 py-2 border rounded-l-md flex-grow"
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        autoComplete="skillsAndOccupations"
       />
       <button className="bg-blue-800 font-bold text-white p-4 rounded-r-md">
         <svg
@@ -26,6 +43,6 @@ export default function SearchBar({ placeholder }: SearchBarProps) {
           />
         </svg>
       </button>
-    </div>
+    </form>
   );
 }

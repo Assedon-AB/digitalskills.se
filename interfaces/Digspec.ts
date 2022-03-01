@@ -47,4 +47,5 @@ export interface DigspecData {
   traits: {
     [traitName: string]: number;
   };
+  href?: string;
 }

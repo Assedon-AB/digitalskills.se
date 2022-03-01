@@ -132,7 +132,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <NavbarSearch placeholder="Sök"></NavbarSearch>
+          <NavbarSearch />
         </li>
       </ul>
     </nav>
