@@ -37,7 +37,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
                     : "/yrken"
-                }/${dataObject.name}-${dataObject.id}`}
+                }/${encodeURI(dataObject.name)}-${dataObject.id}`}
               >
                 {dataObject.name}
               </Link>

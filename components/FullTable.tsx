@@ -14,7 +14,14 @@ interface FullTableProps {
   compareList: string[];
 }
 
-const FullTable = ({ data, title, category, industry, updateCompareList, compareList }: FullTableProps) => {
+const FullTable = ({
+  data,
+  title,
+  category,
+  industry,
+  updateCompareList,
+  compareList,
+}: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
   function sortBy(arr: any[], mode: string) {
@@ -67,7 +74,7 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
         key={d._id}
         data={d}
         category={category}
-        callback = {updateCompareList}
+        callback={updateCompareList}
         compareList={compareList}
       ></FullTableListRow>
     ));
@@ -316,7 +323,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.trend_percentages.month_3 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {industry.trend_percentages.month_3.toFixed(1)} %
                     </span>
@@ -327,7 +338,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.trend_percentages.month_6 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {industry.trend_percentages.month_6.toFixed(1)} %
                     </span>
@@ -338,7 +353,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.trend_percentages.month_12 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {industry.trend_percentages.month_12.toFixed(1)} %
                     </span>
@@ -349,7 +368,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.prediction_percentages.month_3 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {industry.prediction_percentages.month_3.toFixed(1)} %
                     </span>
@@ -360,7 +383,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.prediction_percentages.month_6 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {industry.prediction_percentages.month_6.toFixed(1)} %
                     </span>
@@ -371,7 +398,11 @@ const FullTable = ({ data, title, category, industry, updateCompareList, compare
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${"bg-green-100 text-green-800"}`}
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.prediction_percentages.month_12 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 bg-red-800"
+                      }`}
                     >
                       {industry.prediction_percentages.month_12.toFixed(1)} %
                     </span>

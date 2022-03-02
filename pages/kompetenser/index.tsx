@@ -27,26 +27,26 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
         <Chart
-          name={competencies[0] ? competencies[0]?.name : "Kompetens"}
+          name={competencies[1] ? competencies[1]?.name : "Kompetens"}
           data={
-            competencies[0]
+            competencies[1]
               ? {
-                  labels: competencies[0].ad_series.labels.concat(
-                    competencies[0].prediction_series.month_12.labels
+                  labels: competencies[1].ad_series.labels.concat(
+                    competencies[1].prediction_series.month_12.labels
                   ),
                   datasets: [
                     {
                       label: "Historisk data",
-                      data: competencies[0].ad_series.values,
+                      data: competencies[1].ad_series.values,
                       borderColor: "rgb(99, 99, 255)",
                       backgroundColor: "rgba(99, 99, 255, 0.5)",
                     },
                     {
                       label: "Prognos",
-                      data: competencies[0].prediction_series.month_12.values.map(
+                      data: competencies[1].prediction_series.month_12.values.map(
                         (y, index) => ({
                           y,
-                          x: competencies[0].prediction_series.month_12.labels[
+                          x: competencies[1].prediction_series.month_12.labels[
                             index
                           ],
                         })

@@ -42,7 +42,7 @@ const FullTableListRow = ({
                 className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500 focus:outline-none focus:ring focus:ring-violet-300"
                 tabIndex={0}
               >
-                <Link href={`/${category}/${data.name}-${data._id}`}>
+                <Link href={`/${category}/${encodeURI(data.name)}-${data._id}`}>
                   {data.name}
                 </Link>
               </div>
