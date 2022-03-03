@@ -13,6 +13,7 @@ export default function SearchBar({
 
   return (
     <form
+      role="search"
       className="flex mb-4"
       onSubmit={(e) => {
         e.preventDefault();
@@ -20,12 +21,15 @@ export default function SearchBar({
       }}
     >
       <input
-        type="text"
+        type="search"
         placeholder={placeholder}
         className="px-4 py-2 border rounded-l-md flex-grow"
         value={q}
         onChange={(e) => setQ(e.target.value)}
         autoComplete="skillsAndOccupations"
+        id="skillsAndOccupations"
+        name="q"
+        aria-label="Sök efter kompetenser och yrken"
       />
       <button className="bg-blue-800 font-bold text-white p-4 rounded-r-md">
         <svg

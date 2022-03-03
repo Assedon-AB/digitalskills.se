@@ -131,9 +131,11 @@ const Navbar = () => {
             </a>
           </Link>
         </li>
-        <li>
-          <NavbarSearch />
-        </li>
+        {!router.pathname.includes("sok") ? (
+          <li>
+            <NavbarSearch />
+          </li>
+        ) : null}
       </ul>
     </nav>
   );
