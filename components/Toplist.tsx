@@ -15,7 +15,7 @@ interface ToplistProps {
 
 const Toplist = ({ data, title, category, industry }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
-  const [showMode, setShowMode] = useState("Prognos 3 mån");
+  const [showMode, setShowMode] = useState("Trend 6 mån");
 
   function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(" ");
@@ -177,7 +177,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     <FilterDropdown
-                      initMode="Prognos 3 mån"
+                      initMode="Trend 6 mån"
                       updateShow={changeData}
                     ></FilterDropdown>
                   </th>
