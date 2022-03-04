@@ -17,21 +17,7 @@ const Home: NextPage<HomePageProps> = ({
   occupations,
   industry,
 }) => {
-  const attentionCardData = [
-    {
-      title: "Trend",
-      description: "Jämför senaste månadsdata historisk bakåt.",
-    },
-    {
-      title: "Prognos",
-      description: "Framskrivning görs med hjälp av exponentiell utjämning.",
-    },
-    {
-      title: "Hämtad senast",
-      description:
-        "Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31.",
-    },
-  ];
+  
 
   return (
     <div className=" bg-[#fafafa] w-full h-full sm:px-4 lg:px-8">
@@ -54,17 +40,16 @@ const Home: NextPage<HomePageProps> = ({
             </p>
           </div>
           <div className="flex flex-col w-12/12 sm:w-6/12">
-            {attentionCardData.map((dataObject) => (
+         
               <div
-                key={"attentionCard-" + dataObject.title}
+              
                 className="py-2 px4"
               >
-                <AttentionCard
-                  title={dataObject.title}
-                  description={dataObject.description}
-                ></AttentionCard>
+                <AttentionCard/
+            
+                >
               </div>
-            ))}
+          
           </div>
         </div>
 
