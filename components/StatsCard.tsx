@@ -48,7 +48,7 @@ export default function StatsCard({
           </p>
           <h2
             className={`text-xl font-semibold mt-2 ${
-              month >= 0 ? "text-green-500" : "text-red-500"
+              month6 >= 0 ? "text-green-500" : "text-red-500"
             }`}
           >
             {month6 > 0 ? "+" : ""}
@@ -81,7 +81,7 @@ export default function StatsCard({
             </span>{" "}
             senaste 3 mån.
           </p>
-          <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
+          <h2 className={`text-xl font-semibold mt-2 ${industryMonth >= 0 ? "text-green-500" : "text-red-500"}`}>
             {industryMonth > 0 ? "+" : ""}
             {industryMonth.toFixed(1)}%
           </h2>
@@ -93,7 +93,7 @@ export default function StatsCard({
             </span>{" "}
             senaste 6 mån.
           </p>
-          <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
+          <h2 className={`text-xl font-semibold mt-2 ${industryMonth6 >= 0 ? "text-green-500" : "text-red-500"}`}>
             {industryMonth6 > 0 ? "+" : ""}
             {industryMonth6.toFixed(1)}%
           </h2>
@@ -106,7 +106,7 @@ export default function StatsCard({
             </span>{" "}
             senaste 12 mån.
           </p>
-          <h2 className={"text-xl font-semibold mt-2 text-green-500 "}>
+          <h2 className={`text-xl font-semibold mt-2 ${industryYear >= 0 ? "text-green-500" : "text-red-500"}`}>
             {industryYear > 0 ? "+" : ""}
             {industryYear.toFixed(1)}%
           </h2>
