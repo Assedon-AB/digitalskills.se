@@ -7,7 +7,9 @@ import FullTable from "../../components/FullTable";
 import { getCompetencies, getIndustry } from "../../lib/helpers";
 import { mockupData } from "../../lib/mockupData";
 import { DigspecData } from "../../interfaces/Digspec";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CompareMissingInfo from "../../components/CompareMissingInfo";
+import CompareTable from "../../components/CompareTable";
 
 interface CompetencesPageProps {
   competencies: DigspecData[];
@@ -19,56 +21,45 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   industry,
 }) => {
   const [compareList, setCompareList] = useState<any[]>([]);
+  const [compareObjectList, setCompareObjectList] = useState<DigspecData[]>([])
+  const [shomCompare, setShowCompare] = useState(false)
   const changeCompareList = (arg: string[]) => {
     console.log(compareList);
     setCompareList(arg);
+    createCompareObjects()
+    if (compareList.length > 0) {
+      setShowCompare(true)
+    }
+    else {
+      setShowCompare(false)
+    }
   };
+
+  const buildCompareComponent = () => {
+    return <><h1 className="pt-16 pl-2 text-xl">Uppdaterade grafer kommer snart.</h1><h1 className="pt-16 pl-2 text-xl">Jämförelsetabell</h1><CompareTable data={compareObjectList} title={"Namn"} category={"kompetenser"} industry={industry} /></> ;
+  }
+
+  const createCompareObjects = () => {
+    var tempCompareObjectsList: DigspecData[] = []
+    for (const dIndex in compareList) {
+      var dId  = compareList[dIndex]
+      console.log(dId)
+      var index = competencies.findIndex(x => x._id === dId)
+      console.log(index)
+      tempCompareObjectsList.push(competencies[index])
+    }
+    console.log(compareList)
+    console.log(tempCompareObjectsList)
+    setCompareObjectList(tempCompareObjectsList);
+  }
+
+  
+
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
       <article className="max-w-6xl px-4 mx-auto pt-8">
-        <Chart
-          name={competencies[1] ? competencies[1]?.name : "Kompetens"}
-          data={
-            competencies[1]
-              ? {
-                  labels: competencies[1].ad_series.labels.concat(
-                    competencies[1].prediction_series.month_12.labels
-                  ),
-                  datasets: [
-                    {
-                      label: "Historisk data",
-                      data: competencies[1].ad_series.values,
-                      borderColor: "rgb(99, 99, 255)",
-                      backgroundColor: "rgba(99, 99, 255, 0.5)",
-                    },
-                    {
-                      label: "Prognos",
-                      data: competencies[1].prediction_series.month_12.values.map(
-                        (y, index) => ({
-                          y,
-                          x: competencies[1].prediction_series.month_12.labels[
-                            index
-                          ],
-                        })
-                      ),
-                      borderColor: "rgb(255, 99, 132)",
-                      borderDash: [10, 5],
-                      backgroundColor: "rgba(255, 99, 132, 0.5)",
-                    },
-                  ],
-                }
-              : mockupData
-          }
-        />
-        <StatsCard
-          month={competencies[0].trend_percentages.month_3}
-          month6={competencies[0].trend_percentages.month_6}
-          year={competencies[0].trend_percentages.month_12}
-          industryYear={industry.trend_percentages.month_12}
-          industryMonth6={industry.trend_percentages.month_6}
-          industryMonth={industry.trend_percentages.month_6}
-          name={competencies[0].name}
-        />
+        {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo/>}
+        <h1 className="pt-16 pl-2 text-xl">Alla kompetenser</h1>
         <FullTable
           data={competencies}
           title="Namn"
