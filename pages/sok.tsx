@@ -80,7 +80,7 @@ const SearchPage: NextPage<SearchPageProps> = ({
 
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
-      <article className="max-w-6xl px-4 mx-auto pt-8">
+      <main className="max-w-6xl px-4 mx-auto pt-8">
         <h1 className="text-3xl mb-8">Sök</h1>
         <SearchBar
           placeholder="Sök efter kompetens eller yrke"
@@ -94,7 +94,7 @@ const SearchPage: NextPage<SearchPageProps> = ({
             href={r.href}
           />
         ))}
-      </article>
+      </main>
     </div>
   );
 };
