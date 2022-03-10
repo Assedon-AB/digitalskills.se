@@ -11,7 +11,7 @@ export default function SmallCard({ href, text }: SmallCardProps) {
       <p className="text-lg capitalize">{text}</p>
       {href ? (
         <Link href={href}>
-          <a className="block text-gray-600">Läs mer</a>
+          <a className="block text-gray-600" tabIndex={0}>Läs mer</a>
         </Link>
       ) : null}
     </div>
