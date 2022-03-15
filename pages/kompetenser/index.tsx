@@ -10,6 +10,7 @@ import { DigspecData } from "../../interfaces/Digspec";
 import { useEffect, useState } from "react";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
 import CompareTable from "../../components/CompareTable";
+import MetaTags from "../../components/MetaTags";
 
 interface CompetencesPageProps {
   competencies: DigspecData[];
@@ -120,6 +121,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
 
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
+        <MetaTags title="Kompetenser - Digitalspetskompetens" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
       {compareList.length > 0 ? buildCompareChart(): null}
         {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo/>}

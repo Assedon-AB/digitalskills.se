@@ -7,6 +7,7 @@ import { DigspecData } from "../interfaces/Digspec";
 
 import SearchBar from "../components/SearchBar";
 import SmallCard from "../components/SmallCard";
+import MetaTags from "../components/MetaTags";
 
 const levenshteinDistance = (s: string, t: string) => {
   if (!s.length) return t.length;
@@ -74,13 +75,13 @@ const SearchPage: NextPage<SearchPageProps> = ({
         });
       }
     });
-    console.log(res);
     setResults(res);
   };
 
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
-      <article className="max-w-6xl px-4 mx-auto pt-8">
+        <MetaTags title="Sök - Digitalspetskompetens" />
+      <main className="max-w-6xl px-4 mx-auto pt-8">
         <h1 className="text-3xl mb-8">Sök</h1>
         <SearchBar
           placeholder="Sök efter kompetens eller yrke"
@@ -94,7 +95,7 @@ const SearchPage: NextPage<SearchPageProps> = ({
             href={r.href}
           />
         ))}
-      </article>
+      </main>
     </div>
   );
 };

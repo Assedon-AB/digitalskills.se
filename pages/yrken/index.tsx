@@ -11,6 +11,7 @@ import { DigspecData } from "../../interfaces/Digspec";
 import { useState } from "react";
 import CompareTable from "../../components/CompareTable";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
+import MetaTags from "../../components/MetaTags";
 
 interface OccupationPageProps {
   occupations: DigspecData[];
@@ -55,6 +56,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   }
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
+        <MetaTags title="Yrken - Digitalspetskompetens" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
       {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo/>}
         <h1 className="pt-16 pl-2 text-xl">Alla yrken</h1>

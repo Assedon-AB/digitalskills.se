@@ -3,6 +3,7 @@ import type { NextPage, GetServerSideProps } from "next";
 import Chart from "../../components/Chart";
 import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
+import MetaTags from "../../components/MetaTags";
 
 import { DigspecData } from "../../interfaces/Digspec";
 import { getOccupation } from "../../lib/helpers";
@@ -13,6 +14,7 @@ interface OccupationPageProps {
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
+        <MetaTags title={occupation.name + " - Digitalspetskompetens"} />
       <article className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl capitalize font-semibold mb-8">
           {occupation.name}
