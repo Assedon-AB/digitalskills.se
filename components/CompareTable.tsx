@@ -82,7 +82,7 @@ const CompareTable = ({
     <div className="flex flex-col pt-8  py-8">
       <div className="-my-2 overflow-x-scroll sm:-mx-6 lg:-mx-8">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="shadow max-h-screen overflow-y-scroll border-b border-gray-200 sm:rounded-lg">
+          <div className="shadow max-h-screen overflow-auto border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -107,8 +107,7 @@ const CompareTable = ({
                       <p className="text-[10px]">Prognos</p>
                     </div>
                   </th>
-                  <th scope="col"></th>
-                  <th scope="col" className="bg-gray-100"></th>
+               
                 </tr>
                 <tr>
                   <th
@@ -293,12 +292,7 @@ const CompareTable = ({
                       </div>
                     </button>
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
-                  >
-                    Jämför
-                  </th>
+             
                 </tr>
                 <tr>
                   <th
@@ -405,11 +399,7 @@ const CompareTable = ({
                       {industry.prediction_percentages.month_12.toFixed(1)} %
                     </span>
                   </th>
-                  <th
-                    scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
-                    uppercase tracking-wider bg-[#3A8DDE]/25`}
-                  ></th>
+                
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">

@@ -117,9 +117,7 @@ const CompareTableRow = ({
             {data.prediction_percentages.month_12.toFixed(1)}%
           </span>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-        
-        </td>
+       
       </tr>
     );
   } else {
