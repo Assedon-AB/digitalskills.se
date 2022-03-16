@@ -170,6 +170,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                   </th>
                   <th
                     scope="col"
+                    aria-hidden="true"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   ></th>
                   <th
