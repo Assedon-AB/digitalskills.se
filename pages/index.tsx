@@ -19,7 +19,6 @@ const Home: NextPage<HomePageProps> = ({
   occupations,
   industry,
 }) => {
-  
 
   return (
     <div className=" bg-[#fafafa] w-full h-full sm:px-4 lg:px-8">
@@ -27,7 +26,7 @@ const Home: NextPage<HomePageProps> = ({
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
         <div className="flex flex-col sm:flex-row px-4">
           <div className="flex flex-col w-12/12 sm:w-6/12">
-            <h2 className="text-4xl ">Översikt</h2>
+            <h1 className="text-4xl ">Översikt</h1>
             <p className="pt-4 pb-4 pr-8 text-sm">
               Tillväxtverket och Universitetskanslersämbetet har av regeringen
               fått i uppdrag att tillsammans analysera och föreslå hur
@@ -43,16 +42,12 @@ const Home: NextPage<HomePageProps> = ({
             </p>
           </div>
           <div className="flex flex-col w-12/12 sm:w-6/12">
-         
               <div
-              
                 className="py-2 px4"
               >
                 <AttentionCard/
-            
                 >
               </div>
-          
           </div>
         </div>
 

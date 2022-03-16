@@ -29,10 +29,10 @@ const Footer = () => {
             <Link href="/om-digspec">Om digitalspetskompetens</Link>
           </li>
           <li className="hover:text-blue-500">
-            <Link href="/om-digspec">API</Link>
+            <Link href="/https://dig-api-kbrvfttzua-uc.a.run.app/">API</Link>
           </li>
           <li className="hover:text-blue-500">
-            <Link href="/om-digspec">Github</Link>
+            <Link href="https://github.com/orgs/Assedon-AB/dashboard">Github</Link>
           </li>
         </ul>
       </div>

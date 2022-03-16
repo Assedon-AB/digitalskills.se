@@ -19,6 +19,9 @@ const Navbar = () => {
       </Link>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
+        aria-label="Visa navigations meny"
+        aria-expanded={visible ? "false" : "true"}
+        tabIndex={0}
         onClick={() => setVisible(!visible)}
       >
         <svg viewBox="0 0 100 80" width="40" height="50">
