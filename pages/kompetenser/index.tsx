@@ -1,11 +1,9 @@
 import type { NextPage } from "next";
 
 import Chart from "../../components/Chart";
-import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
-import { getCompetencies, getIndustry } from "../../lib/helpers";
-import { mockupData } from "../../lib/mockupData";
+import { getCompetencies, getIndustry, SKILL_IDS_TO_HIDE} from "../../lib/helpers";
 import { DigspecData } from "../../interfaces/Digspec";
 import { useEffect, useState } from "react";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
@@ -140,15 +138,12 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
 };
 
 export async function getStaticProps() {
-  const competenciesRaw = await getCompetencies();
+    const competenciesRaw: DigspecData[] = await getCompetencies();
   const industry = await getIndustry();
 
-  let competencies = [];
+    let competencies: DigspecData[] = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
-    competencies = competenciesRaw.map((skill: any) => ({
-      ...skill,
-      num: skill.ad_series.values[skill.ad_series.values.length - 1] ?? null,
-    }));
+    competencies = competenciesRaw.filter(s => !SKILL_IDS_TO_HIDE.includes(s._id))
   }
 
   return {
