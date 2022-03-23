@@ -67,7 +67,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {dataObject.data.toFixed(1)}%
+            {`${dataObject.data.toFixed(1)} %`}
           </span>
         )}
       </td>

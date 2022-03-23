@@ -29,15 +29,15 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     var showData = industry.forecast3;
     switch (showMode) {
       case "Prognos 3 mån": {
-        showData = industry.prediction_values.month_3;
+        showData = industry.prediction_percentages.month_3;
         break;
       }
       case "Prognos 6 mån": {
-        showData = industry.prediction_values.month_6;
+        showData = industry.prediction_percentages.month_6;
         break;
       }
       case "Prognos 12 mån": {
-        showData = industry.prediction_values.month_12;
+        showData = industry.prediction_percentages.month_12;
         break;
       }
       case "Trend 3 mån": {
@@ -271,8 +271,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {getShownBranschData().toFixed(1) +
-                        (showMode.includes("Trend") ? " %" : "")}
+                      {getShownBranschData().toFixed(1) + " %"}
                     </span>
                   </th>
                 </tr>
