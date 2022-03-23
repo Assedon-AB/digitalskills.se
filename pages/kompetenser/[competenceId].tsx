@@ -22,6 +22,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
         </h1>
         <Chart
           name={competence.name}
+          digspecData={competence}
           data={{
             labels: competence.ad_series.labels.concat(
               competence.prediction_series.month_12.labels

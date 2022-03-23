@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import {DigspecData} from "../interfaces/Digspec";
 
 ChartJS.register(
   CategoryScale,
@@ -33,10 +35,11 @@ interface ChartData {
 
 interface ChartProps {
   name: string;
+  digspecData: DigspecData[] | DigspecData;
   data: ChartData;
 }
 
-export default function Chart({ name, data }: ChartProps) {
+export default function Chart({ name, digspecData, data }: ChartProps) {
   const options = {
     responsive: true,
     plugins: {
@@ -58,12 +61,21 @@ export default function Chart({ name, data }: ChartProps) {
       >
         <Line options={options} data={data} />
       </div>
-      <p className="mb-16">
-        <span className="text-blue-600 font-bold">Info!</span> Här kommer det
-        att finnas information om modellen som använts för att prognosticera
-        datan, information om resultat av backtester och genomsnittliga
-        MAPE-värden.
-      </p>
+      <div className="flex flex-wrap">
+          {Array.isArray(digspecData) && digspecData.length > 0 ? (digspecData.map((obj) => (
+              <div className="mb-4 mr-4 bg-white p-4 rounded-md border w-max" key={obj._id+"-chart-metadata"}>
+                  <p className="capitalize text-lg">{obj.name}</p>
+                  <p><span className="text-blue-600 font-bold">Model:{" "}</span>{obj.model}</p>
+                  <p><Link passHref={true} href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error"><a target="_blank" className="text-blue-600 font-bold hover:text-blue-800">MAPE:{" "}</a></Link>{obj.eval_mape}</p>
+              </div>
+            ))
+          ) : (
+              <p className="mb-16">
+                  <p><span className="text-blue-600 font-bold">Model:{" "}</span>{(digspecData as DigspecData).model}</p>
+                  <p><span className="text-blue-600 font-bold">MAPE:{" "}</span>{(digspecData as DigspecData).eval_mape}</p>
+              </p>
+          )}
+      </div>
     </>
   );
 }

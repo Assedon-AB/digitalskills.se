@@ -111,6 +111,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     }
     return <Chart
     name={name}
+    digspecData={compareObjectList}
     data={{
       labels: finalLables,
       datasets: datasetObjects,

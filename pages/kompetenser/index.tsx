@@ -23,7 +23,6 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   const [compareObjectList, setCompareObjectList] = useState<DigspecData[]>([])
   const [shomCompare, setShowCompare] = useState(false)
   const changeCompareList = (arg: string[]) => {
-    console.log(compareList);
     setCompareList(arg);
     createCompareObjects()
     if (compareList.length > 0) {
@@ -80,7 +79,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
       }
       datasetObjects.push(
         {
-          label: "Historisk data " + compareObjectList[i].name,
+          label: compareObjectList[i].name + " historisk data",
           data: compareObjectList[i].ad_series.values.map(
             (y, index) => ({
               y,
@@ -92,7 +91,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
       )
       datasetObjects.push(
         {
-          label: "Prognos " + compareObjectList[i].name,
+          label: compareObjectList[i].name + " prognos",
           data: compareObjectList[i].prediction_series.month_12.values.map(
             (y, index) => ({
               y,
@@ -108,6 +107,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     }
     return <Chart
     name={name}
+    digspecData={compareObjectList}
     data={{
       labels: finalLables,
       datasets: datasetObjects,
