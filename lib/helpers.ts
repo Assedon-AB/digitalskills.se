@@ -3,20 +3,25 @@ const API_KEY = process.env.API_KEY ?? "";
 const ORIGIN = process.env.ORIGIN ?? "http://locahost:3000";
 
 export const SKILL_IDS_TO_HIDE = [
-    "622c249b7d1e6c1e90b4b54c",
-    "622c249a7d1e6c1e90b4b516",
-    "622c24b47d1e6c1e90b4bb46",
-    "622c249e7d1e6c1e90b4b609",
-    "622c24af7d1e6c1e90b4b9e7",
-    "622c24ab7d1e6c1e90b4b8e2",
-    "622c249c7d1e6c1e90b4b58b",
+    "623ba5e039d0d1cfd8c06638",
+    "623ba5f039d0d1cfd8c0689c",
+    "623ba5e139d0d1cfd8c06662",
+    "623ba5df39d0d1cfd8c06614",
+    "623ba5f939d0d1cfd8c06a34",
+    "623ba5f439d0d1cfd8c0694a",
+    "623ba5e939d0d1cfd8c06776"
 ]
 
 export const OCCUPATION_IDS_TO_HIDE = [
-    "622c2a0e7d1e6c1e90b71be6",
-    "622c2a017d1e6c1e90b717a5",
-    "622c2a037d1e6c1e90b71811",
-    "622c2a0c7d1e6c1e90b71b44"
+    "623babd639d0d1cfd8c1fff4",
+    "623babca39d0d1cfd8c1fd66",
+    "623babd439d0d1cfd8c1ff88",
+    "623babe139d0d1cfd8c20294",
+    "623babd539d0d1cfd8c1ff94",
+    "623babdb39d0d1cfd8c20114",
+    "623babea39d0d1cfd8c204aa",
+    "623babea39d0d1cfd8c204aa",
+    "623babd139d0d1cfd8c1fee6"
 ]
 
 
