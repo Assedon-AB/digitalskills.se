@@ -5,7 +5,6 @@ import ToplistRow from "./ToplistRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
 import { DigspecData } from "../interfaces/Digspec";
-
 interface ToplistProps {
   data: DigspecData[];
   title: string;
@@ -278,14 +277,14 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {sortBy(data, sortMode, showMode)}
+                  <tr className="bg-gray-50">
+                    <td></td>
+                    <td tabIndex={0} className="px-6 py-4 focus:ring">
+                      {setRedirect(category)}
+                    </td>
+                    <td></td>
+                  </tr>
               </tbody>
-              <tr className="bg-gray-50">
-                <td></td>
-                <td tabIndex={0} className="px-6 py-4 focus:ring">
-                  {setRedirect(category)}
-                </td>
-                <td></td>
-              </tr>
             </table>
           </div>
         </div>
