@@ -124,7 +124,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
         <MetaTags title="Kompetenser - Digitalspetskompetens" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
       {compareList.length > 0 ? buildCompareChart(): null}
-        {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo/>}
+        {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo category="kompetenser"/>}
         <h1 className="pt-16 pl-2 text-xl">Alla kompetenser</h1>
         <FullTable
           data={competencies}

@@ -32,7 +32,8 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
               tabIndex={0}
               className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500 focus:ring"
             >
-              <Link
+              <a
+              target="_blank"
                 href={`${
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
@@ -40,7 +41,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                 }/${encodeURI(dataObject.name)}-${dataObject.id}`}
               >
                 {dataObject.name}
-              </Link>
+              </a>
             </div>
           </div>
         </div>
