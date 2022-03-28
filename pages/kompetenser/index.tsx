@@ -41,13 +41,9 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     var tempCompareObjectsList: DigspecData[] = []
     for (const dIndex in compareList) {
       var dId  = compareList[dIndex]
-      console.log(dId)
       var index = competencies.findIndex(x => x._id === dId)
-      console.log(index)
       tempCompareObjectsList.push(competencies[index])
     }
-    console.log(compareList)
-    console.log(tempCompareObjectsList)
     setCompareObjectList(tempCompareObjectsList);
   }
 
