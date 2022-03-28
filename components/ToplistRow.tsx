@@ -1,3 +1,4 @@
+import { ExternalLinkIcon, LinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 interface ToplistRowProps {
@@ -32,15 +33,20 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
               tabIndex={0}
               className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500 focus:ring"
             >
-              <Link
+              <a 
+              target="_blank"
+              rel="noreferrer"
                 href={`${
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
                     : "/yrken"
                 }/${encodeURI(dataObject.name)}-${dataObject.id}`}
               >
-                {dataObject.name}
-              </Link>
+                <div className="flex flex row">{dataObject.name}
+                
+                <div className="flex items-center"><div><LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></LinkIcon></div></div>
+                </div>
+              </a>
             </div>
           </div>
         </div>

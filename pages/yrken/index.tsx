@@ -123,7 +123,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
         <MetaTags title="Yrken - Digitalspetskompetens" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
       {compareList.length > 0 ? buildCompareChart(): null}
-      {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo/>}
+      {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo category="yrken"/>}
         <h1 className="pt-16 pl-2 text-xl">Alla yrken</h1>
         <FullTable
           data={occupations}
