@@ -34,6 +34,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
             >
               <a
               target="_blank"
+              rel="noreferrer"
                 href={`${
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
