@@ -8,11 +8,11 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <nav className="p-4 max-w-6xl mx-auto flex items-baseline">
+    <nav className="p-4 max-w-6xl mx-auto flex items-center">
       <Link href="/">
         <a
           tabIndex={0}
-          className="text-2xl block text-[#C1531B] font-bold focus:outline-none focus:ring focus:ring-violet-300"
+          className="text-2xl block text-[#C1531B] font-bold focus:outline-none focus:ring focus:ring-violet-300 min-w-max"
         >
           {"<Digital Spetskompetens>"}
         </a>
@@ -60,7 +60,7 @@ const Navbar = () => {
         </svg>
       </button>
       <ul
-        className={`md:ml-8 p-8 pt-24 md:p-0 space-y-4 transition duration-400 min-h-screen bg-white fixed left-0 md:left-auto md:top-auto md:bottom-auto top-0 bottom-0 md:relative md:min-h-0 md:w-auto md:bg-transparent w-full md:flex md:space-x-8 md:space-y-0 z-40
+          className={`md:ml-8 p-8 pt-24 md:p-0 space-y-4 transition duration-400 min-h-screen bg-white fixed left-0 md:left-auto md:top-auto md:bottom-auto top-0 bottom-0 md:relative md:min-h-0 md:bg-transparent w-full md:flex md:items-center md:space-x-8 md:space-y-0 z-40
           ${
             visible
               ? "translate-x-0 md:translate-x-0"
@@ -119,7 +119,7 @@ const Navbar = () => {
 
         <li
           tabIndex={0}
-          className="focus:outline-none focus:ring focus:ring-violet-300"
+          className="focus:outline-none focus:ring focus:ring-violet-300 flex-grow"
         >
           <Link href="/om-digspec">
             <a
@@ -135,7 +135,7 @@ const Navbar = () => {
           </Link>
         </li>
         {!router.pathname.includes("sok") ? (
-          <li>
+          <li className="">
             <NavbarSearch />
           </li>
         ) : null}
