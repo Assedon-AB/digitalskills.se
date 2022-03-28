@@ -22,6 +22,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 
         <Chart
           name={occupation.name}
+          digspecData={occupation}
           data={{
             labels: occupation.ad_series.labels.concat(
               occupation.prediction_series.month_12.labels

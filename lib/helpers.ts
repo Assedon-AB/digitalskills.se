@@ -2,6 +2,29 @@ const API_URL = process.env.API_URL ?? "http://localhost:4000/api/v1/";
 const API_KEY = process.env.API_KEY ?? "";
 const ORIGIN = process.env.ORIGIN ?? "http://locahost:3000";
 
+export const SKILL_IDS_TO_HIDE = [
+    "623ba5e039d0d1cfd8c06638",
+    "623ba5f039d0d1cfd8c0689c",
+    "623ba5e139d0d1cfd8c06662",
+    "623ba5df39d0d1cfd8c06614",
+    "623ba5f939d0d1cfd8c06a34",
+    "623ba5f439d0d1cfd8c0694a",
+    "623ba5e939d0d1cfd8c06776"
+]
+
+export const OCCUPATION_IDS_TO_HIDE = [
+    "623babd639d0d1cfd8c1fff4",
+    "623babca39d0d1cfd8c1fd66",
+    "623babd439d0d1cfd8c1ff88",
+    "623babe139d0d1cfd8c20294",
+    "623babd539d0d1cfd8c1ff94",
+    "623babdb39d0d1cfd8c20114",
+    "623babea39d0d1cfd8c204aa",
+    "623babea39d0d1cfd8c204aa",
+    "623babd139d0d1cfd8c1fee6"
+]
+
+
 const getCompetencies = async () => {
   const competencies = await fetch(API_URL + "kompetenser", {
     headers: {

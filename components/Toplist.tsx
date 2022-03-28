@@ -29,15 +29,15 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     var showData = industry.forecast3;
     switch (showMode) {
       case "Prognos 3 mån": {
-        showData = industry.prediction_values.month_3;
+        showData = industry.prediction_percentages.month_3;
         break;
       }
       case "Prognos 6 mån": {
-        showData = industry.prediction_values.month_6;
+        showData = industry.prediction_percentages.month_6;
         break;
       }
       case "Prognos 12 mån": {
-        showData = industry.prediction_values.month_12;
+        showData = industry.prediction_percentages.month_12;
         break;
       }
       case "Trend 3 mån": {
@@ -157,8 +157,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
   return (
     <div className="flex flex-col pt-8 xl:px-4 py-8">
       <div className="-my-2 overflow-hidden sm:-mx-6 lg:-mx-8">
-        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <div className="py-2 align-middle min-w-full sm:px-6 lg:px-8">
+          <div className="shadow overflow-auto border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
@@ -168,11 +168,9 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                   >
                     {category}
                   </th>
-                  <th
-                    scope="col"
-                    aria-hidden="true"
+                  <div
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  ></th>
+                  ></div>
                   <th
                     scope="col"
                     className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -273,8 +271,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {getShownBranschData().toFixed(1) +
-                        (showMode.includes("Trend") ? " %" : "")}
+                      {getShownBranschData().toFixed(1) + " %"}
                     </span>
                   </th>
                 </tr>

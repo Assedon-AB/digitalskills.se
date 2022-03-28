@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
 
-import { getCompetencies, getOccupations, getIndustry } from "../lib/helpers";
+import { getCompetencies, getOccupations, getIndustry, SKILL_IDS_TO_HIDE, OCCUPATION_IDS_TO_HIDE } from "../lib/helpers";
 
 import { DigspecData } from "../interfaces/Digspec";
 
@@ -81,13 +81,17 @@ export async function getStaticProps() {
 
   let competencies: DigspecData[] = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
-    competencies = competenciesRaw.sort((a, b) => b.num - a.num).slice(0, 100);
+      competencies = competenciesRaw
+          .filter((s => !SKILL_IDS_TO_HIDE.includes(s._id)))
+          .sort((a, b) => b.num - a.num)
+          .slice(0, 100);
   }
 
   let occupations: DigspecData[] = [];
   if (!occupationsRaw.hasOwnProperty("error")) {
     occupations = occupationsRaw
       .filter((s) => s.model)
+      .filter((o => !OCCUPATION_IDS_TO_HIDE.includes(o._id)))
       .sort((a, b) => b.num - a.num)
       .slice(0, 100);
   }

@@ -5,7 +5,7 @@ import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
 import { mockupData } from "../../lib/mockupData";
-import { getOccupations, getIndustry } from "../../lib/helpers";
+import { getOccupations, getIndustry, OCCUPATION_IDS_TO_HIDE } from "../../lib/helpers";
 
 import { DigspecData } from "../../interfaces/Digspec";
 import { useState } from "react";
@@ -111,6 +111,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     }
     return <Chart
     name={name}
+    digspecData={compareObjectList}
     data={{
       labels: finalLables,
       datasets: datasetObjects,
@@ -138,17 +139,12 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
 };
 
 export async function getStaticProps() {
-  const occupationsRaw = await getOccupations();
+    const occupationsRaw: DigspecData[] = await getOccupations();
   const industry = await getIndustry();
 
-  let occupations = [];
+    let occupations: DigspecData[] = [];
   if (!occupationsRaw.hasOwnProperty("error")) {
-    occupations = occupationsRaw.map((occupation: any) => ({
-      ...occupation,
-      num:
-        occupation.ad_series.values[occupation.ad_series.values.length - 1] ??
-        null,
-    }));
+      occupations = occupationsRaw.filter((o => !OCCUPATION_IDS_TO_HIDE.includes(o._id)))
   }
 
   return {
