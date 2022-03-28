@@ -1,4 +1,4 @@
-import { ExternalLinkIcon } from "@heroicons/react/outline";
+import { ExternalLinkIcon, LinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 interface ToplistRowProps {
@@ -44,7 +44,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
               >
                 <div className="flex flex row">{dataObject.name}
                 
-                <div className="flex items-center"><div><ExternalLinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></ExternalLinkIcon></div></div>
+                <div className="flex items-center"><div><LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></LinkIcon></div></div>
                 </div>
               </a>
             </div>
