@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 interface ToplistRowProps {
@@ -32,7 +33,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
               tabIndex={0}
               className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500 focus:ring"
             >
-              <a
+              <a 
               target="_blank"
               rel="noreferrer"
                 href={`${
@@ -41,7 +42,10 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                     : "/yrken"
                 }/${encodeURI(dataObject.name)}-${dataObject.id}`}
               >
-                {dataObject.name}
+                <div className="flex flex row">{dataObject.name}
+                
+                <div className="flex items-center"><div><ExternalLinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></ExternalLinkIcon></div></div>
+                </div>
               </a>
             </div>
           </div>

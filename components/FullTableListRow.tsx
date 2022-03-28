@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -46,7 +47,10 @@ const FullTableListRow = ({
                 target="_blank"
                 rel="noreferrer"
                 href={`/${category}/${encodeURI(data.name)}-${data._id}`}>
-                  {data.name}
+                 <div className="flex flex row">{data.name}
+                
+                <div className="flex items-center"><div><ExternalLinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></ExternalLinkIcon></div></div>
+                </div>
                 </a>
               </div>
             </div>
