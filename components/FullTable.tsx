@@ -12,6 +12,7 @@ interface FullTableProps {
   industry: any;
   updateCompareList: Function;
   compareList: string[];
+  showModal: Function;
 }
 
 const FullTable = ({
@@ -21,6 +22,7 @@ const FullTable = ({
   industry,
   updateCompareList,
   compareList,
+  showModal,
 }: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
@@ -76,6 +78,7 @@ const FullTable = ({
         category={category}
         callback={updateCompareList}
         compareList={compareList}
+        showModal = {showModal}
       ></FullTableListRow>
     ));
   }
@@ -103,14 +106,14 @@ const FullTable = ({
                   <th scope="col"></th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center  font-bold text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center  font-medium text-gray-500 uppercase tracking-wider"
                   >
                     <div className="flex flex-col ">
                       <p className="text-[10px]">Prognos</p>
                     </div>
                   </th>
                   <th scope="col"></th>
-                  <th scope="col" className="bg-gray-100"></th>
+                  <th scope="col" className="px-6 py-3 text-center bg-gray-100 font-medium text-gray-500 uppercase tracking-wider"><p className="text-[10px]">Jämför</p></th>
                 </tr>
                 <tr>
                   <th
@@ -299,7 +302,12 @@ const FullTable = ({
                     scope="col"
                     className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
                   >
-                    Jämför
+                    <button onClick={() => updateCompareList([])}>
+                      <div className="flex flex-row underline">
+                        Rensa
+                       
+                      </div>
+                    </button>
                   </th>
                 </tr>
                 <tr>

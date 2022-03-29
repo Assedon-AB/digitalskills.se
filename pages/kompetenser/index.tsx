@@ -5,11 +5,11 @@ import FullTable from "../../components/FullTable";
 
 import { getCompetencies, getIndustry, SKILL_IDS_TO_HIDE} from "../../lib/helpers";
 import { DigspecData } from "../../interfaces/Digspec";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
 import CompareTable from "../../components/CompareTable";
 import MetaTags from "../../components/MetaTags";
-
+import { Dialog, Transition } from "@headlessui/react";
 interface CompetencesPageProps {
   competencies: DigspecData[];
   industry: any;
@@ -22,6 +22,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   const [compareList, setCompareList] = useState<any[]>([]);
   const [compareObjectList, setCompareObjectList] = useState<DigspecData[]>([])
   const [shomCompare, setShowCompare] = useState(false)
+  let [isOpen, setIsOpen] = useState(false)
   const changeCompareList = (arg: string[]) => {
     setCompareList(arg);
     createCompareObjects()
@@ -32,6 +33,10 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
       setShowCompare(false)
     }
   };
+
+  function openModal() {
+    setIsOpen(true)
+  }
 
   const buildCompareComponent = () => {
     return <><h1 className="pt-8 pl-2 text-xl">Jämförelsetabell</h1><CompareTable data={compareObjectList} title={"Namn"} category={"kompetenser"} industry={industry} /></> ;
@@ -121,6 +126,68 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
         <MetaTags title="Kompetenser - Digitalspetskompetens" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
+     < Transition appear show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={() => setIsOpen(false)}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900"
+                >
+                  Maxantal för jämförelse uppnått
+                </Dialog.Title>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                    För tillfället är det möjligt att jämföra max 5 kompetenser. För att rensa jämförelsetabellen, klicka "rensa" under "Jämför" på huvudtabellen.
+                  </p>
+                </div>
+
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    OK!
+                  </button>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
       {compareList.length > 0 ? buildCompareChart(): null}
         {compareList.length > 0 ? buildCompareComponent(): <CompareMissingInfo category="kompetenser"/>}
         <h1 className="pt-16 pl-2 text-xl">Alla kompetenser</h1>
@@ -131,6 +198,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
           category="kompetenser"
           updateCompareList={changeCompareList}
           compareList={compareList}
+          showModal={openModal}
         ></FullTable>
       </article>
     </div>

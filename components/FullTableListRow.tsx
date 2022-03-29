@@ -1,6 +1,6 @@
 import { LinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { DigspecData } from "../interfaces/Digspec";
 
@@ -9,6 +9,7 @@ interface FullTableListRowProps {
   data: DigspecData;
   callback: Function;
   compareList: string[];
+  showModal: Function;
 }
 
 const Checkbox = ({ onClick, checked }: { onClick: any; checked: boolean }) => {
@@ -27,8 +28,17 @@ const FullTableListRow = ({
   category,
   callback,
   compareList,
+  showModal,
 }: FullTableListRowProps) => {
   const [checked, setChecked] = useState<boolean>(false);
+  
+  const [compList, setCompList] = useState(compareList)
+
+  useEffect(() => {
+    setChecked(false)
+  }, [compareList]);
+
+
 
   if (data.num) {
     return (
@@ -128,18 +138,24 @@ const FullTableListRow = ({
         <td className="px-6 py-4 whitespace-nowrap">
           <Checkbox
             onClick={() => {
-              if (checked) {
-                setChecked(false);
-                const index: number = compareList.indexOf(data._id, 0);
-                if (index > -1) {
-                  compareList.splice(index, 1);
+              if(compareList.length < 5) {
+                if (checked) {
+                  setChecked(false);
+                  const index: number = compareList.indexOf(data._id, 0);
+                  if (index > -1) {
+                    compareList.splice(index, 1);
+                  }
+                  callback(compareList);
+                } else {
+                  setChecked(true);
+                  compareList.push(data._id);
+                  callback(compareList);
                 }
-                callback(compareList);
-              } else {
-                setChecked(true);
-                compareList.push(data._id);
-                callback(compareList);
               }
+              else {
+                showModal()
+              }
+             
             }}
             checked={checked}
           ></Checkbox>
