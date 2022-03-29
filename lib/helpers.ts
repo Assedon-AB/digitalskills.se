@@ -69,7 +69,7 @@ const getOccupations = async () => {
   })
     .then((res) => res.json())
     .catch((err) => {
-      console.log("Error:", err);
+      console.log(err);
       return [];
     });
 

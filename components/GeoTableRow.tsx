@@ -29,21 +29,23 @@ const FullTableListRow = ({
       onClick={() => {
         mode == dataObject.name ? setMode("") : setMode(dataObject.name);
       }}
+      className={`cursor-pointer hover:bg-gray-50`}
     >
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
           <div className="ml-0">
             <div className="text-xs font-medium text-gray-900 flex flex-col ">
               {mode == dataObject.name ? (
-                <div className="font-bold">{dataObject.name}</div>
+                <div className="font-bold capitalize">{dataObject.name}</div>
               ) : (
-                <div className="font-medium">{dataObject.name}</div>
+                <div className="font-medium capitalize">{dataObject.name}</div>
               )}
               {mode == dataObject.name
                 ? dataObject.details.map((detailObject, index) => (
                     <div
                       className="text-transparent py-1"
-                      key={`empty-row-${index}`}
+                      key={`empty-row-${index}-${dataObject.name}`}
+                      aria-hidden="true"
                     >
                       {"empty"}
                     </div>

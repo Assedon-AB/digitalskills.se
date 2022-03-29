@@ -1,10 +1,8 @@
 import type { NextPage } from "next";
 
 import Chart from "../../components/Chart";
-import StatsCard from "../../components/StatsCard";
 import FullTable from "../../components/FullTable";
 
-import { mockupData } from "../../lib/mockupData";
 import { getOccupations, getIndustry, OCCUPATION_IDS_TO_HIDE } from "../../lib/helpers";
 
 import { DigspecData } from "../../interfaces/Digspec";
@@ -28,7 +26,6 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   const [shomCompare, setShowCompare] = useState(false)
   let [isOpen, setIsOpen] = useState(false)
   const changeCompareList = (arg: string[]) => {
-    console.log(compareList);
     setCompareList(arg);
     createCompareObjects()
     if (compareList.length > 0) {
@@ -51,13 +48,9 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     var tempCompareObjectsList: DigspecData[] = []
     for (const dIndex in compareList) {
       var dId  = compareList[dIndex]
-      console.log(dId)
       var index = occupations.findIndex(x => x._id === dId)
-      console.log(index)
       tempCompareObjectsList.push(occupations[index])
     }
-    console.log(compareList)
-    console.log(tempCompareObjectsList)
     setCompareObjectList(tempCompareObjectsList);
   }
 

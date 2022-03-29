@@ -53,12 +53,11 @@ const FullTableListRow = ({
                 className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500 focus:outline-none focus:ring focus:ring-violet-300"
                 tabIndex={0}
               >
-                <a 
+                <a
                 target="_blank"
                 rel="noreferrer"
-                href={`/${category}/${encodeURI(data.name)}-${data._id}`}>
+                href={`/${category}/${encodeURIComponent(data.name)}-${data._id}`}>
                  <div className="flex flex row">{data.name}
-                
                 <div className="flex items-center"><div><LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></LinkIcon></div></div>
                 </div>
                 </a>
