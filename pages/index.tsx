@@ -27,7 +27,7 @@ const Home: NextPage<HomePageProps> = ({
         <div className="flex flex-col sm:flex-row px-4">
           <div className="flex flex-col w-12/12 sm:w-6/12">
             <h1 className="text-4xl ">Översikt</h1>
-            <p className="pt-4 pb-4 pr-8 text-sm">
+            <p className="pt-4 pb-4 pr-8 text-sm leading-relaxed">
               Tillväxtverket och Universitetskanslersämbetet har av regeringen
               fått i uppdrag att tillsammans analysera och föreslå hur
               kompetensförsörjningen av digital spetskompetens kan utvecklas

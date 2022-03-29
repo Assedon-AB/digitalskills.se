@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between">
         <div className="md:w-3/5 md:mr-8">
           <p className="text-xl mb-2">{"<Digitalspetskompetens>"}</p>
-          <p className="">
+          <p className="leading-relaxed">
             Tillväxtverket och Universitetskanslersämbetet har av regeringen
             fått i uppdrag att tillsammans analysera och föreslå hur
             kompetensförsörjningen av digital spetskompetens kan utvecklas både

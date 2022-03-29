@@ -9,16 +9,16 @@ const AttentionCard = () => {
         <div className="flex items-start">
           <InformationCircleIcon className="h-6 w-6 text-gray-500 ml-2" />
           <div className="flex flex-col ml-3 mr-8">
-            <div className="font-medium text-sm leading-none">Hämtad senast</div>
-            <p className="text-xs text-gray-600 leading-none   mt-1">
+            <div className="font-medium text-sm leading-relaxed">Hämtad senast</div>
+            <p className="text-xs text-gray-600 leading-relaxed mt-1">
             Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31.
             </p>
-            <div className="font-medium text-sm leading-none pt-4">Vad menas med trend?</div>
-            <p className="text-xs text-gray-600 leading-none mt-1">
+            <div className="font-medium text-sm leading-relaxed pt-4">Vad menas med trend?</div>
+            <p className="text-xs text-gray-600 leading-relaxed mt-1">
             Trenden räknas fram genom att jämföra senast uppmätta månadsvärde historiskt över trendperioderna.
             </p>
-            <div className="font-medium text-sm leading-none pt-4">Vad menas med prognos?</div>
-            <p className="text-xs text-gray-600 leading-none mt-1">
+            <div className="font-medium text-sm leading-relaxed pt-4">Vad menas med prognos?</div>
+            <p className="text-xs text-gray-600 leading-relaxed mt-1">
             Prognosen görs med hjälp av exponentiell utjämning över prognosperioderna framåt sett från senast uppmätta månadsvärde.
             </p>
           </div>
