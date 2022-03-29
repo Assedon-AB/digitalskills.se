@@ -166,7 +166,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    För tillfället är det möjligt att jämföra max 5 kompetenser. För att rensa jämförelsetabellen, klicka "rensa" under "Jämför" på huvudtabellen.
+                    För tillfället är det möjligt att jämföra max 5 kompetenser. För att rensa jämförelsetabellen, klicka rensa under Jämför på huvudtabellen.
                   </p>
                 </div>
 
