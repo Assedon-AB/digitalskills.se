@@ -26,7 +26,7 @@ const Footer = () => {
             <Link href="/yrken">Yrken</Link>
           </li>
           <li className="hover:text-blue-500">
-            <Link href="/om-digspec">Om digitalspetskompetens</Link>
+            <Link href="/om-digspec">Om digitalskills</Link>
           </li>
           <li className="hover:text-blue-500">
             <Link href="https://dig-api-kbrvfttzua-uc.a.run.app/">API</Link>

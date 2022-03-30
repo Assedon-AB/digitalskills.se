@@ -130,7 +130,7 @@ const Navbar = () => {
                   : "text-[#C1531B]"
               }`}
             >
-              Om Digspec
+              Om Digitalskills
             </a>
           </Link>
         </li>
