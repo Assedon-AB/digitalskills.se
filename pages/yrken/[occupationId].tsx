@@ -14,7 +14,7 @@ interface OccupationPageProps {
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
-        <MetaTags title={occupation.name + " - Digitalspetskompetens"} />
+        <MetaTags title={occupation.name} />
       <article className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl capitalize font-semibold mb-8">
           {occupation.name}

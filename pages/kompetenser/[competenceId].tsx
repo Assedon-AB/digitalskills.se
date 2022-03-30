@@ -15,7 +15,7 @@ interface CompetencePageProps {
 const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
-        <MetaTags title={competence.name + " - Digitalspetskompetens"} />
+        <MetaTags title={competence.name} />
       <article className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl capitalize font-semibold mb-8">
           {competence.name}

@@ -120,7 +120,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
 
   return (
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
-        <MetaTags title="Kompetenser - Digitalspetskompetens" />
+        <MetaTags title="Kompetenser" />
       <article className="max-w-6xl px-4 mx-auto pt-8">
      < Transition appear show={isOpen} as={Fragment}>
         <Dialog
