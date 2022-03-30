@@ -14,7 +14,7 @@ const Navbar = () => {
           tabIndex={0}
           className="text-2xl block text-[#C1531B] font-bold focus:outline-none focus:ring focus:ring-violet-300 min-w-max"
         >
-          {"<Digital Spetskompetens>"}
+          {"Digitalskills.se"}
         </a>
       </Link>
       <button
