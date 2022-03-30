@@ -4,22 +4,22 @@ import Chart from "../../components/Chart";
 import FullTable from "../../components/FullTable";
 
 import { getCompetencies, getIndustry, SKILL_IDS_TO_HIDE} from "../../lib/helpers";
-import { DigspecData } from "../../interfaces/Digspec";
-import { Fragment, useEffect, useState } from "react";
+import { DigspecData, IndustryData } from "../../interfaces/Digspec";
+import { Fragment, useState } from "react";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
 import CompareTable from "../../components/CompareTable";
 import MetaTags from "../../components/MetaTags";
 import { Dialog, Transition } from "@headlessui/react";
 interface CompetencesPageProps {
   competencies: DigspecData[];
-  industry: any;
+  industry: IndustryData;
 }
 
 const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   competencies,
   industry,
 }) => {
-  const [compareList, setCompareList] = useState<any[]>([]);
+  const [compareList, setCompareList] = useState<string[]>([]);
   const [compareObjectList, setCompareObjectList] = useState<DigspecData[]>([])
   const [shomCompare, setShowCompare] = useState(false)
   let [isOpen, setIsOpen] = useState(false)

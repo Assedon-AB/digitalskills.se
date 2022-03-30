@@ -49,3 +49,30 @@ export interface DigspecData {
   };
   href?: string;
 }
+
+export interface IndustryData {
+  _id: string;
+  name: string;
+  num: number;
+  prediction_series: {
+    [predSpan: string]: {
+      labels: string[];
+      values: number[];
+    };
+  };
+  model: string;
+  mape: {
+    value: number;
+    type: string;
+  }[];
+  eval_mape: number;
+  prediction_values: {
+    [predSpan: string]: number;
+  };
+  prediction_percentages: {
+    [predSpan: string]: number;
+  };
+  trend_percentages: {
+    [trendSpan: string]: number;
+  };
+}

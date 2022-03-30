@@ -1,15 +1,16 @@
-import Link from "next/link";
 import { useState } from "react";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 import GeoTableRow from "./GeoTableRow";
 
-interface GeoTableProps {
-  data: {
+interface GeoData {
     name: string;
     num: number;
     organisations_num: number;
     details: { num: number; name: string }[];
-  }[];
+}
+
+interface GeoTableProps {
+  data: GeoData[];
   title: string;
 }
 
@@ -21,7 +22,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
     setShowMode(arg);
   };
 
-  function sortBy(arr: any[], mode: string) {
+  function sortBy(arr: GeoData[], mode: string) {
     var prop = "num";
     if (mode == "Antal annonser") {
       prop = "num";
@@ -31,7 +32,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
       prop = "name";
     }
 
-    data = arr.sort((a, b) => b[prop] - a[prop]);
+      data = arr.sort((a: any, b: any) => b[prop] - a[prop]);
     if (prop == "name") {
       data = arr.sort((a, b) => a["name"].localeCompare(b["name"]));
     }

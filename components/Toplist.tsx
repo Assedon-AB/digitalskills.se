@@ -4,19 +4,19 @@ import FilterDropdown from "./filterDropdown";
 import ToplistRow from "./ToplistRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
-import { DigspecData } from "../interfaces/Digspec";
+import { DigspecData, IndustryData } from "../interfaces/Digspec";
 interface ToplistProps {
   data: DigspecData[];
   title: string;
   category: string;
-  industry: any;
+  industry: IndustryData;
 }
 
 const Toplist = ({ data, title, category, industry }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
   const [showMode, setShowMode] = useState("Trend 12 mån");
 
-  function classNames(...classes: any[]) {
+  function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
   }
 
@@ -25,7 +25,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     setSortMode("Antal annonser");
   };
   function getShownBranschData() {
-    var showData = industry.forecast3;
+    var showData = industry.prediction_percentages.month_3;
     switch (showMode) {
       case "Prognos 3 mån": {
         showData = industry.prediction_percentages.month_3;
@@ -55,7 +55,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     return showData;
   }
 
-  function sortBy(arr: any[], mode: string, showWhat: string) {
+  function sortBy(arr: DigspecData[], mode: string, showWhat: string) {
     var preProp: string = "";
     var prop = "num";
     var show = "forecast3";
@@ -106,9 +106,9 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     }
     let newData = [];
     if (preProp) {
-      newData = arr.sort((a, b) => b[preProp][prop] - a[preProp][prop]);
+        newData = arr.sort((a: any, b: any) => b[preProp][prop] - a[preProp][prop]);
     } else {
-      newData = arr.sort((a, b) => b[prop] - a[prop]);
+        newData = arr.sort((a: any, b: any) => b[prop] - a[prop]);
     }
 
     if (prop == "name") {

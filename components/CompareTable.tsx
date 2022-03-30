@@ -1,16 +1,14 @@
-import Link from "next/link";
 import { useState } from "react";
-import FullTableListRow from "./FullTableListRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
-import { DigspecData } from "../interfaces/Digspec";
+import { DigspecData, IndustryData } from "../interfaces/Digspec";
 import CompareTableRow from "./CompareTableRow";
 
 interface CompareTableProps {
   data: DigspecData[];
   title: string;
   category: string;
-  industry: any;
+  industry: IndustryData;
 
 }
 
@@ -23,7 +21,7 @@ const CompareTable = ({
 }: CompareTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
-  function sortBy(arr: any[], mode: string) {
+  function sortBy(arr: DigspecData[], mode: string) {
     let preProp = "";
     var prop = "num";
     if (mode == "Antal annonser") {
@@ -54,7 +52,7 @@ const CompareTable = ({
 
     let newData = [];
     if (preProp) {
-      newData = arr.sort((a, b) => {
+        newData = arr.sort((a: any, b: any) => {
         if (b[preProp] && a[preProp]) {
           return b[preProp][prop] - a[preProp][prop];
         } else {
@@ -62,13 +60,13 @@ const CompareTable = ({
         }
       });
     } else {
-      newData = arr.sort((a, b) => b[prop] - a[prop]);
+        newData = arr.sort((a: any, b: any) => b[prop] - a[prop]);
     }
     if (prop == "name") {
       newData = arr.sort((a, b) => a["name"].localeCompare(b["name"]));
     }
 
-    return newData.map((d, index) => (
+    return newData.map((d) => (
       <CompareTableRow
         key={d._id}
         data={d}

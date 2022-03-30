@@ -4,14 +4,14 @@ import Toplist from "../components/Toplist";
 
 import { getCompetencies, getOccupations, getIndustry, SKILL_IDS_TO_HIDE, OCCUPATION_IDS_TO_HIDE } from "../lib/helpers";
 
-import { DigspecData } from "../interfaces/Digspec";
+import { DigspecData, IndustryData } from "../interfaces/Digspec";
 
 import MetaTags from "../components/MetaTags";
 
 interface HomePageProps {
   competencies: DigspecData[];
   occupations: DigspecData[];
-  industry: any;
+  industry: IndustryData;
 }
 
 const Home: NextPage<HomePageProps> = ({

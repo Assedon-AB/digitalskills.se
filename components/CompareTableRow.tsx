@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { useState } from "react";
-
 import { DigspecData } from "../interfaces/Digspec";
 
 interface CompareTableRowProps {
@@ -9,25 +7,12 @@ interface CompareTableRowProps {
 
 }
 
-const Checkbox = ({ onClick, checked }: { onClick: any; checked: boolean }) => {
-  return (
-    <input
-      type="checkbox"
-      className="h-6 w-6 border-2 border-blue-500 rounded-md focus:outline-none focus:ring"
-      onClick={onClick}
-      checked={checked}
-    />
-  );
-};
-
 const CompareTableRow = ({
   data,
   category,
 
 
 }: CompareTableRowProps) => {
-  const [checked, setChecked] = useState<boolean>(false);
-
   if (data.num) {
     return (
       <tr

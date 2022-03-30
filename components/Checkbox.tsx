@@ -1,4 +1,6 @@
-const Checkbox = ({ onClick, checked, id }: { onClick: any; checked: boolean, id: string }) => {
+import { MouseEvent } from "react";
+
+const Checkbox = ({ onClick, checked, id }: { onClick: (event: MouseEvent<HTMLInputElement>) => void, checked: boolean, id: string }) => {
     return (
       <div className="flex items-center">
         <input

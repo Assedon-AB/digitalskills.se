@@ -1,6 +1,5 @@
 import { LinkIcon } from "@heroicons/react/outline";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, MouseEvent } from "react";
 
 import { DigspecData } from "../interfaces/Digspec";
 
@@ -12,7 +11,7 @@ interface FullTableListRowProps {
   showModal: Function;
 }
 
-const Checkbox = ({ onClick, checked }: { onClick: any; checked: boolean }) => {
+const Checkbox = ({ onClick, checked }: { onClick: (event: MouseEvent<HTMLInputElement>) => void; checked: boolean }) => {
   return (
     <input
       type="checkbox"
@@ -32,8 +31,6 @@ const FullTableListRow = ({
 }: FullTableListRowProps) => {
   const [checked, setChecked] = useState<boolean>(false);
   
-  const [compList, setCompList] = useState(compareList)
-
   useEffect(() => {
     setChecked(false)
   }, [compareList]);

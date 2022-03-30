@@ -1,15 +1,14 @@
-import Link from "next/link";
 import { useState } from "react";
 import FullTableListRow from "./FullTableListRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
-import { DigspecData } from "../interfaces/Digspec";
+import { DigspecData, IndustryData } from "../interfaces/Digspec";
 
 interface FullTableProps {
   data: DigspecData[];
   title: string;
   category: string;
-  industry: any;
+  industry: IndustryData;
   updateCompareList: Function;
   compareList: string[];
   showModal: Function;
@@ -26,7 +25,7 @@ const FullTable = ({
 }: FullTableProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
 
-  function sortBy(arr: any[], mode: string) {
+  function sortBy(arr: DigspecData[], mode: string) {
     let preProp = "";
     var prop = "num";
     if (mode == "Antal annonser") {
@@ -57,7 +56,7 @@ const FullTable = ({
 
     let newData = [];
     if (preProp) {
-      newData = arr.sort((a, b) => {
+        newData = arr.sort((a: any, b: any) => {
         if (b[preProp] && a[preProp]) {
           return b[preProp][prop] - a[preProp][prop];
         } else {
@@ -65,7 +64,7 @@ const FullTable = ({
         }
       });
     } else {
-      newData = arr.sort((a, b) => b[prop] - a[prop]);
+        newData = arr.sort((a: any, b: any) => b[prop] - a[prop]);
     }
     if (prop == "name") {
       newData = arr.sort((a, b) => a["name"].localeCompare(b["name"]));

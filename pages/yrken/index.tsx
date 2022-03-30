@@ -5,7 +5,7 @@ import FullTable from "../../components/FullTable";
 
 import { getOccupations, getIndustry, OCCUPATION_IDS_TO_HIDE } from "../../lib/helpers";
 
-import { DigspecData } from "../../interfaces/Digspec";
+import { DigspecData, IndustryData } from "../../interfaces/Digspec";
 import { Fragment, useState } from "react";
 import CompareTable from "../../components/CompareTable";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
@@ -14,14 +14,14 @@ import { Dialog, Transition } from "@headlessui/react";
 
 interface OccupationPageProps {
   occupations: DigspecData[];
-  industry: any;
+  industry: IndustryData;
 }
 
 const OccupationsOverview: NextPage<OccupationPageProps> = ({
   occupations,
   industry,
 }) => {
-  const [compareList, setCompareList] = useState<any[]>([]);
+  const [compareList, setCompareList] = useState<string[]>([]);
   const [compareObjectList, setCompareObjectList] = useState<DigspecData[]>([])
   const [shomCompare, setShowCompare] = useState(false)
   let [isOpen, setIsOpen] = useState(false)
@@ -55,8 +55,6 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   }
 
   const buildCompareChart = () => {
-    
-    
     var name = ""
     const historyColorsBorder = ["rgb(99, 99, 255)", "rgb(200, 140, 200)", "rgb(100, 10, 220)", "rgb(152, 38, 73)", "rgb(96, 178, 229)"]
     const historyColorsBackground = ["rgba(99, 99, 255, 0.5)", "rgba(200, 140, 200, 0.5)", "rgb(100, 10, 220, 0.5)", "rgb(152, 38, 73, 0.5)", "rgb(96, 178, 229, 0.5)"]

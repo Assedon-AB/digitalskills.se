@@ -13,7 +13,6 @@ const CompareMissingInfo = ({ category }: { category: string; }) => {
             <p className="text-xs text-gray-600 leading-none   mt-1">
             {`Klicka i de ${category} som du vill jämföra.`}
             </p>
-           
           </div>
         </div>
       </div>
