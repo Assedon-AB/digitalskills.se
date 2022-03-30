@@ -207,7 +207,7 @@ export async function getStaticProps() {
 
     let competencies: DigspecData[] = [];
   if (!competenciesRaw.hasOwnProperty("error")) {
-    competencies = competenciesRaw.filter(s => !SKILL_IDS_TO_HIDE.includes(s._id))
+    competencies = competenciesRaw.filter(s => !SKILL_IDS_TO_HIDE.includes(s._id)).sort((a, b) => b.num - a.num).slice(0, 5000);
   }
 
   return {

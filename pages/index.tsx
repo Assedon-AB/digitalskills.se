@@ -96,6 +96,7 @@ export async function getStaticProps() {
       .slice(0, 100);
   }
 
+
   return {
     props: {
       competencies,

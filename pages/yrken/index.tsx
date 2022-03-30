@@ -206,7 +206,7 @@ export async function getStaticProps() {
 
     let occupations: DigspecData[] = [];
   if (!occupationsRaw.hasOwnProperty("error")) {
-      occupations = occupationsRaw.filter((o => !OCCUPATION_IDS_TO_HIDE.includes(o._id)))
+      occupations = occupationsRaw.filter((o => !OCCUPATION_IDS_TO_HIDE.includes(o._id))).sort((a, b) => b.num - a.num).slice(0, 5000);
   }
 
   return {

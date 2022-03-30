@@ -73,7 +73,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {`${data.trend_percentages.month_3.toFixed(1)} %`}
+              {data.trend_percentages?.month_3 ? `${data.trend_percentages.month_3.toFixed(1)} %` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -84,7 +84,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {`${data.trend_percentages.month_6.toFixed(1)} %`}
+              {data.trend_percentages?.month_6 ? `${data.trend_percentages.month_6.toFixed(1)} %` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -95,7 +95,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {`${data.trend_percentages.month_12.toFixed(1)} %`}
+              {data.trend_percentages?.month_12 ? `${data.trend_percentages.month_12.toFixed(1)} %` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -106,7 +106,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {data.prediction_percentages.month_3.toFixed(1)}%
+              {data.prediction_percentages.month_3 ? `${data.prediction_percentages.month_3.toFixed(1)}%` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -117,7 +117,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {data.prediction_percentages.month_6.toFixed(1)}%
+              {data.prediction_percentages.month_6 ? `${data.prediction_percentages.month_6.toFixed(1)}%` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -128,7 +128,7 @@ const FullTableListRow = ({
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {data.prediction_percentages.month_12.toFixed(1)}%
+              {data.prediction_percentages.month_12 ? `${data.prediction_percentages.month_12.toFixed(1)} %` : null}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -151,7 +151,7 @@ const FullTableListRow = ({
               else {
                 showModal()
               }
-             
+
             }}
             checked={checked}
           ></Checkbox>

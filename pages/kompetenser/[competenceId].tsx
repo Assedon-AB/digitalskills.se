@@ -1,4 +1,4 @@
-import type { NextPage, GetServerSideProps } from "next";
+import type { NextPage, GetStaticProps } from "next";
 
 import Chart from "../../components/Chart";
 import SmallCard from "../../components/SmallCard";
@@ -6,7 +6,7 @@ import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
 
 import { DigspecData } from "../../interfaces/Digspec";
-import { getCompetence } from "../../lib/helpers";
+import { getCompetence, getCompetencies } from "../../lib/helpers";
 
 interface CompetencePageProps {
   competence: DigspecData;
@@ -20,12 +20,14 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
         <h1 className="text-4xl capitalize font-semibold mb-8">
           {competence.name}
         </h1>
+
+      {competence.ad_series && competence.ad_series.labels ? (
         <Chart
           name={competence.name}
           digspecData={competence}
           data={{
             labels: competence.ad_series.labels.concat(
-              competence.prediction_series.month_12.labels
+                competence.prediction_series?.month_12 ? competence.prediction_series.month_12.labels : []
             ),
             datasets: [
               {
@@ -36,12 +38,12 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
               },
               {
                 label: "Prognos",
-                data: competence.prediction_series.month_12.values.map(
+                data: competence.prediction_series?.month_12 ? competence.prediction_series.month_12.values.map(
                   (y, index) => ({
                     y,
                     x: competence.prediction_series.month_12.labels[index],
                   })
-                ),
+                ) : [],
                 borderColor: "rgb(255, 99, 132)",
                 borderDash: [10, 5],
                 backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -49,7 +51,10 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
             ],
           }}
         />
+        ) : null}
 
+        {competence.geos ? (
+            <>
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
         <GeoTable
           data={Object.keys(competence.geos)
@@ -68,25 +73,33 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
             .slice(0, 15)}
           title="Område"
         />
+            </>
+        ) : null}
 
-        <h2 className="text-2xl mb-4 mt-8">
-          Yrken som ofta efterfrågar {competence.name}
-        </h2>
-        {Object.keys(competence.jobs)
-          .sort((a, b) => competence.jobs[b] - competence.jobs[a])
-          .slice(0, 8)
-          .map((name) => (
-            <SmallCard
-              key={"related-occupation-" + name}
-              text={name.split("__")[0]}
-              href={
-                name.split("__")[1] !== "noId"
-                  ? "/yrken/" + name.split("__")[1]
-                  : undefined
-              }
-            />
-          ))}
+        {competence.jobs ? (
+            <>
+            <h2 className="text-2xl mb-4 mt-8">
+              Yrken som ofta efterfrågar {competence.name}
+            </h2>
+            {Object.keys(competence.jobs)
+              .sort((a, b) => competence.jobs[b] - competence.jobs[a])
+              .slice(0, 8)
+              .map((name) => (
+                <SmallCard
+                  key={"related-occupation-" + name}
+                  text={name.split("__")[0]}
+                  href={
+                    name.split("__")[1] !== "noId"
+                      ? "/yrken/" + name.split("__")[1]
+                      : undefined
+                  }
+                />
+              ))}
+          </>
+      ) : null}
 
+      {competence.skills ? (
+          <>
         <h2 className="text-2xl mb-4 mt-8">Relaterade kompetenser</h2>
         {Object.keys(competence.skills)
           .sort((a, b) => competence.skills[b] - competence.skills[a])
@@ -102,6 +115,8 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
               }
             />
           ))}
+      </>
+      ) : null}
 
         <h2 className="text-xl mb-4 mt-8">Källor</h2>
         <p className="leading-relaxed">
@@ -118,11 +133,30 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 
 export default CompetencePage;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const param = context.params?.competenceId;
-  const competenceId = typeof param === "string" ? param.split("-")[1] : "";
+export async function getStaticPaths() {
+    const competenciesRaw: DigspecData[] = await getCompetencies();
+    let paths: {params: {competenceId: string}}[] = [];
+    if (!competenciesRaw.hasOwnProperty("error")) {
+        paths = competenciesRaw.map((competence) => (
+            {
+                params: {
+                    competenceId: `${encodeURIComponent(competence?.name)}-${competence._id}`
+                }
+            }
+        ))
+    }
 
-  const competence = await getCompetence(competenceId);
+    return {
+        paths,
+        fallback: true
+    };
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const param = context.params?.competenceId;
+  const competenceIdSplitted = typeof param === "string" ? param.split("-") : "";
+
+  const competence = await getCompetence(competenceIdSplitted[competenceIdSplitted.length - 1]);
   return {
     props: {
       competence,
