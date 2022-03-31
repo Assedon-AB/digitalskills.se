@@ -71,7 +71,7 @@ const SearchPage: NextPage<SearchPageProps> = ({
       ) {
         res.push({
           ...occupation,
-          href: `/yrken/${occupation.name}-${occupation._id}`,
+          href: `/yrken/${encodeURIComponent(occupation.name.replace(" ", ""))}-${occupation._id}`,
         });
       }
     });

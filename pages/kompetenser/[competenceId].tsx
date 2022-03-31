@@ -90,7 +90,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
                   text={name.split("__")[0]}
                   href={
                     name.split("__")[1] !== "noId"
-                      ? "/yrken/" + `${encodeURIComponent(name.split("__")[0])}-${name.split("__")[1]}`
+                      ? "/yrken/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
                       : undefined
                   }
                 />
@@ -110,7 +110,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
               text={name.split("__")[0]}
               href={
                 name.split("__")[1] !== "noId"
-                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0])}-${name.split("__")[1]}`
+                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
                   : undefined
               }
             />
@@ -140,7 +140,7 @@ export async function getStaticPaths() {
         paths = competenciesRaw.map((competence) => (
             {
                 params: {
-                    competenceId: `${encodeURIComponent(competence?.name)}-${competence._id}`
+                    competenceId: `${encodeURIComponent(competence?.name.replace(" ", ""))}-${competence._id}`
                 }
             }
         ))

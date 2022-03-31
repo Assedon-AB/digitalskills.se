@@ -40,7 +40,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
                     : "/yrken"
-                }/${encodeURIComponent(dataObject.name)}-${dataObject.id}`}
+                }/${encodeURIComponent(dataObject.name.replace(" ", ""))}-${dataObject.id}`}
               >
                 <div className="flex flex row">{dataObject.name}
                 

@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="p-4 max-w-6xl mx-auto flex items-center">
         <p
-          className="text-2xl block text-[#C1531B] font-bold min-w-max"
+          className="text-2xl block min-w-max"
         > {"Digitalskills.se"}
         </p>
       <button
@@ -73,8 +73,8 @@ const Navbar = () => {
           <Link href="/">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
-                router.pathname === "/" ? "text-[#007078]" : "text-[#C1531B]"
+              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
+                router.pathname === "/" ? "border-b-2 border-[#E87200] text-[#E87200]" : ""
               }`}
               onClick={close}
             >
@@ -88,10 +88,10 @@ const Navbar = () => {
           <Link href="/kompetenser">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
+              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
                 router.pathname.includes("kompetenser")
-                  ? "text-[#007078]"
-                  : "text-[#C1531B]"
+                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  : ""
               }`}
               onClick={close}
             >
@@ -105,10 +105,10 @@ const Navbar = () => {
           <Link href="/yrken">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
+              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
                 router.pathname.includes("yrken")
-                  ? "text-[#007078]"
-                  : "text-[#C1531B]"
+                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  : ""
               }`}
               onClick={close}
             >
@@ -123,10 +123,10 @@ const Navbar = () => {
           <Link href="/om-digitalskills">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
+              className={`pb-2 hover:text-[#E87200] text-sm ${
                 router.pathname.includes("om-digitalskills")
-                  ? "text-[#007078]"
-                  : "text-[#C1531B]"
+                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  : ""
               }`}
               onClick={close}
             >

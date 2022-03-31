@@ -99,8 +99,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
               x: compareObjectList[i].prediction_series.month_12.labels[index],
             })
           ),
-          borderColor: forecastColorsBorder[i],
-          borderDash: [20, 0],
+          borderColor: forecastColorsBorder[i], borderDash: [20, 0],
           backgroundColor: forecastColorsBackground[i],
         }
       )

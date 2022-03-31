@@ -89,7 +89,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
               text={name.split("__")[0]}
               href={
                 name.split("__")[1] !== "noId"
-                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0])}-${name.split("__")[1]}`
+                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
                   : undefined
               }
             />
@@ -123,7 +123,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                       text={name.split("__")[0]}
                       href={
                         name.split("__")[1] !== "noId"
-                          ? "/yrken/" + `${encodeURIComponent(name.split("__")[0])}-${name.split("__")[1]}`
+                          ? "/yrken/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
                           : undefined
                       }
                     />
@@ -153,7 +153,7 @@ export async function getStaticPaths() {
         paths = occupationsRaw.map((occupation) => (
             {
                 params: {
-                    occupationId: `${encodeURIComponent(occupation.name)}-${occupation._id}`
+                    occupationId: `${encodeURIComponent(occupation.name.replace(" ", ""))}-${occupation._id}`
                 }
             }
         ))

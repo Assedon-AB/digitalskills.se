@@ -53,7 +53,7 @@ const FullTableListRow = ({
                 <a
                 target="_blank"
                 rel="noreferrer"
-                href={`/${category}/${encodeURIComponent(data.name)}-${data._id}`}>
+                href={`/${category}/${encodeURIComponent(data.name.replace(" ", ""))}-${data._id}`}>
                  <div className="flex flex row">{data.name}
                 <div className="flex items-center"><div><LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true"></LinkIcon></div></div>
                 </div>
