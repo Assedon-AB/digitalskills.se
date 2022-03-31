@@ -15,8 +15,7 @@ const Navbar = () => {
     <nav className="p-4 max-w-6xl mx-auto flex items-center">
         <p
           className="text-2xl block text-[#C1531B] font-bold min-w-max"
-        >
-          {"Digitalskills.se"}
+        > {"Digitalskills.se"}
         </p>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
@@ -121,11 +120,11 @@ const Navbar = () => {
         <li
           className="focus:outline-none focus:ring focus:ring-violet-300 flex-grow"
         >
-          <Link href="/om-digspec">
+          <Link href="/om-digitalskills">
             <a
               tabIndex={0}
               className={`pb-2 hover:text-[#b2b2be] text-sm font-bold ${
-                router.pathname.includes("om-digspec")
+                router.pathname.includes("om-digitalskills")
                   ? "text-[#007078]"
                   : "text-[#C1531B]"
               }`}
