@@ -65,14 +65,14 @@ export default function Chart({ name, digspecData, data }: ChartProps) {
           {Array.isArray(digspecData) && digspecData.length > 0 ? (digspecData.map((obj) => (
               <div className="mb-4 mr-4 bg-white p-4 rounded-md border w-max" key={obj._id+"-chart-metadata"}>
                   <p className="capitalize text-lg">{obj.name}</p>
-                  <p><span className="text-blue-600 font-bold">Model:{" "}</span>{obj.model}</p>
-                  <p><Link passHref={true} href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error"><a target="_blank" className="text-blue-600 font-bold hover:text-blue-800">MAPE:{" "}</a></Link>{obj.eval_mape}</p>
+                  <p><span className="font-bold">Model:{" "}</span>{obj.model}</p>
+                  <p><Link passHref={true} href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error"><a target="_blank" className="underline font-bold hover:text-blue-500"><abbr title="Mean absolute percentage error">MAPE</abbr></a></Link>:{" "}{obj.eval_mape}</p>
               </div>
             ))
           ) : (
               <p className="mb-16">
-                  <p><span className="text-blue-600 font-bold">Model:{" "}</span>{(digspecData as DigspecData).model}</p>
-                  <p><span className="text-blue-600 font-bold">MAPE:{" "}</span>{(digspecData as DigspecData).eval_mape}</p>
+                  <p><span className="font-bold">Model:{" "}</span>{(digspecData as DigspecData).model}</p>
+                  <p><Link passHref={true} href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error"><a target="_blank" className="underline font-bold hover:text-blue-500"><abbr title="Mean absolute percentage error">MAPE</abbr></a></Link>:{" "}{(digspecData as DigspecData).eval_mape}</p>
               </p>
           )}
       </div>
