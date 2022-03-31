@@ -11,7 +11,7 @@ const AttentionCard = () => {
           <div className="flex flex-col ml-3 mr-8">
             <div className="font-medium text-sm leading-relaxed">Hämtad senast</div>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
-            Datan hämtades senast 2022-01-01 och sträcker sig till 2021-12-31.
+            Datan hämtades senast 2022-01-01 och sträcker sig från 2006-01-01 till 2021-12-31.
             </p>
             <div className="font-medium text-sm leading-relaxed pt-4">Vad menas med trend?</div>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
