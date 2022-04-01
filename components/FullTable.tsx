@@ -330,7 +330,7 @@ const FullTable = ({
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         industry.trend_percentages.month_3 > 0
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"

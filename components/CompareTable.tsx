@@ -319,7 +319,7 @@ const CompareTable = ({
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.trend_percentages.month_3.toFixed(1)} %
+                      {industry.trend_percentages.month_3.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -334,7 +334,7 @@ const CompareTable = ({
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.trend_percentages.month_6.toFixed(1)} %
+                      {industry.trend_percentages.month_6.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -349,7 +349,7 @@ const CompareTable = ({
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.trend_percentages.month_12.toFixed(1)} %
+                      {industry.trend_percentages.month_12.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -364,7 +364,7 @@ const CompareTable = ({
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.prediction_percentages.month_3.toFixed(1)} %
+                      {industry.prediction_percentages.month_3.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -379,7 +379,7 @@ const CompareTable = ({
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.prediction_percentages.month_6.toFixed(1)} %
+                      {industry.prediction_percentages.month_6.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -394,7 +394,7 @@ const CompareTable = ({
                           : "bg-red-100 bg-red-800"
                       }`}
                     >
-                      {industry.prediction_percentages.month_12.toFixed(1)} %
+                      {industry.prediction_percentages.month_12.toFixed(1)}%
                     </span>
                   </th>
                 
