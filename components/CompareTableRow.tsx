@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LinkIcon } from "@heroicons/react/outline";
 import { DigspecData } from "../interfaces/Digspec";
 
 interface CompareTableRowProps {
@@ -27,7 +28,10 @@ const CompareTableRow = ({
                 tabIndex={0}
               >
                 <Link href={`/${category}/${encodeURI(data.name)}-${data._id}`}>
-                  {data.name}
+                    <a className="flex flex row items-center" target="_blank">
+                        {data.name}
+                        <LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true" />
+                    </a>
                 </Link>
               </div>
             </div>
