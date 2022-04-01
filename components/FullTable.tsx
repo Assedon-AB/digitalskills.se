@@ -88,7 +88,7 @@ const FullTable = ({
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow max-h-screen overflow-y-scroll border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 sticky top-0">
                 <tr>
                   <th scope="col"></th>
                   <th scope="col"></th>
