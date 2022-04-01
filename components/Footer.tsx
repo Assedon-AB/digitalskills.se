@@ -7,12 +7,7 @@ const Footer = () => {
         <div className="md:w-3/5 md:mr-8">
           <p className="text-xl mb-2">{"Digitalskills.se"}</p>
           <p className="leading-relaxed">
-            Tillväxtverket och Universitetskanslersämbetet har av regeringen
-            fått i uppdrag att tillsammans analysera och föreslå hur
-            kompetensförsörjningen av digital spetskompetens kan utvecklas både
-            kort- och långsiktigt. Vi ska starta en dialog om samverkan mellan
-            berörda aktörer, i syfte att öka tillgången på digital
-            spetskompetens.
+              Digitalskills.se är ett prognosverktyg som ger både historiska trender samt framskrivningar på digitala kompetenser och yrkestitlar genom att datadrivet analysera jobbannonser från Arbetsförmedlingens platsbank.
           </p>
         </div>
         <ul className="md:w-2/5 mt-4">
