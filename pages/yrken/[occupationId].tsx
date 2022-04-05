@@ -59,12 +59,12 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
           data={Object.keys(occupation.geos)
             .map((geoName: string) => ({
               name: geoName,
-              num: occupation.geos[geoName]["num"],
-              organisations_num: occupation.geos[geoName]["organisations_num"],
-              details: Object.keys(occupation.geos[geoName]["details"]).map(
+              num: occupation.geos[geoName]["2021-12-01"]["num"] ?? 0,
+              organisations_num: occupation.geos[geoName]["2021-12-01"]["organisations_num"] ?? 0,
+              details: Object.keys(occupation.geos[geoName]["2021-12-01"]["details"] ?? []).map(
                 (employerName) => ({
                   name: employerName,
-                  num: occupation.geos[geoName]["details"][employerName],
+                  num: occupation.geos[geoName]["2021-12-01"]["details"][employerName],
                 })
               ),
             }))

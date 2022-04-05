@@ -34,11 +34,13 @@ export interface DigspecData {
   };
   geos: {
     [geoName: string]: {
-      num: number;
-      organisations_num: number;
-      details: {
-        [employerName: string]: number;
-      };
+        [date: string]: {
+          num: number;
+          organisations_num: number;
+          details: {
+            [employerName: string]: number;
+          };
+        };
     };
   };
   employers: {
