@@ -148,7 +148,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     }
     return (
       <Link href={href}>
-          <a tabIndex={0} className="uppercase font-medium text-gray-500 focus:ring hover:text-blue-500">se alla</a>
+          <a tabIndex={0} className="uppercase font-medium text-gray-500 focus:ring hover:text-blue-800">se alla</a>
       </Link>
     );
   }
@@ -184,7 +184,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                   <th
                     scope="col"
                     className={classNames(
-                      sortMode == "Namn" ? "text-blue-500" : "text-gray-500",
+                      sortMode == "Namn" ? "text-blue-800" : "text-gray-500",
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
@@ -194,7 +194,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
-                              ? "text-[#3A8DDE]"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -205,7 +205,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     scope="col"
                     className={classNames(
                       sortMode != showMode && sortMode != "Namn"
-                        ? "text-blue-500"
+                        ? "text-blue-800"
                         : "text-gray-500",
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
@@ -216,7 +216,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode != showMode && sortMode != "Namn"
-                              ? "text-[#3A8DDE]"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -235,7 +235,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == showMode
-                              ? "text-blue-500"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -246,21 +246,21 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                 <tr>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    className={`py-3 px-6 text-left text-[10px] font-medium 
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     Branschen
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    className={`py-3 px-6 text-left text-[10px] font-medium 
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     {industry.num}
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    className={`py-3 px-6 text-left text-[10px] font-medium 
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     <span
