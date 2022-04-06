@@ -118,7 +118,7 @@ const FullTable = ({
                   <th
                     scope="col"
                     className={`px-6 py-3 text-left text-[10px] font-medium ${
-                      sortMode == "Namn" ? "text-blue-500" : "text-gray-500"
+                      sortMode == "Namn" ? "text-blue-800" : "text-gray-500"
                     } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode("Namn")}>
@@ -127,172 +127,158 @@ const FullTable = ({
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Namn"
-                              ? "text-blue-500"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
                       </div>
                     </button>
                   </th>
+                  
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium text-gray-500 ${
-                      [
-                        "Trend 3 mån",
-                        "Trend 6 mån",
-                        "Trend 12 mån",
-                        "Prognos 3 mån",
-                        "Prognos 6 mån",
-                        "Prognos 12 mån",
-                        "Namn",
-                      ].indexOf(sortMode) >= 0
-                        ? "text-gray-500"
-                        : "text-blue-500"
-                    } uppercase tracking-wider`}
+                    className={`py-3 px-6 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Alla annonser")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Alla annonser"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         Annonser
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
-                            [
-                              "Trend 3 mån",
-                              "Trend 6 mån",
-                              "Trend 12 mån",
-                              "Prognos 3 mån",
-                              "Prognos 6 mån",
-                              "Prognos 12 mån",
-                              "Namn",
-                            ].indexOf(sortMode) >= 0
-                              ? "text-gray-500"
-                              : "text-blue-500"
-                          }  text-gray-500 ml-2`}
+                            sortMode == "Alla annonser"
+                              ? "text-blue-800"
+                              : "text-gray-500"
+                          }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
+
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
-                      sortMode == "Trend 3 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 3 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Trend 3 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         3 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
-                            sortMode == "Trend 3 mån"
-                              ? "text-blue-500"
+                          className={`h-5 w-5 ${
+                           sortMode == "Trend 3 mån"
+                              ? "text-blue-800"
                               : "text-gray-500"
-                          } ml-2`}
+                          }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
-                      sortMode == "Trend 6 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 6 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Trend 6 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         6 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5 ${
                             sortMode == "Trend 6 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
-                      sortMode == "Trend 12 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 12 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Trend 12 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         12 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5 ${
                             sortMode == "Trend 12 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
-                      sortMode == "Prognos 3 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 3 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Prognos 3 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         3 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5 ${
                             sortMode == "Prognos 3 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
-                      sortMode == "Prognos 6 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 6 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Prognos 6 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         6 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5 ${
                             sortMode == "Prognos 6 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
-                      sortMode == "Prognos 12 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 12 mån")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Prognos 12 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         12 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5 ${
                             sortMode == "Prognos 12 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
                         />
                       </div>
                     </button>
