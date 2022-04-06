@@ -31,24 +31,24 @@ const FullTable = ({
     if (mode == "Antal annonser") {
       prop = "num";
       preProp = "";
-    } else if (mode == "Prognos 3 mån") {
-      prop = "month_3";
-      preProp = "prediction_percentages";
     } else if (mode == "Prognos 6 mån") {
-      preProp = "prediction_percentages";
       prop = "month_6";
+      preProp = "prediction_percentages";
     } else if (mode == "Prognos 12 mån") {
       preProp = "prediction_percentages";
       prop = "month_12";
-    } else if (mode == "Trend 3 mån") {
-      preProp = "trend_percentages";
-      prop = "month_3";
+    } else if (mode == "Prognos 18 mån") {
+      preProp = "prediction_percentages";
+      prop = "month_18";
     } else if (mode == "Trend 6 mån") {
       preProp = "trend_percentages";
       prop = "month_6";
     } else if (mode == "Trend 12 mån") {
       preProp = "trend_percentages";
       prop = "month_12";
+    } else if (mode == "Trend 18 mån") {
+      preProp = "trend_percentages";
+      prop = "month_18";
     } else if (mode == "Namn") {
       prop = "name";
       preProp = "";
@@ -161,27 +161,6 @@ const FullTable = ({
                     scope="col"
                     className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
-                    <button onClick={() => setSortMode("Trend 3 mån")}>
-                      <div className={`flex flex-row ${
-                     sortMode == "Trend 3 mån"
-                        ? "text-blue-800"
-                        : "text-gray-500"
-                    } `}>
-                        3 mån
-                        <SortAscendingIcon
-                          className={`h-5 w-5 ${
-                           sortMode == "Trend 3 mån"
-                              ? "text-blue-800"
-                              : "text-gray-500"
-                          }  ml-2`}
-                        />
-                      </div>
-                    </button>
-                  </th>
-                  <th
-                    scope="col"
-                    className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
-                  >
                     <button onClick={() => setSortMode("Trend 6 mån")}>
                       <div className={`flex flex-row ${
                      sortMode == "Trend 6 mån"
@@ -191,10 +170,10 @@ const FullTable = ({
                         6 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
-                            sortMode == "Trend 6 mån"
-                               ? "text-blue-800"
-                               : "text-gray-500"
-                           }  ml-2`}
+                           sortMode == "Trend 6 mån"
+                              ? "text-blue-800"
+                              : "text-gray-500"
+                          }  ml-2`}
                         />
                       </div>
                     </button>
@@ -222,18 +201,18 @@ const FullTable = ({
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6  text-left text-[10px]`}
+                    className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
-                    <button onClick={() => setSortMode("Prognos 3 mån")}>
+                    <button onClick={() => setSortMode("Trend 18 mån")}>
                       <div className={`flex flex-row ${
-                     sortMode == "Prognos 3 mån"
+                     sortMode == "Trend 18 mån"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
-                        3 mån
+                        18 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
-                            sortMode == "Prognos 3 mån"
+                            sortMode == "Trend 18 mån"
                                ? "text-blue-800"
                                : "text-gray-500"
                            }  ml-2`}
@@ -285,6 +264,27 @@ const FullTable = ({
                   </th>
                   <th
                     scope="col"
+                    className={`py-3 px-6  text-left text-[10px]`}
+                  >
+                    <button onClick={() => setSortMode("Prognos 18 mån")}>
+                      <div className={`flex flex-row ${
+                     sortMode == "Prognos 18 mån"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
+                        18 mån
+                        <SortAscendingIcon
+                          className={`h-5 w-5 ${
+                            sortMode == "Prognos 18 mån"
+                               ? "text-blue-800"
+                               : "text-gray-500"
+                           }  ml-2`}
+                        />
+                      </div>
+                    </button>
+                  </th>
+                  <th
+                    scope="col"
                     className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
                   >
                     <button onClick={() => updateCompareList([])}>
@@ -317,21 +317,6 @@ const FullTable = ({
                   >
                     <span
                       className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        industry.trend_percentages.month_3 > 0
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {industry.trend_percentages.month_3.toFixed(1)} %
-                    </span>
-                  </th>
-                  <th
-                    scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
-                    uppercase tracking-wider bg-[#3A8DDE]/25`}
-                  >
-                    <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
                         industry.trend_percentages.month_6 > 0
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
@@ -362,12 +347,12 @@ const FullTable = ({
                   >
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
-                        industry.prediction_percentages.month_3 > 0
+                        industry.trend_percentages.month_18 > 0
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.prediction_percentages.month_3.toFixed(1)} %
+                      {industry.trend_percentages.month_18.toFixed(1)} %
                     </span>
                   </th>
                   <th
@@ -394,10 +379,25 @@ const FullTable = ({
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
                         industry.prediction_percentages.month_12 > 0
                           ? "bg-green-100 text-green-800"
-                          : "bg-red-100 bg-red-800"
+                          : "bg-red-100 text-red-800"
                       }`}
                     >
                       {industry.prediction_percentages.month_12.toFixed(1)} %
+                    </span>
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                    <span
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.prediction_percentages.month_18 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
+                    >
+                      {industry.prediction_percentages.month_18.toFixed(1)} %
                     </span>
                   </th>
                   <th

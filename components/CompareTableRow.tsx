@@ -43,18 +43,7 @@ const CompareTableRow = ({
         <td className="px-6 py-4 whitespace-nowrap">
           <span
             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              data.trend_percentages.month_3 > 0
-                ? "bg-green-100 text-green-800"
-                : "bg-red-100 text-red-800"
-            }`}
-          >
-            {`${data.trend_percentages.month_3.toFixed(1)} %`}
-          </span>
-        </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <span
-            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              data.trend_percentages?.month_6 > 0
+              data.trend_percentages.month_6 > 0
                 ? "bg-green-100 text-green-800"
                 : "bg-red-100 text-red-800"
             }`}
@@ -65,7 +54,7 @@ const CompareTableRow = ({
         <td className="px-6 py-4 whitespace-nowrap">
           <span
             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              data.trend_percentages.month_12 > 0
+              data.trend_percentages?.month_12 > 0
                 ? "bg-green-100 text-green-800"
                 : "bg-red-100 text-red-800"
             }`}
@@ -76,12 +65,12 @@ const CompareTableRow = ({
         <td className="px-6 py-4 whitespace-nowrap">
           <span
             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              data.prediction_percentages.month_3 > 0
+              data.trend_percentages.month_18 > 0
                 ? "bg-green-100 text-green-800"
                 : "bg-red-100 text-red-800"
             }`}
           >
-            {data.prediction_percentages.month_3.toFixed(1)}%
+            {`${data.trend_percentages.month_18.toFixed(1)} %`}
           </span>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
@@ -106,7 +95,17 @@ const CompareTableRow = ({
             {data.prediction_percentages.month_12.toFixed(1)}%
           </span>
         </td>
-       
+        <td className="px-6 py-4 whitespace-nowrap">
+          <span
+            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+              data.prediction_percentages.month_18 > 0
+                ? "bg-green-100 text-green-800"
+                : "bg-red-100 text-red-800"
+            }`}
+          >
+            {data.prediction_percentages.month_18.toFixed(1)}%
+          </span>
+        </td>
       </tr>
     );
   } else {

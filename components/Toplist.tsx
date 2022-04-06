@@ -14,7 +14,7 @@ interface ToplistProps {
 
 const Toplist = ({ data, title, category, industry }: ToplistProps) => {
   const [sortMode, setSortMode] = useState("Antal annonser");
-  const [showMode, setShowMode] = useState("Trend 12 mån");
+  const [showMode, setShowMode] = useState("Trend 18 mån");
 
   function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(" ");
@@ -25,12 +25,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     setSortMode("Antal annonser");
   };
   function getShownBranschData() {
-    var showData = industry.prediction_percentages.month_3;
+    var showData = industry.prediction_percentages.month_6;
     switch (showMode) {
-      case "Prognos 3 mån": {
-        showData = industry.prediction_percentages.month_3;
-        break;
-      }
       case "Prognos 6 mån": {
         showData = industry.prediction_percentages.month_6;
         break;
@@ -39,8 +35,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
         showData = industry.prediction_percentages.month_12;
         break;
       }
-      case "Trend 3 mån": {
-        showData = industry.trend_percentages.month_3;
+      case "Prognos 18 mån": {
+        showData = industry.prediction_percentages.month_18;
         break;
       }
       case "Trend 6 mån": {
@@ -49,6 +45,10 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
       }
       case "Trend 12 mån": {
         showData = industry.trend_percentages.month_12;
+        break;
+      }
+      case "Trend 18 mån": {
+        showData = industry.trend_percentages.month_18;
         break;
       }
     }
@@ -68,41 +68,41 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     if (mode == "Antal annonser") {
       preProp = "";
       prop = "num";
-    } else if (mode == "Prognos 3 mån") {
-      preProp = "prediction_percentages";
-      prop = "month_3";
     } else if (mode == "Prognos 6 mån") {
       preProp = "prediction_percentages";
       prop = "month_6";
     } else if (mode == "Prognos 12 mån") {
       preProp = "prediction_percentages";
       prop = "month_12";
-    } else if (mode == "Trend 3 mån") {
-      preProp = "trend_percentages";
-      prop = "month_3";
+    } else if (mode == "Prognos 18 mån") {
+      preProp = "prediction_percentages";
+      prop = "month_18";
     } else if (mode == "Trend 6 mån") {
       preProp = "trend_percentages";
       prop = "month_6";
     } else if (mode == "Trend 12 mån") {
       preProp = "trend_percentages";
       prop = "month_12";
+    } else if (mode == "Trend 18 mån") {
+      preProp = "trend_percentages";
+      prop = "month_18";
     } else if (mode == "Namn") {
       prop = "name";
       preProp = "";
     }
 
-    if (showWhat == "Prognos 3 mån") {
-      show = "month_3";
-    } else if (showWhat == "Prognos 6 mån") {
+    if (showWhat == "Prognos 6 mån") {
       show = "month_6";
     } else if (showWhat == "Prognos 12 mån") {
       show = "month_12";
-    } else if (showWhat == "Trend 3 mån") {
-      show = "month_3";
+    } else if (showWhat == "Prognos 18 mån") {
+      show = "month_18";
     } else if (showWhat == "Trend 6 mån") {
       show = "month_6";
     } else if (showWhat == "Trend 12 mån") {
       show = "month_12";
+    } else if (showWhat == "Trend 18 mån") {
+      show = "month_18";
     }
     let newData = [];
     if (preProp) {
@@ -175,7 +175,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
                     <FilterDropdown
-                      initMode="Trend 12 mån"
+                      initMode="Trend 18 mån"
                       updateShow={changeData}
                     ></FilterDropdown>
                   </th>
