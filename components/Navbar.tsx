@@ -73,8 +73,8 @@ const Navbar = () => {
           <Link href="/">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
-                router.pathname === "/" ? "border-b-2 border-[#E87200] text-[#E87200]" : ""
+              className={`pb-2 hover:text-[#004A98] font-medium text-sm ${
+                router.pathname === "/" ? "border-b-2 border-[#004A98] text-[#004A98]" : ""
               }`}
               onClick={close}
             >
@@ -88,9 +88,9 @@ const Navbar = () => {
           <Link href="/kompetenser">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
+              className={`pb-2 hover:text-[#004A98] font-medium text-sm ${
                 router.pathname.includes("kompetenser")
-                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  ? "border-b-2 border-[#004A98] text-[#004A98]"
                   : ""
               }`}
               onClick={close}
@@ -105,9 +105,9 @@ const Navbar = () => {
           <Link href="/yrken">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#E87200] font-medium text-sm ${
+              className={`pb-2 hover:text-[#004A98] font-medium text-sm ${
                 router.pathname.includes("yrken")
-                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  ? "border-b-2 border-[#004A98] text-[#004A98]"
                   : ""
               }`}
               onClick={close}
@@ -123,9 +123,9 @@ const Navbar = () => {
           <Link href="/om-digitalskills">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#E87200] text-sm ${
+              className={`pb-2 hover:text-[#004A98] text-sm ${
                 router.pathname.includes("om-digitalskills")
-                  ? "border-b-2 border-[#E87200] text-[#E87200]"
+                  ? "border-b-2 border-[#004A98] text-[#004A98]"
                   : ""
               }`}
               onClick={close}

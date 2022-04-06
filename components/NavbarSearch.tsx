@@ -8,13 +8,13 @@ export default function NavbarSearch() {
     >
       <input
         type="search"
-        className="block p-2 pl-4 md:w-3/5 md:w-full text-gray-900 rounded-l-md border border-gray-300 sm:text-xs focus:outline-none focus:border-[#C1531B]"
+        className="block p-2 pl-4 md:w-3/5 md:w-full text-gray-900 rounded-l-md border border-gray-300 sm:text-xs focus:outline-none focus:border-[#004A98]"
         placeholder="Sök"
         autoComplete="skillsAndOccupations"
         aria-label="Sök efter kompetenser och yrken"
         name="q"
       />
-      <button className="bg-[#E87200] font-bold text-white p-2 rounded-r-md">
+      <button className="bg-[#004A98] font-bold text-white p-2 rounded-r-md">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
