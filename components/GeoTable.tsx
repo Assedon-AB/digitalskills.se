@@ -56,17 +56,19 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                 <tr>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium ${
-                      sortMode == "Kommun" ? "text-blue-500" : "text-gray-500"
-                    } uppercase tracking-wider`}
+                    className={`px-6 py-3 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Kommun")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Kommun"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         {title}
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Kommun"
-                              ? "text-blue-500"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
@@ -75,49 +77,44 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                   </th>
                   <th
                     scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium text-gray-500 ${
-                      ["Antal rekryterande organisationer", "Kommun"].indexOf(
-                        sortMode
-                      ) >= 0
-                        ? "text-gray-500"
-                        : "text-blue-500"
-                    } uppercase tracking-wider`}
+                    className={`py-3 px-6 text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Alla annonser")}>
-                      <div className="flex flex-row">
+                      <div className={`flex flex-row ${
+                     sortMode == "Alla annonser"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         Annonser
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
-                            [
-                              "Antal rekryterande organisationer",
-                              "Kommun",
-                            ].indexOf(sortMode) >= 0
-                              ? "text-gray-500"
-                              : "text-blue-500"
-                          }  text-gray-500 ml-2`}
+                          className={`h-5 w-5  ${
+                            sortMode == "Alla annonser"
+                              ? "text-blue-800"
+                              : "text-gray-500"
+                          } ml-2`}
                         />
                       </div>
                     </button>
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px]  font-medium text-gray-500 ${
-                      sortMode == "Antal rekryterande organisationer"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
+                    className={`px-6 py-3 text-left text-[10px]`}
                   >
                     <button
                       onClick={() =>
                         setSortMode("Antal rekryterande organisationer")
                       }
                     >
-                      <div className="flex flex-row ">
+                      <div className={`flex flex-row ${
+                     sortMode == "Antal rekryterande organisationer"
+                        ? "text-blue-800"
+                        : "text-gray-500"
+                    } `}>
                         Antal rekryterande organisationer
                         <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
+                          className={`h-5 w-5  ${
                             sortMode == "Antal rekryterande organisationer"
-                              ? "text-blue-500"
+                              ? "text-blue-800"
                               : "text-gray-500"
                           } ml-2`}
                         />
