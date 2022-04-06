@@ -27,24 +27,24 @@ const CompareTable = ({
     if (mode == "Antal annonser") {
       prop = "num";
       preProp = "";
-    } else if (mode == "Prognos 3 mån") {
-      prop = "month_3";
-      preProp = "prediction_percentages";
     } else if (mode == "Prognos 6 mån") {
-      preProp = "prediction_percentages";
       prop = "month_6";
+      preProp = "prediction_percentages";
     } else if (mode == "Prognos 12 mån") {
       preProp = "prediction_percentages";
       prop = "month_12";
-    } else if (mode == "Trend 3 mån") {
-      preProp = "trend_percentages";
-      prop = "month_3";
+    } else if (mode == "Prognos 18 mån") {
+      preProp = "prediction_percentages";
+      prop = "month_18";
     } else if (mode == "Trend 6 mån") {
       preProp = "trend_percentages";
       prop = "month_6";
     } else if (mode == "Trend 12 mån") {
       preProp = "trend_percentages";
       prop = "month_12";
+    } else if (mode == "Trend 18 mån") {
+      preProp = "trend_percentages";
+      prop = "month_18";
     } else if (mode == "Namn") {
       prop = "name";
       preProp = "";
@@ -131,12 +131,12 @@ const CompareTable = ({
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium text-gray-500 ${
                       [
-                        "Trend 3 mån",
                         "Trend 6 mån",
                         "Trend 12 mån",
-                        "Prognos 3 mån",
+                        "Trend 18 mån",
                         "Prognos 6 mån",
                         "Prognos 12 mån",
+                        "Prognos 18 mån",
                         "Namn",
                       ].indexOf(sortMode) >= 0
                         ? "text-gray-500"
@@ -149,38 +149,17 @@ const CompareTable = ({
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                             [
-                              "Trend 3 mån",
                               "Trend 6 mån",
                               "Trend 12 mån",
-                              "Prognos 3 mån",
+                              "Trend 18 mån",
                               "Prognos 6 mån",
                               "Prognos 12 mån",
+                              "Prognos 18 mån",
                               "Namn",
                             ].indexOf(sortMode) >= 0
                               ? "text-gray-500"
                               : "text-blue-500"
                           }  text-gray-500 ml-2`}
-                        />
-                      </div>
-                    </button>
-                  </th>
-                  <th
-                    scope="col"
-                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
-                      sortMode == "Trend 3 mån"
-                        ? "text-blue-500"
-                        : "text-gray-500"
-                    } uppercase tracking-wider `}
-                  >
-                    <button onClick={() => setSortMode("Trend 3 mån")}>
-                      <div className="flex flex-row">
-                        3 mån
-                        <SortAscendingIcon
-                          className={`h-5 w-5 text-gray-500 ${
-                            sortMode == "Trend 3 mån"
-                              ? "text-blue-500"
-                              : "text-gray-500"
-                          } ml-2`}
                         />
                       </div>
                     </button>
@@ -229,18 +208,18 @@ const CompareTable = ({
                   </th>
                   <th
                     scope="col"
-                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
-                      sortMode == "Prognos 3 mån"
+                    className={`px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 ${
+                      sortMode == "Trend 18 mån"
                         ? "text-blue-500"
                         : "text-gray-500"
                     } uppercase tracking-wider `}
                   >
-                    <button onClick={() => setSortMode("Prognos 3 mån")}>
+                    <button onClick={() => setSortMode("Trend 18 mån")}>
                       <div className="flex flex-row">
-                        3 mån
+                        18 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 text-gray-500 ${
-                            sortMode == "Prognos 3 mån"
+                            sortMode == "Trend 18 mån"
                               ? "text-blue-500"
                               : "text-gray-500"
                           } ml-2`}
@@ -290,6 +269,27 @@ const CompareTable = ({
                       </div>
                     </button>
                   </th>
+                  <th
+                    scope="col"
+                    className={`px-6 py-3 text-left text-[10px] font-medium text-gray-500 ${
+                      sortMode == "Prognos 18 mån"
+                        ? "text-blue-500"
+                        : "text-gray-500"
+                    } uppercase tracking-wider `}
+                  >
+                    <button onClick={() => setSortMode("Prognos 18 mån")}>
+                      <div className="flex flex-row">
+                        18 mån
+                        <SortAscendingIcon
+                          className={`h-5 w-5 text-gray-500 ${
+                            sortMode == "Prognos 18 mån"
+                              ? "text-blue-500"
+                              : "text-gray-500"
+                          } ml-2`}
+                        />
+                      </div>
+                    </button>
+                  </th>
              
                 </tr>
                 <tr>
@@ -306,21 +306,6 @@ const CompareTable = ({
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
                     {industry.num}
-                  </th>
-                  <th
-                    scope="col"
-                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
-                    uppercase tracking-wider bg-[#3A8DDE]/25`}
-                  >
-                    <span
-                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
-                        industry.trend_percentages.month_3 > 0
-                          ? "bg-green-100 text-green-800"
-                          : "bg-red-100 text-red-800"
-                      }`}
-                    >
-                      {industry.trend_percentages.month_3.toFixed(1)}%
-                    </span>
                   </th>
                   <th
                     scope="col"
@@ -359,12 +344,12 @@ const CompareTable = ({
                   >
                     <span
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
-                        industry.prediction_percentages.month_3 > 0
+                        industry.trend_percentages.month_18 > 0
                           ? "bg-green-100 text-green-800"
                           : "bg-red-100 text-red-800"
                       }`}
                     >
-                      {industry.prediction_percentages.month_3.toFixed(1)}%
+                      {industry.trend_percentages.month_18.toFixed(1)}%
                     </span>
                   </th>
                   <th
@@ -391,10 +376,25 @@ const CompareTable = ({
                       className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
                         industry.prediction_percentages.month_12 > 0
                           ? "bg-green-100 text-green-800"
-                          : "bg-red-100 bg-red-800"
+                          : "bg-red-100 text-red-800"
                       }`}
                     >
                       {industry.prediction_percentages.month_12.toFixed(1)}%
+                    </span>
+                  </th>
+                  <th
+                    scope="col"
+                    className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
+                    uppercase tracking-wider bg-[#3A8DDE]/25`}
+                  >
+                    <span
+                      className={`px-2 inline-flex  text-xs leading-5 font-semibold rounded-full ${
+                        industry.prediction_percentages.month_18 > 0
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 bg-red-800"
+                      }`}
+                    >
+                      {industry.prediction_percentages.month_18.toFixed(1)}%
                     </span>
                   </th>
                 
