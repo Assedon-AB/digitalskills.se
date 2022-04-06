@@ -60,12 +60,12 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
           data={Object.keys(competence.geos)
             .map((geoName: string) => ({
               name: geoName,
-              num: competence.geos[geoName]["num"],
-              organisations_num: competence.geos[geoName]["organisations_num"],
-              details: Object.keys(competence.geos[geoName]["details"]).map(
+              num: competence.geos[geoName]["2021-12-01"]["num"] ?? 0,
+              organisations_num: competence.geos[geoName]["2021-12-01"]["organisations_num"] ?? 0,
+              details: Object.keys(competence.geos[geoName]["2021-12-01"]["details"] ?? []).map(
                 (employerName) => ({
                   name: employerName,
-                  num: competence.geos[geoName]["details"][employerName],
+                  num: competence.geos[geoName]["2021-12-01"]["details"][employerName],
                 })
               ),
             }))
