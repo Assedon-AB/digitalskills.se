@@ -56,10 +56,10 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     
     
     var name = ""
-    const historyColorsBorder = ["rgb(99, 99, 255)", "rgb(200, 140, 200)", "rgb(100, 10, 220)", "rgb(152, 38, 73)", "rgb(96, 178, 229)"]
-    const historyColorsBackground = ["rgba(99, 99, 255, 0.5)", "rgba(200, 140, 200, 0.5)", "rgb(100, 10, 220, 0.5)", "rgb(152, 38, 73, 0.5)", "rgb(96, 178, 229, 0.5)"]
-    const forecastColorsBorder = ["rgb(255, 99, 132)","rgb(140, 200, 132)", "rgb(220, 50, 132)", "rgb(180, 173, 234)", "rgb(255, 237, 101)"]
-    const forecastColorsBackground = ["rgba(255, 99, 132, 0.5)","rgba(140, 200, 132, 0.5)", "rgb(220, 50, 132, 0.5)","rgb(180, 173, 234, 0.5)", "rgb(255, 237, 101, 0.5)"]
+    const historyColorsBorder = ["rgb(0,77,64)", "rgb(191,54,12)", "rgb(74,20,140)", "rgb(13,71,161)", "rgb(62,39,35)"]
+    const historyColorsBackground = ["rgb(0,77,64, 0.5)", "rgb(191,54,12, 0.5)", "rgb(74,20,140, 0.5)", "rgb(13,71,161, 0.5)", "rgb(62,39,35, 0.5)"]
+    const forecastColorsBorder = ["rgb(0,121,107)","rgb(221,44,0)", "rgb(171,71,188)", "rgb(25,118,210)", "rgb(109,76,65)"]
+    const forecastColorsBackground = ["rgb(0,121,107, 0.5)","rgb(221,44,0, 0.5)", "rgb(171,71,188, 0.5)","rgb(25,118,210, 0.5)", "rgb(109,76,65, 0.5)"]
     var finalLables  = compareObjectList[0].ad_series.labels.concat(
       compareObjectList[0].prediction_series.month_12.labels
     )
@@ -100,7 +100,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
             })
           ),
           borderColor: forecastColorsBorder[i],
-          borderDash: [20, 0],
+          borderDash: [5, 4],
           backgroundColor: forecastColorsBackground[i],
         }
       )
