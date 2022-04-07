@@ -226,7 +226,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] font-medium ${
-                      sortMode == showMode ? "text-[#3A8DDE]" : "text-gray-500"
+                      sortMode == showMode ? "text-blue-800" : "text-gray-500"
                     } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode(showMode)}>
