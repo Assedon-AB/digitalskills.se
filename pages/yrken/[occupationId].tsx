@@ -32,8 +32,8 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                   {
                     label: "Historisk data",
                     data: occupation.ad_series.values,
-                    borderColor: "rgb(99, 99, 255)",
-                    backgroundColor: "rgba(99, 99, 255, 0.5)",
+                    borderColor: "rgb(0,77,64)",
+                backgroundColor: "rgb(0,77,64, 0.5)",
                   },
                   {
                     label: "Prognos",
@@ -43,9 +43,9 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                         x: occupation.prediction_series.month_12.labels[index],
                       })
                     ) : [],
-                    borderColor: "rgb(255, 99, 132)",
-                    borderDash: [10, 5],
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    borderColor: "rgb(0,121,107)",
+                borderDash: [5, 4],
+                backgroundColor: "rgb(0,121,107, 0.5)",
                   },
                 ],
               }}
