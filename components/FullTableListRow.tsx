@@ -47,8 +47,7 @@ const FullTableListRow = ({
           <div className="flex items-center">
             <div className="ml-0">
               <div
-                className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500 focus:outline-none focus:ring focus:ring-violet-300"
-                tabIndex={0}
+                className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500"
               >
                 <a
                 target="_blank"
