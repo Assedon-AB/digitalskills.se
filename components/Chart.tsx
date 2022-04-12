@@ -70,10 +70,10 @@ export default function Chart({ name, digspecData, data }: ChartProps) {
               </div>
             ))
           ) : (
-              <p className="mb-16">
+              <div className="mb-16">
                   <p><span className="font-bold">Model:{" "}</span>{(digspecData as DigspecData).model}</p>
                   <p><Link passHref={true} href="https://en.wikipedia.org/wiki/Mean_absolute_percentage_error"><a target="_blank" className="underline font-bold hover:text-blue-500"><abbr title="Mean absolute percentage error">MAPE</abbr></a></Link>:{" "}{(digspecData as DigspecData).eval_mape}</p>
-              </p>
+              </div>
           )}
       </div>
     </>

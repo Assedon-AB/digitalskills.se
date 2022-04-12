@@ -22,15 +22,15 @@ const FullTableListRow = ({
   useEffect(() => {
     updateShow(mode);
   }, [mode]);
+
   dataObject.details.sort((a, b) => b["num"] - a["num"]);
+
   return (
     <tr
       key={dataObject.name}
-      
-     
     >
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="flex items-center">
+        <div className="flex items-start">
           <div className="ml-0">
             <div className="text-xs font-medium text-gray-900 flex flex-col ">
               {mode == dataObject.name ? (
@@ -85,7 +85,7 @@ const FullTableListRow = ({
             : null}
         </div>
       </td>
-      <td>
+      <td className="flex pt-4 px-2">
         <button aria-label={mode == dataObject.name ? "Göm" : "Visa"} aria-expanded={mode == dataObject.name ? "true" : "false"} className="text-gray-900 flex flex-col cursor-pointer" onClick={() => {
         mode == dataObject.name ? setMode("") : setMode(dataObject.name);
       }}>
