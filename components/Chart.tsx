@@ -56,7 +56,8 @@ export default function Chart({ name, digspecData, data }: ChartProps) {
   return (
     <>
       <div
-        className="bg-white p-4 w-full border rounded-md mb-4"
+          className="bg-white p-4 w-full border rounded-md mb-4 hidden sm:block"
+          role="img"
         aria-label={`Graf över ${name} förekomst övertid samt prognos.`}
       >
         <Line options={options} data={data} />
