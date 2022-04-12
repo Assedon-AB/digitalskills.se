@@ -86,7 +86,7 @@ const FullTableListRow = ({
         </div>
       </td>
       <td>
-        <button className="text-gray-900 flex flex-col cursor-pointer" onClick={() => {
+        <button aria-label={mode == dataObject.name ? "Göm" : "Visa"} aria-expanded={mode == dataObject.name ? "true" : "false"} className="text-gray-900 flex flex-col cursor-pointer" onClick={() => {
         mode == dataObject.name ? setMode("") : setMode(dataObject.name);
       }}>
           {mode == dataObject.name ? (
