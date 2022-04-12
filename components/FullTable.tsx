@@ -95,7 +95,7 @@ const FullTable = ({
                   <th scope="col" className="bg-gray-100"></th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center font-medium text-gray-500 uppercase bg-gray-100 tracking-wider"
+                    className="px-6 py-3 text-center font-medium text-gray-800 uppercase bg-gray-100 tracking-wider"
                   >
                     <div className="flex flex-col ">
                       <p className="text-[10px]">Trend</p>
@@ -112,7 +112,7 @@ const FullTable = ({
                     </div>
                   </th>
                   <th scope="col"></th>
-                  <th scope="col" className="px-6 py-3 text-center bg-gray-100 font-medium text-gray-500 uppercase tracking-wider"><p className="text-[10px]">Jämför</p></th>
+                  <th scope="col" className="px-6 py-3 text-center bg-gray-100 font-medium text-gray-800 uppercase tracking-wider"><p className="text-[10px]">Jämför</p></th>
                 </tr>
                 <tr>
                   <th
@@ -165,14 +165,14 @@ const FullTable = ({
                       <div className={`flex flex-row ${
                      sortMode == "Trend 6 mån"
                         ? "text-blue-800"
-                        : "text-gray-500"
+                        : "text-gray-800"
                     } `}>
                         6 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                            sortMode == "Trend 6 mån"
                               ? "text-blue-800"
-                              : "text-gray-500"
+                              : "text-gray-800"
                           }  ml-2`}
                         />
                       </div>
@@ -186,14 +186,14 @@ const FullTable = ({
                       <div className={`flex flex-row ${
                      sortMode == "Trend 12 mån"
                         ? "text-blue-800"
-                        : "text-gray-500"
+                        : "text-gray-800"
                     } `}>
                         12 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                             sortMode == "Trend 12 mån"
                                ? "text-blue-800"
-                               : "text-gray-500"
+                               : "text-gray-800"
                            }  ml-2`}
                         />
                       </div>
@@ -207,14 +207,14 @@ const FullTable = ({
                       <div className={`flex flex-row ${
                      sortMode == "Trend 18 mån"
                         ? "text-blue-800"
-                        : "text-gray-500"
+                        : "text-gray-800"
                     } `}>
                         18 mån
                         <SortAscendingIcon
                           className={`h-5 w-5 ${
                             sortMode == "Trend 18 mån"
                                ? "text-blue-800"
-                               : "text-gray-500"
+                               : "text-gray-800"
                            }  ml-2`}
                         />
                       </div>
@@ -285,7 +285,7 @@ const FullTable = ({
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-500 uppercase tracking-wider "
+                    className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-800 uppercase tracking-wider "
                   >
                     <button onClick={() => updateCompareList([])}>
                       <div className="flex flex-row underline">
