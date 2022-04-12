@@ -1,4 +1,5 @@
 import { ExternalLinkIcon, LinkIcon } from "@heroicons/react/outline";
+import {transformLink} from "../lib/helpers";
 
 interface ToplistRowProps {
   dataObject: {
@@ -38,7 +39,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
                   category === "Topplista kompetenser"
                     ? "/kompetenser"
                     : "/yrken"
-                }/${encodeURIComponent(dataObject.name.replace(" ", ""))}-${dataObject.id}`}
+                }/${transformLink(dataObject.name, dataObject.id)}`}
               >
                 <div className="flex flex row">{dataObject.name}
                 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LinkIcon } from "@heroicons/react/outline";
 import { DigspecData } from "../interfaces/Digspec";
+import {transformLink} from "../lib/helpers";
 
 interface CompareTableRowProps {
   category: string;
@@ -26,7 +27,7 @@ const CompareTableRow = ({
               <div
                 className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500"
               >
-                <Link href={`/${category}/${encodeURI(data.name)}-${data._id}`}>
+                <Link href={`/${category}/${transformLink(data.name, data._id)}`}>
                     <a className="flex flex row items-center" target="_blank">
                         {data.name}
                         <LinkIcon  className="ml-1  h-3 w-3 " aria-hidden="true" />

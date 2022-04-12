@@ -110,10 +110,13 @@ const getIndustry = async () => {
   return industry;
 };
 
+const transformLink = (name: string, id: string) => `${encodeURIComponent(name.replace(" ", "").replace("#", ""))}-${id}`;
+
 export {
   getCompetencies,
   getOccupations,
   getOccupation,
   getCompetence,
   getIndustry,
+  transformLink
 };

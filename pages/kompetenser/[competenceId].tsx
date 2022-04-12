@@ -6,7 +6,7 @@ import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
 
 import { DigspecData } from "../../interfaces/Digspec";
-import { getCompetence, getCompetencies } from "../../lib/helpers";
+import { transformLink, getCompetence, getCompetencies } from "../../lib/helpers";
 
 interface CompetencePageProps {
   competence: DigspecData;
@@ -20,7 +20,6 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
         <h1 className="text-4xl capitalize font-semibold mb-8">
           {competence.name}
         </h1>
-
       {competence.ad_series && competence.ad_series.labels ? (
         <Chart
           name={competence.name}
@@ -90,7 +89,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
                   text={name.split("__")[0]}
                   href={
                     name.split("__")[1] !== "noId"
-                      ? "/yrken/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
+                      ? "/yrken/" + `${transformLink(name.split("__")[0], name.split("__")[1])}`
                       : undefined
                   }
                 />
@@ -110,7 +109,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
               text={name.split("__")[0]}
               href={
                 name.split("__")[1] !== "noId"
-                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
+                  ? "/kompetenser/" + `${transformLink(name.split("__")[0], name.split("__")[1])}`
                   : undefined
               }
             />
@@ -140,7 +139,7 @@ export async function getStaticPaths() {
         paths = competenciesRaw.map((competence) => (
             {
                 params: {
-                    competenceId: `${encodeURIComponent(competence?.name.replace(" ", ""))}-${competence._id}`
+                    competenceId: `${transformLink(competence?.name, competence._id)}`
                 }
             }
         ))

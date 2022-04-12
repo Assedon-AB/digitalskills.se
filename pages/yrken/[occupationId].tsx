@@ -6,7 +6,7 @@ import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
 
 import { DigspecData } from "../../interfaces/Digspec";
-import { getOccupation, getOccupations } from "../../lib/helpers";
+import { transformLink, getOccupation, getOccupations } from "../../lib/helpers";
 
 interface OccupationPageProps {
   occupation: DigspecData;
@@ -89,7 +89,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
               text={name.split("__")[0]}
               href={
                 name.split("__")[1] !== "noId"
-                  ? "/kompetenser/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
+                  ? "/kompetenser/" + `${transformLink(name.split("__")[0], name.split("__")[1])}`
                   : undefined
               }
             />
@@ -123,7 +123,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                       text={name.split("__")[0]}
                       href={
                         name.split("__")[1] !== "noId"
-                          ? "/yrken/" + `${encodeURIComponent(name.split("__")[0].replace(" ", ""))}-${name.split("__")[1]}`
+                          ? "/yrken/" + `${transformLink(name.split("__")[0], name.split("__")[1])}`
                           : undefined
                       }
                     />
@@ -153,7 +153,7 @@ export async function getStaticPaths() {
         paths = occupationsRaw.map((occupation) => (
             {
                 params: {
-                    occupationId: `${encodeURIComponent(occupation.name.replace(" ", ""))}-${occupation._id}`
+                    occupationId: `${transformLink(occupation?.name, occupation._id)}`
                 }
             }
         ))
