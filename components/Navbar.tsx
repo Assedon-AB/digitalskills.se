@@ -123,7 +123,7 @@ const Navbar = () => {
           <Link href="/om-digitalskills">
             <a
               tabIndex={0}
-              className={`pb-2 hover:text-[#004A98] text-sm ${
+              className={`pb-2 hover:text-[#004A98] font-medium text-sm ${
                 router.pathname.includes("om-digitalskills")
                   ? "border-b-2 border-[#004A98] text-[#004A98]"
                   : ""

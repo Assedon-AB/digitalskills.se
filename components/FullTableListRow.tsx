@@ -11,11 +11,12 @@ interface FullTableListRowProps {
   showModal: Function;
 }
 
-const Checkbox = ({ onClick, checked }: { onClick: (event: MouseEvent<HTMLInputElement>) => void; checked: boolean }) => {
+const Checkbox = ({ onClick, checked, label }: { onClick: (event: MouseEvent<HTMLInputElement>) => void; checked: boolean; label: string; }) => {
   return (
     <input
       type="checkbox"
       className="h-6 w-6 border-2 border-blue-500 rounded-md focus:outline-none focus:ring"
+      aria-label={label}
       onClick={onClick}
       checked={checked}
     />
@@ -47,8 +48,7 @@ const FullTableListRow = ({
           <div className="flex items-center">
             <div className="ml-0">
               <div
-                className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500 focus:outline-none focus:ring focus:ring-violet-300"
-                tabIndex={0}
+                className="text-xs font-medium text-gray-900 w-28 capitalize hover:text-blue-500"
               >
                 <a
                 target="_blank"
@@ -154,6 +154,7 @@ const FullTableListRow = ({
 
             }}
             checked={checked}
+            label={`Jämför ${data.name} som kompetens`}
           ></Checkbox>
         </td>
       </tr>

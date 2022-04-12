@@ -31,7 +31,7 @@ export default function SearchBar({
         name="q"
         aria-label="Sök efter kompetenser och yrken"
       />
-      <button className="bg-[#004A98] font-bold text-white p-4 rounded-r-md">
+      <button className="bg-[#004A98] font-bold text-white p-4 rounded-r-md" aria-label="Sök">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"

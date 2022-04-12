@@ -10,7 +10,7 @@ export default function SmallCard({ href, text }: SmallCardProps) {
     <div className="p-4 rounded-md bg-white mb-4 flex justify-between shadow-md">
       <p className="text-lg capitalize">{text}</p>
       {href ? (
-        <Link href={href}>
+        <Link href={href} passHref>
           <a className="block text-gray-600" tabIndex={0}>Läs mer</a>
         </Link>
       ) : null}

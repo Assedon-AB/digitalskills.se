@@ -29,8 +29,7 @@ const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
         <div className="flex items-center">
           <div className="ml-0">
             <div
-              tabIndex={0}
-              className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500 focus:ring"
+              className="text-xs font-medium text-gray-900 capitalize hover:text-blue-500"
             >
               <a 
               target="_blank"
