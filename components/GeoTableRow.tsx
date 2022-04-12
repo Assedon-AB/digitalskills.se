@@ -26,10 +26,8 @@ const FullTableListRow = ({
   return (
     <tr
       key={dataObject.name}
-      onClick={() => {
-        mode == dataObject.name ? setMode("") : setMode(dataObject.name);
-      }}
-      className={`cursor-pointer hover:bg-gray-50`}
+      
+     
     >
       <td className="px-6 py-4 whitespace-nowrap">
         <div className="flex items-center">
@@ -88,7 +86,9 @@ const FullTableListRow = ({
         </div>
       </td>
       <td>
-        <div className="text-gray-900 flex flex-col">
+        <button className="text-gray-900 flex flex-col cursor-pointer" onClick={() => {
+        mode == dataObject.name ? setMode("") : setMode(dataObject.name);
+      }}>
           {mode == dataObject.name ? (
             <ChevronUpIcon
               className="mr-1 ml-2 h-5 w-5 stroke-gray-300"
@@ -100,7 +100,7 @@ const FullTableListRow = ({
               aria-hidden="true"
             />
           )}
-        </div>
+        </button>
       </td>
     </tr>
   );
