@@ -23,7 +23,6 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
       {competence.ad_series && competence.ad_series.labels ? (
         <Chart
           name={competence.name}
-          digspecData={competence}
           data={{
             labels: competence.ad_series.labels.concat(
                 competence.prediction_series?.month_12 ? competence.prediction_series.month_12.labels : []

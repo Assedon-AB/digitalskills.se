@@ -108,7 +108,6 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
     }
     return <Chart
     name={name}
-    digspecData={compareObjectList}
     data={{
       labels: finalLables,
       datasets: datasetObjects,
