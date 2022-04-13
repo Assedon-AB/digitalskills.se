@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 
       <h3 className="text-xl mb-2">3. Framskrivning av data</h3>
       <p className="mb-4 leading-relaxed tracking-wide">
-          Annonserna passerar sedan en funktion som med hjälp av öppna bibliotek i Python applicerar algoritmer för prognostisering av tidsserier. Metoden som tillämpas är exponentiell utjämning där tidsseriens säsongsvariation först utreds för att sedan tas i beaktning i framskrivningen. Framskrivningar för 6, 12 och 18 månader tas fram och sparas ned som tidsserier i resultatobjektet. I samma steg sparas även värden för historiska trender på samma intervall.
+          Annonserna passerar sedan en <a href="https://github.com/Assedon-AB/digitalskills-data/blob/040b9a6b2c76f7eb50736bab4f851b335e3b43d1/digspec/prediction_builder.py#L113" target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-900 hover:underline">funktion</a> som med hjälp av öppna bibliotek i Python applicerar algoritmer för prognostisering av tidsserier. Metoden som tillämpas är exponentiell utjämning där tidsseriens säsongsvariation först utreds för att sedan tas i beaktning i framskrivningen. Framskrivningar för 6, 12 och 18 månader tas fram och sparas ned som tidsserier i resultatobjektet. I samma steg sparas även värden för historiska trender på samma intervall.
       </p>
 
       <h3 className="text-xl mb-2">4. Rensning av data</h3>
