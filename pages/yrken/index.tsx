@@ -61,7 +61,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     const forecastColorsBorder = ["rgb(0,121,107)","rgb(221,44,0)", "rgb(171,71,188)", "rgb(25,118,210)", "rgb(109,76,65)"]
     const forecastColorsBackground = ["rgb(0,121,107, 0.5)","rgb(221,44,0, 0.5)", "rgb(171,71,188, 0.5)","rgb(25,118,210, 0.5)", "rgb(109,76,65, 0.5)"]
     var finalLables  = compareObjectList[0].ad_series.labels.concat(
-      compareObjectList[0].prediction_series.month_12.labels
+      compareObjectList[0].prediction_series.month_18.labels
     )
     var datasetObjects = []
 
@@ -73,7 +73,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
         name = name + ", " + compareObjectList[i].name
       }
       var tempLabels = compareObjectList[i].ad_series.labels.concat(
-        compareObjectList[i].prediction_series.month_12.labels
+        compareObjectList[i].prediction_series.month_18.labels
       )
       if(tempLabels.length > finalLables.length) {
         finalLables = [...tempLabels]
@@ -93,10 +93,10 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
       datasetObjects.push(
         {
           label: "Prognos " + compareObjectList[i].name,
-          data: compareObjectList[i].prediction_series.month_12.values.map(
+          data: compareObjectList[i].prediction_series.month_18.values.map(
             (y, index) => ({
               y,
-              x: compareObjectList[i].prediction_series.month_12.labels[index],
+              x: compareObjectList[i].prediction_series.month_18.labels[index],
             })
           ),
           borderColor: forecastColorsBorder[i], borderDash: [5, 4],

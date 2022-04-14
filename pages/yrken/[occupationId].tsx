@@ -4,6 +4,7 @@ import Chart from "../../components/Chart";
 import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
+import InfoPopover from "../../components/InfoPopover";
 
 import { DigspecData } from "../../interfaces/Digspec";
 import { transformLink, getOccupation, getOccupations } from "../../lib/helpers";
@@ -25,7 +26,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
               name={occupation.name}
               data={{
                 labels: occupation.ad_series.labels.concat(
-                    occupation.prediction_series?.month_12 ? occupation.prediction_series.month_12.labels : []
+                    occupation.prediction_series?.month_18 ? occupation.prediction_series.month_18.labels : []
                 ),
                 datasets: [
                   {
@@ -36,10 +37,10 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                   },
                   {
                     label: "Prognos",
-                    data: occupation.prediction_series?.month_12 ? occupation.prediction_series.month_12.values.map(
+                    data: occupation.prediction_series?.month_18 ? occupation.prediction_series.month_18.values.map(
                       (y, index) => ({
                         y,
-                        x: occupation.prediction_series.month_12.labels[index],
+                        x: occupation.prediction_series.month_18.labels[index],
                       })
                     ) : [],
                     borderColor: "rgb(0,121,107)",
@@ -76,9 +77,12 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 
         {occupation.skills ? (
             <>
-        <h2 className="text-2xl mb-4 mt-8">
-          Vanligt efterfrågade kompetenser för {occupation.name}
-        </h2>
+            <div className="mb-4 mt-8 flex items-center">
+                <h2 className="text-2xl">
+                  Vanligt efterfrågade kompetenser för {occupation.name}
+                </h2>
+                <InfoPopover title="Relaterade kompetenser" text="Relaterade kompetenser är baserat på vilka kompetenser som efterfrågas i samma annons som yrket." />
+            </div>
         {Object.keys(occupation.skills)
           .sort((a, b) => occupation.skills[b] - occupation.skills[a])
           .slice(0, 8)
@@ -98,9 +102,12 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 
         {occupation.traits ? (
             <>
-        <h2 className="text-2xl mb-4 mt-8">
-          Vanligt efterfrågade egenskaper för {occupation.name}
-        </h2>
+            <div className="mb-4 mt-8 flex items-center">
+                <h2 className="text-2xl">
+                  Vanligt efterfrågade egenskaper för {occupation.name}
+                </h2>
+                <InfoPopover title="Relaterade egenskaper" text="Relaterade egenskaper är baserat på vilka egenskaper som efterfrågas i samma annons som yrket." />
+            </div>
         {Object.keys(occupation.traits)
           .sort((a, b) => occupation.traits[b] - occupation.traits[a])
           .slice(0, 8)
@@ -112,7 +119,12 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 
         {occupation.jobs ? (
             <>
-                <h2 className="text-2xl mb-4 mt-8">Relaterade yrken</h2>
+            <div className="mb-4 mt-8 flex items-center">
+                <h2 className="text-2xl">
+                    Relaterade yrken
+                </h2>
+                <InfoPopover title="Relaterade yrken" text="Relaterade yrken är baserat på vilka yrken som förekommer i samma annons som yrket." />
+            </div>
                 {Object.keys(occupation.jobs)
                   .sort((a, b) => occupation.jobs[b] - occupation.jobs[a])
                   .slice(0, 8)
