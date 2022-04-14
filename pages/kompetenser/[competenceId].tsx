@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 
-import Chart from "../../components/Chart";
 import SmallCard from "../../components/SmallCard";
 import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
@@ -8,6 +8,10 @@ import InfoPopover from "../../components/InfoPopover";
 
 import { DigspecData } from "../../interfaces/Digspec";
 import { transformLink, getCompetence, getCompetencies } from "../../lib/helpers";
+
+const Chart = dynamic(() => import("../../components/Chart"), {
+    ssr: false
+});
 
 interface CompetencePageProps {
   competence: DigspecData;

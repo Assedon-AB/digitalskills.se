@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
+import dynamic from "next/dynamic";
 
-import Chart from "../../components/Chart";
 import FullTable from "../../components/FullTable";
 
 import { getOccupations, getIndustry, OCCUPATION_IDS_TO_HIDE } from "../../lib/helpers";
@@ -11,6 +11,10 @@ import CompareTable from "../../components/CompareTable";
 import CompareMissingInfo from "../../components/CompareMissingInfo";
 import MetaTags from "../../components/MetaTags";
 import { Dialog, Transition } from "@headlessui/react";
+
+const Chart = dynamic(() => import("../../components/Chart"), {
+    ssr: false
+});
 
 interface OccupationPageProps {
   occupations: DigspecData[];

@@ -1,3 +1,4 @@
+import {useRef} from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import zoomPlugin from "chartjs-plugin-zoom";
 
 ChartJS.register(
   CategoryScale,
@@ -17,7 +19,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+    Legend,
+    zoomPlugin
 );
 
 interface ChartData {
@@ -37,6 +40,14 @@ interface ChartProps {
 }
 
 export default function Chart({ name, data }: ChartProps) {
+    const chartRef = useRef<ChartJS>();
+
+    const resetZoom = () => {
+        if (chartRef && chartRef.current) {
+            chartRef.current.resetZoom();
+        }
+    }
+
   const options = {
     responsive: true,
     plugins: {
@@ -47,6 +58,21 @@ export default function Chart({ name, data }: ChartProps) {
         display: true,
         text: `Antal förekomster av ${name} på månadsbasis`,
       },
+        zoom: {
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'xy',
+            },
+            pan: {
+                enabled: true,
+                mode: "xy"
+            },
+      }
     },
   };
 
@@ -56,7 +82,8 @@ export default function Chart({ name, data }: ChartProps) {
           role="img"
         aria-label={`Graf över ${name} förekomst övertid samt prognos.`}
       >
-        <Line options={options} data={data} />
+        <Line options={options} data={data} ref={chartRef} />
+        <button className="block mx-auto mt-4 text-blue-800" onClick={resetZoom}>Återställ Zoom</button>
       </div>
   );
 }
