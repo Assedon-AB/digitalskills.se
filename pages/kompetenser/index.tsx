@@ -44,7 +44,7 @@ const CompetencesOverview: NextPage<CompetencesPageProps> = ({
   }
 
   const buildCompareComponent = () => {
-    return <><h1 className="pt-8 pl-2 text-xl">Jämförelsetabell</h1><CompareTable data={compareObjectList} title={"Namn"} category={"kompetenser"} industry={industry} /></> ;
+    return <><h1 className="pt-8 pl-2 text-xl">Valda kompetenser</h1><CompareTable data={compareObjectList} title={"Namn"} category={"kompetenser"} industry={industry} /></> ;
   }
 
   const createCompareObjects = () => {

@@ -41,7 +41,7 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
   };
 
   const buildCompareComponent = () => {
-    return <><h1 className="pt-16 pl-2 text-xl">Jämförelsetabell</h1><CompareTable data={compareObjectList} title={"Namn"} category={"yrken"} industry={industry} /></> ;
+    return <><h1 className="pt-16 pl-2 text-xl">Valda yrken</h1><CompareTable data={compareObjectList} title={"Namn"} category={"yrken"} industry={industry} /></> ;
   }
 
   function openModal() {
