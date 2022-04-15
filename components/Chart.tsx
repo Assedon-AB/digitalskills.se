@@ -1,12 +1,13 @@
 import {useRef} from "react";
 import {
-  Chart as ChartJS, CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import zoomPlugin from "chartjs-plugin-zoom";
@@ -84,7 +85,7 @@ export default function Chart({ name, data }: ChartProps) {
           {/*
           @ts-ignore */}
         <Line options={options} data={data} ref={chartRef} />
-        <button className="block mx-auto mt-4 text-blue-800" onClick={resetZoom}>Återställ Zoom</button>
+        <button className="block mx-auto mt-4 text-blue-800 hover:text-blue-500" onClick={resetZoom}>Återställ Zoom</button>
       </div>
   );
 }

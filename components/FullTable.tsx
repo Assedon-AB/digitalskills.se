@@ -122,10 +122,10 @@ const FullTable = ({
                     } uppercase tracking-wider`}
                   >
                     <button onClick={() => setSortMode("Namn")}>
-                      <div className="flex flex-row">
+                      <div className="flex flex-row hover:text-blue-800">
                         {title}
                         <SortAscendingIcon
-                          className={`h-5 w-5  ${
+                          className={`h-5 w-5 hover:text-blue-800  ${
                             sortMode == "Namn"
                               ? "text-blue-800"
                               : "text-gray-500"
@@ -140,14 +140,14 @@ const FullTable = ({
                     className={`py-3 px-6 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Alla annonser")}>
-                      <div className={`flex flex-row ${
+                        <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Alla annonser"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
                         Annonser
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                            className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Alla annonser"
                               ? "text-blue-800"
                               : "text-gray-500"
@@ -162,14 +162,14 @@ const FullTable = ({
                     className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 6 mån")}>
-                      <div className={`flex flex-row ${
+                        <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Trend 6 mån"
                         ? "text-blue-800"
                         : "text-gray-800"
                     } `}>
                         6 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                            sortMode == "Trend 6 mån"
                               ? "text-blue-800"
                               : "text-gray-800"
@@ -183,14 +183,14 @@ const FullTable = ({
                     className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 12 mån")}>
-                      <div className={`flex flex-row ${
+                      <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Trend 12 mån"
                         ? "text-blue-800"
                         : "text-gray-800"
                     } `}>
                         12 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Trend 12 mån"
                                ? "text-blue-800"
                                : "text-gray-800"
@@ -204,14 +204,14 @@ const FullTable = ({
                     className={`py-3 px-6 bg-gray-100 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Trend 18 mån")}>
-                      <div className={`flex flex-row ${
+                      <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Trend 18 mån"
                         ? "text-blue-800"
                         : "text-gray-800"
                     } `}>
                         18 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Trend 18 mån"
                                ? "text-blue-800"
                                : "text-gray-800"
@@ -225,14 +225,14 @@ const FullTable = ({
                     className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 6 mån")}>
-                      <div className={`flex flex-row ${
+                      <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Prognos 6 mån"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
                         6 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Prognos 6 mån"
                                ? "text-blue-800"
                                : "text-gray-500"
@@ -246,14 +246,14 @@ const FullTable = ({
                     className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 12 mån")}>
-                      <div className={`flex flex-row ${
+                      <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Prognos 12 mån"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
                         12 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Prognos 12 mån"
                                ? "text-blue-800"
                                : "text-gray-500"
@@ -267,14 +267,14 @@ const FullTable = ({
                     className={`py-3 px-6  text-left text-[10px]`}
                   >
                     <button onClick={() => setSortMode("Prognos 18 mån")}>
-                      <div className={`flex flex-row ${
+                      <div className={`flex flex-row hover:text-blue-800 ${
                      sortMode == "Prognos 18 mån"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
                         18 mån
                         <SortAscendingIcon
-                          className={`h-5 w-5 ${
+                          className={`h-5 w-5 hover:text-blue-800 ${
                             sortMode == "Prognos 18 mån"
                                ? "text-blue-800"
                                : "text-gray-500"
@@ -288,7 +288,7 @@ const FullTable = ({
                     className="px-6 py-3 text-left text-[10px] bg-gray-100 font-medium text-gray-800 uppercase tracking-wider "
                   >
                     <button onClick={() => updateCompareList([])}>
-                      <div className="flex flex-row underline">
+                      <div className="flex flex-row underline hover:text-blue-800">
                         Rensa
                        
                       </div>
