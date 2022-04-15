@@ -1,7 +1,6 @@
 import {useRef} from "react";
 import {
-  Chart as ChartJS,
-  CategoryScale,
+  Chart as ChartJS, CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
@@ -66,7 +65,7 @@ export default function Chart({ name, data }: ChartProps) {
               pinch: {
                 enabled: true
               },
-              mode: 'xy',
+              mode: "xy",
             },
             pan: {
                 enabled: true,
@@ -82,6 +81,8 @@ export default function Chart({ name, data }: ChartProps) {
           role="img"
         aria-label={`Graf över ${name} förekomst övertid samt prognos.`}
       >
+          {/*
+          @ts-ignore */}
         <Line options={options} data={data} ref={chartRef} />
         <button className="block mx-auto mt-4 text-blue-800" onClick={resetZoom}>Återställ Zoom</button>
       </div>
