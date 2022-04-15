@@ -8,6 +8,7 @@ import {
     Title,
     Tooltip,
     Legend,
+    ChartOptions
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import zoomPlugin from "chartjs-plugin-zoom";
@@ -19,8 +20,8 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-    Legend,
-    zoomPlugin
+  Legend,
+  zoomPlugin
 );
 
 interface ChartData {
@@ -40,7 +41,7 @@ interface ChartProps {
 }
 
 export default function Chart({ name, data }: ChartProps) {
-    const chartRef = useRef<ChartJS>();
+    const chartRef = useRef<any>();
 
     const resetZoom = () => {
         if (chartRef && chartRef.current) {
@@ -48,7 +49,7 @@ export default function Chart({ name, data }: ChartProps) {
         }
     }
 
-  const options = {
+    const options: ChartOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -82,8 +83,6 @@ export default function Chart({ name, data }: ChartProps) {
           role="img"
         aria-label={`Graf över ${name} förekomst övertid samt prognos.`}
       >
-          {/*
-          @ts-ignore */}
         <Line options={options} data={data} ref={chartRef} />
         <button className="block mx-auto mt-4 text-blue-800 hover:text-blue-500" onClick={resetZoom}>Återställ Zoom</button>
       </div>
