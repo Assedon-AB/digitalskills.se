@@ -2,6 +2,8 @@ import { useState } from "react";
 import FullTableListRow from "./FullTableListRow";
 import { SortAscendingIcon } from "@heroicons/react/solid";
 
+import InfoPopover from "./InfoPopover";
+
 import { DigspecData, IndustryData } from "../interfaces/Digspec";
 
 interface FullTableProps {
@@ -95,20 +97,22 @@ const FullTable = ({
                   <th scope="col" className="bg-gray-100"></th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center font-medium text-gray-800 uppercase bg-gray-100 tracking-wider"
+                    className="px-6 py-3 text-center text-gray-800 bg-gray-100 "
                   >
-                    <div className="flex flex-col ">
-                      <p className="text-[10px]">Trend</p>
+                    <div className="flex items-center">
+                      <p className="font-medium text-[10px] uppercase tracking-wider">Trend</p>
+                        <InfoPopover isSmall={true} title="Vad betyder trend?" text="Trenden räknas fram genom att jämföra senast uppmätta månadsvärde historiskt över trendperioderna." />
                     </div>
                   </th>
                   <th scope="col" className="bg-gray-100"></th>
                   <th scope="col"></th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-center  font-medium text-gray-500 uppercase tracking-wider"
+                    className="px-6 py-3 text-center  text-gray-500"
                   >
-                    <div className="flex flex-col ">
-                      <p className="text-[10px]">Prognos</p>
+                    <div className="flex items-center">
+                      <p className="text-[10px] font-medium uppercase tracking-wider">Prognos</p>
+                        <InfoPopover isSmall={true} title="Vad betyder prognos?" text="Prognosen görs med hjälp av exponentiell utjämning över prognosperioderna framåt sett från senast uppmätta månadsvärde." />
                     </div>
                   </th>
                   <th scope="col"></th>
@@ -134,13 +138,13 @@ const FullTable = ({
                       </div>
                     </button>
                   </th>
-                  
+
                   <th
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] `}
                   >
                     <button onClick={() => setSortMode("Alla annonser")}>
-                        <div className={`flex flex-row hover:text-blue-800 ${
+                        <div className={`flex items-center flex-row hover:text-blue-800 ${
                      sortMode == "Alla annonser"
                         ? "text-blue-800"
                         : "text-gray-500"
@@ -153,6 +157,7 @@ const FullTable = ({
                               : "text-gray-500"
                           }  ml-2`}
                         />
+                        <InfoPopover isSmall={true} title="Vad betyder annonser?" text="Annonser är antalet annonser uppmätta den senaste månaden i datan." />
                       </div>
                     </button>
                   </th>
