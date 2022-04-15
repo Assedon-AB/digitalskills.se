@@ -1,7 +1,7 @@
 import { Popover } from '@headlessui/react'
 import { InformationCircleIcon } from "@heroicons/react/solid";
 
-const InfoPopover = ({title, text, isSmall}: {title: string; text: string; isSmall?: boolean}) => {
+const InfoPopover = ({title, text, isSmall, customTranslate}: {title: string; text: string; isSmall?: boolean, customTranslate?: string}) => {
     return (
         <Popover className="relative">
             <Popover.Button className="flex items-center">
@@ -11,7 +11,7 @@ const InfoPopover = ({title, text, isSmall}: {title: string; text: string; isSma
                     <InformationCircleIcon className="h-7 w-7 text-gray-500 ml-2" />
                 )}
             </Popover.Button>
-            <Popover.Panel className={`absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 transform -translate-x-1/2 left-1/2 ${isSmall ? "lg:max-w-md" : " lg:max-w-2xl"}`}>
+            <Popover.Panel className={`absolute z-10 w-screen max-w-sm px-4 mt-3 sm:px-0 transform left-1/2 ${isSmall ? "lg:max-w-sm" : "lg:max-w-2xl"} ${customTranslate ? customTranslate : "-translate-x-1/2"}`}>
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="p-4 bg-gray-50">
                     <a

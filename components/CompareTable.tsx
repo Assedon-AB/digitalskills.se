@@ -136,23 +136,25 @@ const CompareTable = ({
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px] `}
                   >
-                    <button onClick={() => setSortMode("Alla annonser")}>
-                      <div className={`flex flex-row items-center hover:text-blue-800 ${
-                     sortMode == "Alla annonser"
-                        ? "text-blue-800"
-                        : "text-gray-500"
-                    } `}>
-                        Annonser
-                        <SortAscendingIcon
-                          className={`h-5 w-5 hover:text-blue-800 ${
-                            sortMode == "Alla annonser"
-                              ? "text-blue-800"
-                              : "text-gray-500"
-                          }  ml-2`}
-                        />
+                      <div className="flex items-center">
+                        <button onClick={() => setSortMode("Alla annonser")}>
+                          <div className={`flex flex-row items-center hover:text-blue-800 ${
+                         sortMode == "Alla annonser"
+                            ? "text-blue-800"
+                            : "text-gray-500"
+                        } `}>
+                            Annonser
+                            <SortAscendingIcon
+                              className={`h-5 w-5 hover:text-blue-800 ${
+                                sortMode == "Alla annonser"
+                                  ? "text-blue-800"
+                                  : "text-gray-500"
+                              }  ml-2`}
+                            />
+                          </div>
+                        </button>
                         <InfoPopover isSmall={true} title="Vad betyder annonser?" text="Annonser är antalet annonser uppmätta den senaste månaden i datan." />
-                      </div>
-                    </button>
+                    </div>
                   </th>
 
                   <th
