@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="p-4 max-w-6xl mx-auto flex items-center">
         <p
           className="text-2xl block min-w-max"
-        > {"Digitalskills.se"}
+        > {"digitalskills.se"}
         </p>
       <button
         className="md:hidden fixed top-4 right-4 z-50"
@@ -130,7 +130,7 @@ const Navbar = () => {
               }`}
               onClick={close}
             >
-              Om Digitalskills
+              Om digitalskills.se
             </a>
           </Link>
         </li>
