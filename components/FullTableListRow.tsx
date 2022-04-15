@@ -135,7 +135,7 @@ const FullTableListRow = ({
         <td className="px-6 py-4 whitespace-nowrap">
           <Checkbox
             onClick={() => {
-              if(compareList.length < 5) {
+              if(compareList.length < 5 || (compareList.length == 5 && checked)) {
                 if (checked) {
                   setChecked(false);
                   const index: number = compareList.indexOf(data._id, 0);

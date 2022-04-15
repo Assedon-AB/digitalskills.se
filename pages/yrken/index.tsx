@@ -121,7 +121,6 @@ const OccupationsOverview: NextPage<OccupationPageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full min-h-screen py-8">
         <MetaTags title="Yrken"/>
       <article className="max-w-6xl px-4 mx-auto pt-8">
-     
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
