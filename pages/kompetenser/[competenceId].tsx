@@ -74,7 +74,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
             }))
             .sort((a, b) => b.num - a.num)
             .slice(0, 15)}
-          title="Område"
+          title="Stad"
         />
             </>
         ) : null}
@@ -85,7 +85,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
                 <h2 className="text-2xl">
                     Yrken som ofta efterfrågar {competence.name}
                 </h2>
-                <InfoPopover title="Relaterade yrken" text="Relaterade yrken är baserat på vilka yrken som förekommer i samma annons som kompetensen." />
+                <InfoPopover title="Relaterade yrken" text="Yrket och kompetensen har ofta förekommit i samma annons. Listan är rangordnad efter flest antal förekomster" />
             </div>
             {Object.keys(competence.jobs)
               .sort((a, b) => competence.jobs[b] - competence.jobs[a])
@@ -110,7 +110,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
                 <h2 className="text-2xl">
                     Relaterade kompetenser
                 </h2>
-                <InfoPopover title="Relaterade kompetenser" text="Relaterade kompetenser är baserat på vilka kompetenser som efterfrågas i samma annons som kompetensen." />
+                <InfoPopover title="Relaterade kompetenser" text="Andra kompetenser som har efterfrågats i samma annons, dvs är ofta efterfrågade tillsammans. Listan är rangordnat efter flest antal gemensamma förekomster" />
             </div>
         {Object.keys(competence.skills)
           .sort((a, b) => competence.skills[b] - competence.skills[a])

@@ -74,7 +74,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
             }))
             .sort((a, b) => b.num - a.num)
             .slice(0, 15)}
-          title="Område"
+          title="Stad"
         />
 </>
     ) : null}
@@ -85,7 +85,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                 <h2 className="text-2xl">
                   Vanligt efterfrågade kompetenser för {occupation.name}
                 </h2>
-                <InfoPopover title="Relaterade kompetenser" text="Relaterade kompetenser är baserat på vilka kompetenser som efterfrågas i samma annons som yrket." />
+                <InfoPopover title="Relaterade kompetenser" text="Yrket och kompetensen har ofta förekommit i samma annons. Listan är rangordnad efter flest antal förekomster" />
             </div>
         {Object.keys(occupation.skills)
           .sort((a, b) => occupation.skills[b] - occupation.skills[a])
@@ -110,7 +110,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                 <h2 className="text-2xl">
                   Vanligt efterfrågade egenskaper för {occupation.name}
                 </h2>
-                <InfoPopover title="Relaterade egenskaper" text="Relaterade egenskaper är baserat på vilka egenskaper som efterfrågas i samma annons som yrket." />
+                <InfoPopover title="Relaterade egenskaper" text="Egenskaper som har efterfrågats i annonser med följande yrkestitel. Listan är rangordnat efter flest antal förekomster" />
             </div>
         {Object.keys(occupation.traits)
           .sort((a, b) => occupation.traits[b] - occupation.traits[a])
@@ -127,7 +127,7 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
                 <h2 className="text-2xl">
                     Relaterade yrken
                 </h2>
-                <InfoPopover title="Relaterade yrken" text="Relaterade yrken är baserat på vilka yrken som förekommer i samma annons som yrket." />
+                <InfoPopover title="Relaterade yrken" text="Andra yrken som jobad enrichment tagit fram som alternativ yrkestitel för samma annons. Listan är rangordnad efter flest antal förekomster" />
             </div>
                 {Object.keys(occupation.jobs)
                   .sort((a, b) => occupation.jobs[b] - occupation.jobs[a])

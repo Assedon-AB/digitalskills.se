@@ -260,7 +260,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     className={`py-3 px-6 text-left text-[10px] font-medium 
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
-                    Branschen
+                    Annonser data/it
                   </th>
                   <th
                     scope="col"

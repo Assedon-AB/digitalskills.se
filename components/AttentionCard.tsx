@@ -6,23 +6,22 @@ const AttentionCard = () => {
   return (
     <div className="flex flex-col p-4 bg-white shadow  sm:rounded-lg">
       <div className="flex items-center justify-between">
-        <div className="flex items-start">
-          <InformationCircleIcon className="h-6 w-6 text-gray-500 ml-2" />
           <div className="flex flex-col ml-3 mr-8">
-            <div className="font-medium text-sm leading-relaxed">Hämtad senast</div>
+            <h3 className="font-medium text-sm leading-relaxed">Data hämtad senast</h3>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
-            Datan hämtades senast 2022-01-01 och sträcker sig från 2006-01-01 till 2021-12-31.
+                Ingående data kommer från Arbetsförmedlingens dataset för <a href="https://jobtechdev.se/sv/produkter/historical-ads" rel="noreferrer" target="_blank" className="text-blue-500 hover:text-blue-900 underline">historiska jobbannonser från Platsbanken</a>. Hämtades senast 2022-01-01 och sträcker sig mellan 2006-01-01 till 2021-12-31.
             </p>
-            <div className="font-medium text-sm leading-relaxed pt-4">Vad menas med trend?</div>
+            <h3 className="font-medium text-sm leading-relaxed pt-4">Så tolkar du tabellen</h3>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
-            Trenden räknas fram genom att jämföra senast uppmätta månadsvärde historiskt över trendperioderna.
+                <span className="font-bold">Annonser: </span> Antal unika annonser där kompetensen eller yrkestiteln förekommer under senast uppmätta månad i ingående data.
             </p>
-            <div className="font-medium text-sm leading-relaxed pt-4">Vad menas med prognos?</div>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
-            Prognosen görs med hjälp av exponentiell utjämning över prognosperioderna framåt sett från senast uppmätta månadsvärde.
+                <span className="font-bold">Trend: </span> Den historiska förändringen, i procent, över valt tidsintervall jämfört med senast uppmätta månadsvärde i ingående data.
+            </p>
+            <p className="text-xs text-gray-600 leading-relaxed mt-1">
+                <span className="font-bold">Prognos: </span> En beräknad framskrivning i procent, över valt tidsintervall, med start från senast uppmätta månadsvärde i ingående data. Framtagen med metoden ”exponentiell utjämning
             </p>
           </div>
-        </div>
       </div>
     </div>
   );
