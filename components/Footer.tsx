@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
         <ul className="md:w-2/5 mt-4">
           <li className="hover:text-[#004A98]">
-            <Link href="/">Översikt</Link>
+            <Link href="/">Hem</Link>
           </li>
           <li className="hover:text-[#004A98]">
             <Link href="/kompetenser">Kompetenser</Link>

@@ -78,7 +78,7 @@ const Navbar = () => {
               }`}
               onClick={close}
             >
-              Översikt
+              Hem
             </a>
           </Link>
         </li>

@@ -22,11 +22,11 @@ const Home: NextPage<HomePageProps> = ({
 
   return (
     <div className=" bg-[#fafafa] w-full h-full sm:px-4 lg:px-8">
-        <MetaTags title="Översikt" />
+        <MetaTags title="" />
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
         <div className="flex flex-col sm:flex-row px-4">
           <div className="flex flex-col w-12/12 sm:w-6/12">
-            <h1 className="text-4xl ">Översikt</h1>
+            <h1 className="text-4xl ">digitalskills.se</h1>
             <p className="pt-4 pb-4 pr-8 text-sm leading-relaxed">
               Tillväxtverket och Universitetskanslersämbetet har av regeringen
               fått i uppdrag att tillsammans analysera och föreslå hur
