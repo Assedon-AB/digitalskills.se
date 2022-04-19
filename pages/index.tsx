@@ -22,7 +22,7 @@ const Home: NextPage<HomePageProps> = ({
 
   return (
     <div className=" bg-[#fafafa] w-full h-full sm:px-4 lg:px-8">
-        <MetaTags title="" />
+        <MetaTags title="Startsida" />
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
         <div className="flex flex-col sm:flex-row px-4">
           <div className="flex flex-col w-12/12 sm:w-6/12">

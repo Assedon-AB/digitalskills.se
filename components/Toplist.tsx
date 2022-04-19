@@ -199,9 +199,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
-                    <button onClick={() => setSortMode("Namn")}>
-                        <div className="flex flex-row hover:text-blue-800">
-                        {title}
+                      <button className="flex flex-row hover:text-blue-800" onClick={() => setSortMode("Namn")}>
+                          <span>{title}</span>
                         <SortAscendingIcon
                           className={`h-5 w-5  hover:text-blue-800 ${
                             sortMode == "Namn"
@@ -209,7 +208,6 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                               : "text-gray-500"
                           } ml-2`}
                         />
-                      </div>
                     </button>
                   </th>
                   <th
@@ -222,9 +220,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     )}
                   >
                       <div className="flex items-center">
-                        <button onClick={() => setSortMode("Alla annonser")}>
-                          <div className="flex flex-row items-center hover:text-blue-800">
-                            Annonser
+                        <button className="flex flex-row items-center hover:text-blue-800" onClick={() => setSortMode("Alla annonser")}>
+                              <span>Annonser</span>
                             <SortAscendingIcon
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode != showMode && sortMode != "Namn"
@@ -232,7 +229,6 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                                   : "text-gray-500"
                               } ml-2`}
                             />
-                          </div>
                         </button>
                         <InfoPopover isSmall={true} title="Vad betyder annonser?" text="Annonser är antalet annonser uppmätta den senaste månaden i datan." />
                     </div>
@@ -244,9 +240,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     }`}
                   >
                     <div className="flex items-center">
-                        <button onClick={() => setSortMode(showMode)}>
-                          <div className="flex flex-row  hover:text-blue-800">
-                            {showMode}
+                        <button className="flex flex-row  hover:text-blue-800" onClick={() => setSortMode(showMode)}>
+                            <span>{showMode}</span>
                             <SortAscendingIcon
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode == showMode
@@ -254,7 +249,6 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                                   : "text-gray-500"
                               } ml-2`}
                             />
-                          </div>
                         </button>
                         <InfoPopover isSmall={true} title={`Vad betyder ${showMode}?`} text={modeToText[showMode]}  customTranslate="-translate-x-3/4"/>
                     </div>

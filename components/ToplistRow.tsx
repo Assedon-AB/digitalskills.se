@@ -1,4 +1,4 @@
-import { ExternalLinkIcon, LinkIcon } from "@heroicons/react/outline";
+import { LinkIcon } from "@heroicons/react/outline";
 import {transformLink} from "../lib/helpers";
 
 interface ToplistRowProps {
@@ -14,16 +14,6 @@ interface ToplistRowProps {
 }
 
 const ToplistRow = ({ dataObject, show, category }: ToplistRowProps) => {
-  const setRedirect = (dataName: string, dataId: string, cat: string) => {
-    var retStr = "/index";
-    if (category == "Topplista kompetenser") {
-      retStr = `/kompetenser/${dataName}-${dataId}`;
-    } else if (category == "Topplista yrken") {
-      retStr = `/yrken/${dataName}-${dataId}`;
-    }
-    return retStr;
-  };
-
   return (
     <tr key={dataObject.name}>
       <td className="px-6 py-4 whitespace-nowrap">
