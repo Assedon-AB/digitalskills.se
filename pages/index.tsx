@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
 
@@ -24,26 +25,14 @@ const Home: NextPage<HomePageProps> = ({
     <div className=" bg-[#fafafa] w-full h-full sm:px-4 lg:px-8">
         <MetaTags title="Startsida" />
       <article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
-        <div className="flex flex-col sm:flex-row px-4">
-          <div className="flex flex-col w-12/12 sm:w-6/12">
-            <h1 className="text-4xl ">digitalskills.se</h1>
-            <p className="pt-4 pb-4 pr-8 text-sm leading-relaxed">
-              Tillväxtverket och Universitetskanslersämbetet har av regeringen
-              fått i uppdrag att tillsammans analysera och föreslå hur
-              kompetensförsörjningen av digital spetskompetens kan utvecklas
-              både kort- och långsiktigt. Vi ska starta en dialog om samverkan
-              mellan berörda aktörer, i syfte att öka tillgången på digital
-              spetskompetens.{" "}
-            </p>
-            <p className=" pr-8 text-sm">
-              I uppdraget ingår också att så långt det är möjligt säkerställa en
-              förbättrad tillgång till statistik och prognoser över efterfrågan
-              och tillgången på digital spetskompetens på svensk arbetsmarknad.{" "}
-            </p>
+        <h1 className="text-4xl px-4 mb-4">digitalskills.se</h1>
+        <div className="flex flex-col items-center md:flex-row px-4">
+          <div className="flex flex-col w-12/12 md:w-6/12">
+              <Image width={1200} height={627} src="/digitalspetskompetens-meta.png" alt="platshållare för framtida video" className="md:pr-8 py-2" />
           </div>
-          <div className="flex flex-col w-12/12 sm:w-6/12">
+          <div className="flex flex-col w-12/12 md:w-6/12">
               <div
-                className="py-2 px4"
+                className="py-2 px-4"
               >
                 <AttentionCard/
                 >

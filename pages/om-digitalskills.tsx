@@ -29,21 +29,6 @@ const Home: NextPage = () => {
       </p>
       <p className="mb-4 leading-relaxed tracking-wide">Vill du i detalj veta hur digitalskills.se är framtaget så hittar du koden till verktyget här.</p>
 
-      <h3 className="text-xl mb-2">4. Rensning av data</h3>
-      <p className="mb-4 leading-relaxed tracking-wide">
-          Efter att framskrivningar har gjorts så rensas framtagna data på en viss uppsättning variabler. Rensning beror på att variabler som använts i framskrivningen och tidigare funktioner inte längre fyller någon funktion i databasen
-      </p>
-
-      <h3 className="text-xl mb-2">5. Uppladdning av data</h3>
-      <p className="mb-4 leading-relaxed tracking-wide">
-          Framtagen data laddas sen upp i en databas genom ett uppladdningsskript. Här laddas varje enskild kompetens och yrke upp genom ett API.
-      </p>
-
-      <h3 className="text-xl mb-2">6. Sammankoppling av ID:n</h3>
-      <p className="mb-8 leading-relaxed tracking-wide">
-          Efter att alla kompetenser och yrken är uppladdade så tilldelas alla ett automatiskt id. För att kunna möjliggöra länkningen mellan kompetenser och yrken så går varje kompetens och yrke genom en process där deras ID adderas under relaterade kompetenser och yrken.
-      </p>
-
       <h2 className="text-3xl mb-2">digitalskills.se är open source!</h2>
       <p className="mb-8 leading-relaxed tracking-wide">digitalskills.se är framtagen som open source och du kan hitta koden <a target="_blank" rel="noreferrer" href="https://github.com/orgs/Assedon-AB" className="text-blue-600 hover:text-blue-900 underline">här</a>. API till tidsseriedata samt prognoser hittar du <a target="_blank" rel="noreferrer" href="https://dig-api-kbrvfttzua-uc.a.run.app/" className="text-blue-600 hover:text-blue-900 underline">här.</a></p>
 
