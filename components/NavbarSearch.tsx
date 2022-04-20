@@ -1,14 +1,14 @@
 export default function NavbarSearch() {
   return (
     <form
-      className="relative mx-auto flex"
+      className="relative mx-auto flex w-full"
       method="GET"
       action="/sok"
       role="search"
     >
       <input
         type="search"
-        className="block p-2 pl-4 md:w-3/5 md:w-full text-gray-900 rounded-l-md border border-gray-300 sm:text-xs focus:outline-none focus:border-[#004A98]"
+        className="block p-2 pl-4 md:w-3/5 md:w-full text-gray-900 rounded-l-md border border-gray-300 sm:text-xs focus:outline-none focus:border-[#004A98] flex-grow"
         placeholder="Sök efter kompetenser och yrken"
         autoComplete="skillsAndOccupations"
         aria-label="Sök efter kompetenser och yrken"

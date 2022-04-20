@@ -135,7 +135,7 @@ const Navbar = () => {
           </Link>
         </li>
         {!router.pathname.includes("sok") ? (
-          <li className="">
+            <li className="flex-grow w-full md:w-auto">
             <NavbarSearch />
           </li>
         ) : null}
