@@ -291,7 +291,7 @@ const CompareTable = ({
                     className={`py-3 px-6 text-left text-[10px] font-medium "text-gray-500"
                     uppercase tracking-wider bg-[#3A8DDE]/25`}
                   >
-                    Branschen
+                      Annonser data/it
                   </th>
                   <th
                     scope="col"
