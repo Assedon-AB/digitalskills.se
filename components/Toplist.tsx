@@ -159,7 +159,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
     }
     return (
       <Link href={href}>
-          <a tabIndex={0} className="uppercase font-medium text-gray-500 focus:ring hover:text-blue-800">se alla</a>
+          <a tabIndex={0} className="uppercase font-medium text-gray-500 focus:ring hover:text-blue-800">{"se alla " + (category == "Topplista kompetenser" ? "kompetenser" : "yrken")}</a>
       </Link>
     );
   }
@@ -289,8 +289,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {sortBy(data, sortMode, showMode)}
                   <tr className="bg-gray-50">
-                    <td></td>
-                    <td className="px-6 py-4">
+                      <td></td>
+                    <td className="px-6 py-4 text-center">
                       {setRedirect(category)}
                     </td>
                     <td></td>
