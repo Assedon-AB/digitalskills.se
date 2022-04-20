@@ -58,12 +58,12 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                     scope="col"
                     className={`px-6 py-3 text-left text-[10px] `}
                   >
-                    <button onClick={() => setSortMode("Kommun")} className={`flex flex-row ${
+                    <button aria-label="Sortera efter område" onClick={() => setSortMode("Kommun")} className={`flex flex-row ${
                      sortMode == "Kommun"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
-                        <span>{title}</span>
+                        <span aria-hidden="true">{title}</span>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Kommun"
@@ -77,12 +77,12 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                     scope="col"
                     className={`py-3 px-6 text-left text-[10px]`}
                   >
-                    <button onClick={() => setSortMode("Alla annonser")} className={`flex flex-row ${
+                    <button aria-label="Sortera efter antal annonser" onClick={() => setSortMode("Alla annonser")} className={`flex flex-row ${
                      sortMode == "Alla annonser"
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
-                        <span>Annonser</span>
+                        <span aria-hidden="true">Annonser</span>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Alla annonser"
@@ -97,6 +97,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                     className={`px-6 py-3 text-left text-[10px]`}
                   >
                     <button
+                      aria-label="Sortera efter antal rekryterande organisationer"
                       onClick={() =>
                         setSortMode("Antal rekryterande organisationer")
                       }
@@ -105,7 +106,7 @@ const GeoTable = ({ data, title }: GeoTableProps) => {
                         ? "text-blue-800"
                         : "text-gray-500"
                     } `}>
-                        <span>Antal rekryterande organisationer</span>
+                        <span aria-hidden="true">Antal rekryterande organisationer</span>
                         <SortAscendingIcon
                           className={`h-5 w-5  ${
                             sortMode == "Antal rekryterande organisationer"

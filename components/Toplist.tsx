@@ -199,8 +199,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
-                      <button className="flex flex-row hover:text-blue-800" onClick={() => setSortMode("Namn")}>
-                          <span>{title}</span>
+                      <button aria-label="Sortera efter namn" className="flex flex-row hover:text-blue-800" onClick={() => setSortMode("Namn")}>
+                          <span aria-hidden="true">{title}</span>
                         <SortAscendingIcon
                           className={`h-5 w-5  hover:text-blue-800 ${
                             sortMode == "Namn"
@@ -220,8 +220,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     )}
                   >
                       <div className="flex items-center">
-                        <button className="flex flex-row items-center hover:text-blue-800" onClick={() => setSortMode("Alla annonser")}>
-                              <span>Annonser</span>
+                        <button aria-label="Sortera efter antal annonser" className="flex flex-row items-center hover:text-blue-800" onClick={() => setSortMode("Alla annonser")}>
+                            <span aria-hidden="true">Annonser</span>
                             <SortAscendingIcon
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode != showMode && sortMode != "Namn"
@@ -240,8 +240,8 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     }`}
                   >
                     <div className="flex items-center">
-                        <button className="flex flex-row  hover:text-blue-800" onClick={() => setSortMode(showMode)}>
-                            <span>{showMode}</span>
+                        <button aria-label={"Sortera efter " + showMode} className="flex flex-row  hover:text-blue-800" onClick={() => setSortMode(showMode)}>
+                            <span aria-hidden="true">{showMode}</span>
                             <SortAscendingIcon
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode == showMode
