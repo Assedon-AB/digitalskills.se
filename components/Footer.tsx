@@ -31,6 +31,7 @@ const Footer = () => {
           </li>
         </ul>
       </div>
+      <p className="text-center text-sm">Publicerades 2022-04-29</p>
     </footer>
   );
 };
