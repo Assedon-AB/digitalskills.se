@@ -63,11 +63,15 @@ export default function Chart({ name, data }: ChartProps) {
             zoom: {
               wheel: {
                 enabled: true,
+                speed: 0.05
               },
               pinch: {
                 enabled: true
               },
               mode: "xy",
+            },
+            limits: {
+                y: {min: 0, max: 400000}
             },
             pan: {
                 enabled: true,
