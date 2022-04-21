@@ -179,6 +179,7 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     {category}
                   </th>
                   <th
+                    aria-hidden="true"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   ></th>
                   <th
@@ -199,9 +200,11 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                       "py-3 px-6 text-left text-[10px] font-medium uppercase tracking-wider"
                     )}
                   >
-                      <button aria-label="Sortera efter namn" className="flex flex-row hover:text-blue-800" onClick={() => setSortMode("Namn")}>
-                          <span aria-hidden="true">{title}</span>
+                      <button className="flex flex-row hover:text-blue-800" onClick={() => setSortMode("Namn")}>
+                          <span className="sr-only">Sortera efter </span>
+                          <span>{title}</span>
                         <SortAscendingIcon
+                          aria-hidden="true" focusable="false"
                           className={`h-5 w-5  hover:text-blue-800 ${
                             sortMode == "Namn"
                               ? "text-blue-800"
@@ -220,9 +223,11 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     )}
                   >
                       <div className="flex items-center">
-                        <button aria-label="Sortera efter antal annonser" className="flex flex-row items-center hover:text-blue-800" onClick={() => setSortMode("Alla annonser")}>
-                            <span aria-hidden="true">Annonser</span>
+                        <button className="flex flex-row items-center hover:text-blue-800" onClick={() => setSortMode("Alla annonser")}>
+                            <span className="sr-only">Sortera efter antal</span>
+                            <span>Annonser</span>
                             <SortAscendingIcon
+                                aria-hidden="true" focusable="false"
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode != showMode && sortMode != "Namn"
                                   ? "text-blue-800"
@@ -240,9 +245,11 @@ const Toplist = ({ data, title, category, industry }: ToplistProps) => {
                     }`}
                   >
                     <div className="flex items-center">
-                        <button aria-label={"Sortera efter " + showMode} className="flex flex-row  hover:text-blue-800" onClick={() => setSortMode(showMode)}>
-                            <span aria-hidden="true">{showMode}</span>
+                        <button className="flex flex-row  hover:text-blue-800" onClick={() => setSortMode(showMode)}>
+                            <span className="sr-only">Sortera efter </span>
+                            <span>{showMode}</span>
                             <SortAscendingIcon
+                            aria-hidden="true" focusable="false"
                               className={`h-5 w-5  hover:text-blue-800 ${
                                 sortMode == showMode
                                   ? "text-blue-800"
