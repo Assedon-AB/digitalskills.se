@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
   return (
-    <nav className="p-4 max-w-6xl mx-auto flex items-center">
+      <nav className="p-4 max-w-6xl mx-auto flex items-center print:hidden">
         <p
           className="text-2xl block min-w-max"
         > {"digitalskills.se"}
