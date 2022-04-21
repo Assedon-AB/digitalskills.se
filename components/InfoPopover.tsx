@@ -4,7 +4,7 @@ import { InformationCircleIcon } from "@heroicons/react/solid";
 const InfoPopover = ({title, text, isSmall, customTranslate}: {title: string; text: string; isSmall?: boolean, customTranslate?: string}) => {
     return (
         <Popover className="relative">
-            <Popover.Button className="flex items-center">
+            <Popover.Button className="flex items-center" aria-label={"Mer information om: "+title}>
                 {isSmall ? (
                     <InformationCircleIcon className="h-5 w-5 text-gray-500 ml-2" />
                 ) : (
