@@ -28,7 +28,7 @@ const Home: NextPage<HomePageProps> = ({
         <h1 className="sr-only">digitalskills.se startsida</h1>
         <div className="flex flex-col items-center md:flex-row px-4">
           <div className="flex flex-col w-12/12 md:w-6/12">
-              <Image width={1200} height={627} src="/digitalspetskompetens-meta.png" alt="platshållare för framtida video" className="md:pr-8 py-2" />
+              <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo" title="YouTube video spelare för digitalskills video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="md:pr-8 py-2"></iframe>
           </div>
           <div className="flex flex-col w-12/12 md:w-6/12">
               <div
