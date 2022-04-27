@@ -114,9 +114,9 @@ const transformLink = (name: string, id: string) =>
 		name
 			.replace(" ", "")
 			.replace("#", "")
-			.replaceAll("å", "a")
-			.replaceAll("ä", "a")
-			.replaceAll("ö", "o")
+			.replace("å", "a")
+			.replace("ä", "a")
+			.replace("ö", "o")
 	)}-${id}`;
 
 export {
