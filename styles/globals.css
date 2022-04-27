@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 input:checked + div {
-    @apply border-blue-500;
-  }
-  input:checked + div svg {
-    @apply block;
-  }
-  
+	@apply border-blue-500;
+}
+input:checked + div svg {
+	@apply block;
+}

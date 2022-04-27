@@ -1,6 +1,7 @@
 # Digitalspetskompetens
 
 ## Testing
+
 There's currently a lack of tests and help is much appreciated. Tests are written and placed inside the directory `__tests__`. Tests are written with [jest](https://jestjs.io/docs/getting-started) and [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/). For more information regarding testing and Next.js see [documentation](https://nextjs.org/docs/testing)
 
 ## Deploy on Vercel
