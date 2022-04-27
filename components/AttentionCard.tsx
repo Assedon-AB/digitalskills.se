@@ -15,7 +15,7 @@ const AttentionCard = () => {
                 <span className="font-bold">Trend: </span> Den historiska förändringen, i procent, över valt tidsintervall jämfört med senast uppmätta månadsvärde i ingående data.
             </p>
             <p className="text-xs text-gray-600 leading-relaxed mt-1">
-                <span className="font-bold">Prognos: </span> En beräknad framskrivning i procent, över valt tidsintervall, med start från senast uppmätta månadsvärde i ingående data. Framtagen med metoden ”exponentiell utjämning
+                <span className="font-bold">Prognos: </span> En beräknad framskrivning i procent, över valt tidsintervall, med start från senast uppmätta månadsvärde i ingående data. Framtagen med metoden exponentiell utjämning.
             </p>
           </div>
       </div>
