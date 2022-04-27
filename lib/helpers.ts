@@ -110,7 +110,14 @@ const getIndustry = async () => {
 };
 
 const transformLink = (name: string, id: string) =>
-	`${encodeURIComponent(name.replace(" ", "").replace("#", ""))}-${id}`;
+	`${encodeURIComponent(
+		name
+			.replace(" ", "")
+			.replace("#", "")
+			.replaceAll("å", "a")
+			.replaceAll("ä", "a")
+			.replaceAll("ö", "o")
+	)}-${id}`;
 
 export {
 	getCompetencies,
