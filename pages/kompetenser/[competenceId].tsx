@@ -1,3 +1,4 @@
+import {useState} from "react";
 import type { NextPage, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 
@@ -18,6 +19,8 @@ interface CompetencePageProps {
 }
 
 const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
+    const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
+
   return (
     <div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
         <MetaTags title={competence.name} />
@@ -59,16 +62,27 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
         {competence.geos ? (
             <>
         <h2 className="text-2xl mb-4">Geografisk fördelning</h2>
+        <p className="mb-2 font-bold">Visa geografiskfördelning över:</p>
+
+        <div className="flex mb-2">
+            <label htmlFor="faRegion">FA-region</label>
+            <input checked={viewMode == "faRegion"} onClick={() => setViewMode("faRegion")} type="radio" value="faRegion" id="faRegion" className="mr-4 ml-2" />
+
+            <label htmlFor="citys">Städer</label>
+            <input checked={viewMode == "citys"} onClick={() => setViewMode("citys")} type="radio" value="citys" id="citys" className="ml-2" />
+        </div>
+        <a className="block mb-4 text-blue-600 hover:text-blue-900 underline" href="https://tillvaxtverket.se/statistik/regional-utveckling/regionala-indelningar/fa-regioner.html" target="_blank" rel="noreferrer">Vad är en FA-region?</a>
+
         <GeoTable
-          data={Object.keys(competence.geos)
+          data={Object.keys(competence.geos[viewMode])
             .map((geoName: string) => ({
               name: geoName,
-              num: competence.geos[geoName]["2021-12-01"]["num"] ?? 0,
-              organisations_num: competence.geos[geoName]["2021-12-01"]["organisations_num"] ?? 0,
-              details: Object.keys(competence.geos[geoName]["2021-12-01"]["details"] ?? []).map(
+              num: competence.geos[viewMode][geoName]["2021-12-01"]["num"] ?? 0,
+              organisations_num: competence.geos[viewMode][geoName]["2021-12-01"]["organisations_num"] ?? 0,
+              details: Object.keys(competence.geos[viewMode][geoName]["2021-12-01"]["details"] ?? []).map(
                 (employerName) => ({
                   name: employerName,
-                  num: competence.geos[geoName]["2021-12-01"]["details"][employerName],
+                  num: competence.geos[viewMode][geoName]["2021-12-01"]["details"][employerName],
                 })
               ),
             }))

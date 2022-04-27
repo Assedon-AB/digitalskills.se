@@ -33,15 +33,28 @@ export interface DigspecData {
     [skillname: string]: number;
   };
   geos: {
-    [geoName: string]: {
-        [date: string]: {
-          num: number;
-          organisations_num: number;
-          details: {
-            [employerName: string]: number;
-          };
+      "faRegion": {
+        [geoName: string]: {
+            [date: string]: {
+              num: number;
+              organisations_num: number;
+              details: {
+                [employerName: string]: number;
+              };
+            };
         };
-    };
+      };
+      "citys": {
+        [geoName: string]: {
+            [date: string]: {
+              num: number;
+              organisations_num: number;
+              details: {
+                [employerName: string]: number;
+              };
+            };
+        };
+      }
   };
   employers: {
     [employer: string]: number;
