@@ -143,14 +143,6 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
       </>
       ) : null}
 
-        <h2 className="text-xl mb-4 mt-8">Källor</h2>
-        <p className="leading-relaxed">
-          {`All annons data kommer ifrån Swedish Jobtech Dev. Därefter så körs
-          annonserna genom Swedish Jobtech Dev's Enrichment API. Efter att
-          kompetenser, yrken, geo-data, egenskaper och arbetsgivare är
-          extraherat så genomgår det en framskrivning. Därefter så laddas datan
-          upp till vårt API.`}
-        </p>
       </article>
     </div>
   );
