@@ -90,7 +90,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.trend_percentages?.month_6
+						{data.trend_percentages?.month_6 != null
 							? `${data.trend_percentages.month_6.toFixed(1)} %`
 							: null}
 					</span>
@@ -103,7 +103,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.trend_percentages?.month_12
+						{data.trend_percentages?.month_12 != null
 							? `${data.trend_percentages.month_12.toFixed(1)} %`
 							: null}
 					</span>
@@ -116,7 +116,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.trend_percentages?.month_18
+						{data.trend_percentages?.month_18 != null
 							? `${data.trend_percentages.month_18.toFixed(1)} %`
 							: null}
 					</span>
@@ -129,7 +129,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.prediction_percentages.month_6
+						{data.prediction_percentages.month_6 != null
 							? `${data.prediction_percentages.month_6.toFixed(
 									1
 							  )}%`
@@ -144,7 +144,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.prediction_percentages.month_12
+						{data.prediction_percentages.month_12 != null
 							? `${data.prediction_percentages.month_12.toFixed(
 									1
 							  )}%`
@@ -159,7 +159,7 @@ const FullTableListRow = ({
 								: "bg-red-100 text-red-800"
 						}`}
 					>
-						{data.prediction_percentages.month_18
+						{data.prediction_percentages.month_18 != null
 							? `${data.prediction_percentages.month_18.toFixed(
 									1
 							  )} %`
