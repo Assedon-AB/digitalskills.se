@@ -1,3 +1,4 @@
+import { ExternalLinkIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 const Footer = () => {
@@ -26,6 +27,9 @@ const Footer = () => {
 					</p>
 				</div>
 				<ul className="md:w-2/5 mt-4">
+				<li className="font-bold">
+						<p>Länkar</p>
+					</li>
 					<li className="hover:text-[#004A98]">
 						<Link href="/">Hem</Link>
 					</li>
@@ -40,15 +44,31 @@ const Footer = () => {
 							Om digitalskills.se
 						</Link>
 					</li>
-					<li className="hover:text-[#004A98]">
+					<li className="hover:text-[#004A98] flex flex-row">
 						<Link href="https://dig-api-kbrvfttzua-uc.a.run.app/">
 							<a target="_blank">API</a>
 						</Link>
+						<div className="flex items-center">
+											<div>
+												<ExternalLinkIcon
+													className="ml-1  h-3 w-3 "
+													aria-hidden="true"
+												></ExternalLinkIcon>
+											</div>
+										</div>
 					</li>
-					<li className="hover:text-[#004A98]">
+					<li className="hover:text-[#004A98] flex flex-row">
 						<Link href="https://github.com/orgs/Assedon-AB">
 							<a target="_blank">Github</a>
 						</Link>
+						<div className="flex items-center">
+											<div>
+												<ExternalLinkIcon
+													className="ml-1  h-3 w-3 "
+													aria-hidden="true"
+												></ExternalLinkIcon>
+											</div>
+										</div>
 					</li>
 				</ul>
 			</div>
