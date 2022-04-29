@@ -1,4 +1,4 @@
-# Digitalspetskompetens
+# Digitalskills.se
 
 ## Testing
 
