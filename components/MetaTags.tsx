@@ -9,6 +9,7 @@ const MetaTags = ({ title }: { title: string }) => {
 				name="description"
 				content="Tillväxtverket och Universitetskanslersämbetet har av regeringen fått i uppdrag att tillsammans analysera och föreslå hur kompetensförsörjningen av digital spetskompetens kan utvecklas både kort- och långsiktigt. Vi ska starta en dialog om samverkan mellan berörda aktörer, i syfte att öka tillgången på digital spetskompetens."
 			/>
+			<script defer data-domain="digitalskills.se" src="https://plausible.io/js/plausible.js"></script>
 
 			<meta property="og:type" content="website" />
 			<meta property="og:url" content="https://digspec-fe.vercel.app/" />
