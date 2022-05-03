@@ -112,11 +112,12 @@ const getIndustry = async () => {
 const transformLink = (name: string, id: string) =>
 	`${encodeURIComponent(
 		name
-			.replace(" ", "")
-			.replace("#", "")
-			.replace("å", "a")
-			.replace("ä", "a")
-			.replace("ö", "o")
+			.replace(/\s*/g, "")
+			.replace(/#/g, "")
+			.replace(/\+/g, "")
+			.replace(/å/g, "a")
+			.replace(/ä/g, "a")
+			.replace(/ö/g, "o")
 	)}-${id}`;
 
 export {

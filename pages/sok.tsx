@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-import { getCompetencies, getOccupations } from "../lib/helpers";
+import { getCompetencies, getOccupations, transformLink } from "../lib/helpers";
 import { DigspecData } from "../interfaces/Digspec";
 
 import SearchBar from "../components/SearchBar";
@@ -60,7 +60,10 @@ const SearchPage: NextPage<SearchPageProps> = ({
 			) {
 				res.push({
 					...competence,
-					href: `/kompetenser/${competence.name}-${competence._id}`,
+					href: `/kompetenser/${transformLink(
+						competence.name,
+						competence._id
+					)}`,
 				});
 			}
 		});
@@ -75,9 +78,10 @@ const SearchPage: NextPage<SearchPageProps> = ({
 			) {
 				res.push({
 					...occupation,
-					href: `/yrken/${encodeURIComponent(
-						occupation.name.replace(" ", "")
-					)}-${occupation._id}`,
+					href: `/yrken/${transformLink(
+						occupation.name,
+						occupation._id
+					)}`,
 				});
 			}
 		});
@@ -114,17 +118,14 @@ export async function getStaticProps() {
 
 	let competencies: DigspecData[] = [];
 	if (!competenciesRaw.hasOwnProperty("error")) {
-		competencies = competenciesRaw
-			.sort((a, b) => b.num - a.num)
-			.slice(0, 100);
+		competencies = competenciesRaw.sort((a, b) => b.num - a.num);
 	}
 
 	let occupations: DigspecData[] = [];
 	if (!occupationsRaw.hasOwnProperty("error")) {
 		occupations = occupationsRaw
 			.filter((s) => s.model)
-			.sort((a, b) => b.num - a.num)
-			.slice(0, 100);
+			.sort((a, b) => b.num - a.num);
 	}
 
 	return {
