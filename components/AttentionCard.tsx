@@ -10,7 +10,7 @@ const AttentionCard = () => {
 						Ingående data kommer från Arbetsförmedlingens dataset
 						för{" "}
 						<a
-							href="https://jobtechdev.se/sv/produkter/historical-ads"
+							href="https://jobtechdev.se/sv/komponenter/historical-ads"
 							rel="noreferrer"
 							target="_blank"
 							className="text-[#004A98] hover:text-blue-900 underline"

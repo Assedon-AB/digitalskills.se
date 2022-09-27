@@ -58,7 +58,7 @@ const Home: NextPage = () => {
 						<a
 							target="_blank"
 							rel="noreferrer"
-							href="https://jobtechdev.se/sv/produkter"
+							href="https://jobtechdev.se"
 							className="text-blue-600 hover:text-blue-900 underline"
 						>
 							Jobtech Development
@@ -69,7 +69,7 @@ const Home: NextPage = () => {
 						<a
 							target="_blank"
 							rel="noreferrer"
-							href="https://jobtechdev.se/sv/produkter/historical-ads"
+							href="https://jobtechdev.se/sv/komponenter/historical-ads"
 							className="text-blue-600 hover:text-blue-900 underline"
 						>
 							här
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
 						<a
 							target="_blank"
 							rel="noreferrer"
-							href="https://github.com/orgs/Assedon-AB"
+							href="https://jobtechdev.se/sv/komponenter/jobad-enrichments"
 							className="text-blue-600 hover:text-blue-900 underline"
 						>
 							JobAd Enrichments
