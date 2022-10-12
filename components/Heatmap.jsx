@@ -78,25 +78,25 @@ class Map extends Component {
 		this.states = this.state.usStates.map((d, idx) => {
 			let fill = "rgba(245, 155, 140, 0.2)";
 
-			if (
-				this.props.geodata &&
-				this.props.geodata.hasOwnProperty(
-					d.properties.FANamn.toLowerCase()
-				)
-			) {
+			let faRegions = d.properties.FANamn.toLowerCase().split("-"); // Splittar för att dubbel fa regioner ska räkna ihop alla inom området.
+			let count = 0;
+
+			for (const region of faRegions) {
 				if (
-					this.props.geodata[d.properties.FANamn.toLowerCase()][
-						this.props.date
-					]["num"] > 0
+					this.props.geodata &&
+					this.props.geodata.hasOwnProperty(region)
 				) {
-					const count =
-						this.props.geodata[d.properties.FANamn.toLowerCase()][
-							this.props.date
-						]["num"];
-					const opacity = ((count - 0) / (this.state.max - 0)) * 100; // Normaliserar och får ett värde mellan 1-100
-					fill = convertHex("#322882", opacity + 6);
+					if (
+						this.props.geodata[region][this.props.date]["num"] > 0
+					) {
+						count +=
+							this.props.geodata[region][this.props.date]["num"];
+					}
 				}
 			}
+
+			const opacity = ((count - 0) / (this.state.max - 0)) * 100; // Normaliserar och får ett värde mellan 1-100
+			fill = convertHex("#322882", opacity + 6);
 
 			return (
 				<path
@@ -116,15 +116,14 @@ class Map extends Component {
 	on_hoover(name) {
 		try {
 			this.setState({
-				outputText:
-					name +
-					": " +
+				outputText: `${name}: ${
 					this.props.geodata[name.toLowerCase()][this.props.date][
 						"num"
-					],
+					]
+				}`,
 			});
 		} catch (err) {
-			this.setState({ outputText: name });
+			this.setState({ outputText: `${name}: 0` });
 		}
 	}
 
@@ -132,8 +131,8 @@ class Map extends Component {
 		this.drawMap();
 		return (
 			<div
-				className="h-full w-full relative"
-				style={{ height: 600, width: 300 }}
+				className="h-full w-full relative bg-white p-2 rounded-lg shadow-md"
+				style={{ height: 640, width: 300 }}
 			>
 				<svg
 					onMouseLeave={() => this.setState({ outputText: "" })}
