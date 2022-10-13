@@ -130,19 +130,24 @@ class Map extends Component {
 	render() {
 		this.drawMap();
 		return (
-			<div
-				className="h-full w-full relative bg-white p-2 rounded-lg shadow-md"
-				style={{ height: 640, width: 300 }}
-			>
-				<svg
-					onMouseLeave={() => this.setState({ outputText: "" })}
-					width={"100%"}
-					height={"100%"}
-					ref={(mapSVG) => (this.mapSVG = mapSVG)}
+			<div className="h-max w-max min-w[300px] relative bg-white p-2 rounded-lg shadow-md">
+				<p className="text-gray-500 text-xs mb-2 text-center">
+					Geografisk överblick på FA-regioner
+				</p>
+				<div
+					className="h-full w-full relative min-w-[300px]"
+					style={{ height: 640, width: 300 }}
 				>
-					<g>{this.states}</g>
-				</svg>
-				<div id="output" className="text-gray-800 mt-4">
+					<svg
+						onMouseLeave={() => this.setState({ outputText: "" })}
+						width={"100%"}
+						height={"100%"}
+						ref={(mapSVG) => (this.mapSVG = mapSVG)}
+					>
+						<g>{this.states}</g>
+					</svg>
+				</div>
+				<div id="output" className="text-gray-800 relative h-8">
 					{this.state.outputText}
 				</div>
 			</div>

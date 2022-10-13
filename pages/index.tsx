@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
+import Heatmap from "../components/Heatmap";
 
 import {
 	getCompetencies,
@@ -13,6 +14,8 @@ import {
 import { DigspecData, IndustryData } from "../interfaces/Digspec";
 
 import MetaTags from "../components/MetaTags";
+
+const LATEST_DATA_POINT = "2022-07-01";
 
 interface HomePageProps {
 	competencies: DigspecData[];
@@ -30,8 +33,8 @@ const Home: NextPage<HomePageProps> = ({
 			<MetaTags title="Startsida" />
 			<article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
 				<h1 className="sr-only">digitalskills.se startsida</h1>
-				<div className="flex flex-col items-center md:flex-row px-4">
-					<div className="flex flex-col w-12/12 md:w-6/12">
+				<div className="flex flex-col items-center md:flex-row justify-center px-4">
+					<div className="flex flex-col items-center w-11/12 md:w-6/12">
 						<iframe
 							width="560"
 							height="315"
@@ -42,12 +45,14 @@ const Home: NextPage<HomePageProps> = ({
 							allowFullScreen
 							className="md:pr-8 py-2 w-full"
 						></iframe>
-					</div>
-					<div className="flex flex-col w-12/12 md:w-6/12">
-						<div className="py-2 px-4">
+						<div className="py-2 px-4 mt-2">
 							<AttentionCard />
 						</div>
 					</div>
+					<Heatmap
+						geodata={industry["geos"]["faRegion"]}
+						date={LATEST_DATA_POINT}
+					/>
 				</div>
 
 				<div className="flex flex-col xl:flex-row justify-between">

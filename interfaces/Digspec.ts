@@ -90,4 +90,17 @@ export interface IndustryData {
 	trend_percentages: {
 		[trendSpan: string]: number;
 	};
+	geos: {
+		faRegion: {
+			[geoName: string]: {
+				[date: string]: {
+					num: number;
+					organisations_num: number;
+					details: {
+						[employerName: string]: number;
+					};
+				};
+			};
+		};
+	};
 }
