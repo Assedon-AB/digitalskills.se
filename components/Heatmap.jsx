@@ -79,6 +79,7 @@ class Map extends Component {
 			let fill = "rgba(245, 155, 140, 0.2)";
 
 			let faRegions = d.properties.FANamn.toLowerCase().split("-"); // Splittar för att dubbel fa regioner ska räkna ihop alla inom området.
+			faRegions.push(d.properties.FANamn.toLowerCase());
 			let count = 0;
 
 			for (const region of faRegions) {
