@@ -131,7 +131,7 @@ class Map extends Component {
 	render() {
 		this.drawMap();
 		return (
-			<div className="h-max w-max min-w[300px] relative bg-white p-2 rounded-lg shadow-md">
+			<div className="h-max w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
 				<p className="text-gray-500 text-xs mb-2 text-center">
 					Geografisk överblick på FA-regioner
 				</p>

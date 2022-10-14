@@ -33,8 +33,8 @@ const Home: NextPage<HomePageProps> = ({
 			<MetaTags title="Startsida" />
 			<article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
 				<h1 className="sr-only">digitalskills.se startsida</h1>
-				<div className="flex flex-col items-center md:flex-row justify-center px-4">
-					<div className="flex flex-col items-center w-11/12 md:w-6/12">
+				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 md:h-[700px]">
+					<div className="flex flex-col items-end w-11/12 md:w-6/12 h-full">
 						<iframe
 							width="560"
 							height="315"
@@ -45,7 +45,8 @@ const Home: NextPage<HomePageProps> = ({
 							allowFullScreen
 							className="md:pr-8 py-2 w-full"
 						></iframe>
-						<div className="py-2 px-4 mt-2">
+						<div className="flex-grow"></div>
+						<div className="py-2 px-4 mt-2 self-end">
 							<AttentionCard />
 						</div>
 					</div>
