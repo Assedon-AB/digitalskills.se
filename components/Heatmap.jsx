@@ -133,7 +133,7 @@ class Map extends Component {
 	render() {
 		this.drawMap();
 		return (
-			<div className="h-max w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
+			<div className="h-full w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
 				<p className="text-gray-500 text-xs mb-2 flex justify-center items-center">
 					<span>Geografisk överblick på FA-regioner</span>
 					<InfoPopover

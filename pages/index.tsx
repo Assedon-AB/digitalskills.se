@@ -46,7 +46,7 @@ const Home: NextPage<HomePageProps> = ({
 							className="md:pr-8 py-2 w-full"
 						></iframe>
 						<div className="flex-grow"></div>
-						<div className="py-2 px-4 mt-2 self-end">
+						<div className="px-4 mt-2 self-end">
 							<AttentionCard />
 						</div>
 					</div>
