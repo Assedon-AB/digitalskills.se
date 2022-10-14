@@ -3,6 +3,8 @@ import { geoMercator, geoPath } from "d3-geo";
 
 import FAGeoData from "./faregions.geojson";
 
+import InfoPopover from "./InfoPopover";
+
 function convertHex(hexCode, opacity) {
 	var hex = hexCode.replace("#", "");
 
@@ -132,8 +134,13 @@ class Map extends Component {
 		this.drawMap();
 		return (
 			<div className="h-max w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
-				<p className="text-gray-500 text-xs mb-2 text-center">
-					Geografisk överblick på FA-regioner
+				<p className="text-gray-500 text-xs mb-2 flex justify-center items-center">
+					<span>Geografisk överblick på FA-regioner</span>
+					<InfoPopover
+						title="Geografisk överblick FA-regioner"
+						text="Färgnyanserna är baserade mellan 0 och maxtaket av annonser denna månad. Därmed den mörkaste regionen är där det finns flest annonser, sedan så får de andra en nyans baserat på deras andel mellan 0 till max."
+						isSmall={true}
+					/>
 				</p>
 				<div
 					className="h-full w-full relative min-w-[300px]"

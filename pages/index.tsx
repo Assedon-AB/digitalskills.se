@@ -33,7 +33,7 @@ const Home: NextPage<HomePageProps> = ({
 			<MetaTags title="Startsida" />
 			<article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
 				<h1 className="sr-only">digitalskills.se startsida</h1>
-				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 md:h-[700px]">
+				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 md:h-[740px]">
 					<div className="flex flex-col items-end w-11/12 md:w-6/12 h-full">
 						<iframe
 							width="560"
