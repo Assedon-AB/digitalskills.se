@@ -154,6 +154,9 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 							</div>
 							<div className="mt-8 lg:ml-8 md:w-2/5 xl:w-1/5">
 								<Heatmap
+									label={
+										"Geografisk överblick via FA-regioner"
+									}
 									geodata={competence.geos.faRegion}
 									date={LATEST_DATA_POINT}
 								/>

@@ -135,7 +135,7 @@ class Map extends Component {
 		return (
 			<div className="h-full w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
 				<p className="text-gray-500 text-xs mb-2 flex justify-center items-center">
-					<span>Geografisk överblick på FA-regioner</span>
+					<span>{this.props.label}</span>
 					<InfoPopover
 						title="Geografisk överblick FA-regioner"
 						text="Färgnyanserna är baserade mellan 0 och maxtaket av annonser denna månad. Därmed den mörkaste regionen är där det finns flest annonser, sedan så får de andra en nyans baserat på deras andel mellan 0 till max."
