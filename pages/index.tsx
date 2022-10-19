@@ -52,7 +52,7 @@ const Home: NextPage<HomePageProps> = ({
 					</div>
 					<Heatmap
 						label={
-							"Geografisk överblick av alla annonser via FA-regioner"
+							"Geografisk överblick av alla annonser inom Data/IT via FA-regioner"
 						}
 						geodata={industry["geos"]["faRegion"]}
 						date={LATEST_DATA_POINT}
