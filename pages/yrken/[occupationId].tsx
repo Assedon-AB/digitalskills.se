@@ -118,22 +118,25 @@ const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 											num:
 												occupation.geos[viewMode][
 													geoName
-												]["2021-12-01"]["num"] ?? 0,
+												][LATEST_DATA_POINT]["num"] ??
+												0,
 											organisations_num:
 												occupation.geos[viewMode][
 													geoName
-												]["2021-12-01"][
+												][LATEST_DATA_POINT][
 													"organisations_num"
 												] ?? 0,
 											details: Object.keys(
 												occupation.geos[viewMode][
 													geoName
-												]["2021-12-01"]["details"] ?? []
+												][LATEST_DATA_POINT][
+													"details"
+												] ?? []
 											).map((employerName) => ({
 												name: employerName,
 												num: occupation.geos[viewMode][
 													geoName
-												]["2021-12-01"]["details"][
+												][LATEST_DATA_POINT]["details"][
 													employerName
 												],
 											})),
