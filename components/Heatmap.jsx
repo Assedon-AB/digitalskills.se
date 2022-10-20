@@ -110,15 +110,17 @@ class Map extends Component {
 					strokeWidth="0.5"
 					cursor="pointer"
 					className="hover:text-black hover:fill-current"
-					onMouseOver={() => this.on_hoover(d.properties.FANamn)}
+					onMouseOver={(e) => this.on_hoover(d.properties.FANamn, e)}
 				/>
 			);
 		});
 	}
 
-	on_hoover(name) {
+	on_hoover(name, event) {
 		try {
 			this.setState({
+				posX: event.pageX,
+				posY: event.pageY,
 				outputText: `${name}: ${
 					this.props.geodata[name.toLowerCase()][this.props.date][
 						"num"
@@ -133,9 +135,14 @@ class Map extends Component {
 	render() {
 		this.drawMap();
 		return (
-			<div className="h-full w-max min-w[300px] relative bg-white p-2 rounded-lg shadow">
+			<div
+				className="h-full w-max min-w[300px] bg-white p-2 rounded-lg shadow"
+				aria-hidden="true"
+			>
 				<p className="text-gray-500 text-xs mb-2 flex justify-center items-center">
-					<span>{this.props.label}</span>
+					<span className="break-normal max-w-[300px]">
+						{this.props.label}
+					</span>
 					<InfoPopover
 						title="Geografisk överblick FA-regioner"
 						text="Färgnyanserna är baserade mellan 0 och maxtaket av annonser denna månad. Därmed den mörkaste regionen är där det finns flest annonser, sedan så får de andra en nyans baserat på deras andel mellan 0 till max."
@@ -155,7 +162,11 @@ class Map extends Component {
 						<g>{this.states}</g>
 					</svg>
 				</div>
-				<div id="output" className="text-gray-800 relative h-8">
+				<div
+					id="output"
+					className={`text-gray-800 bg-white shadow-lg rounded-lg p-4 flex justify-center items-center absolute h-8`}
+					style={{ left: this.state.posX, top: this.state.posY + 20 }}
+				>
 					{this.state.outputText}
 				</div>
 			</div>
