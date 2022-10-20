@@ -35,16 +35,18 @@ const Home: NextPage<HomePageProps> = ({
 				<h1 className="sr-only">digitalskills.se startsida</h1>
 				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 md:h-[740px]">
 					<div className="flex flex-col items-end w-11/12 md:w-6/12 h-full">
-						<iframe
-							width="560"
-							height="315"
-							src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
-							title="YouTube video spelare för digitalskills video"
-							frameBorder="0"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowFullScreen
-							className="md:pr-8 py-2 w-full"
-						></iframe>
+						<div className="md:mr-4 p-4 w-full shadow rounded-lg bg-white">
+							<iframe
+								width="560"
+								height="315"
+								src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
+								title="YouTube video spelare för digitalskills video"
+								frameBorder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowFullScreen
+								className="w-full"
+							></iframe>
+						</div>
 						<div className="flex-grow"></div>
 						<div className="px-4 mt-2 self-end">
 							<AttentionCard />
