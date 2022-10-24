@@ -162,13 +162,18 @@ class Map extends Component {
 						<g>{this.states}</g>
 					</svg>
 				</div>
-				<div
-					id="output"
-					className={`text-gray-800 bg-white shadow-lg rounded-lg p-4 flex justify-center items-center absolute h-8`}
-					style={{ left: this.state.posX, top: this.state.posY + 20 }}
-				>
-					{this.state.outputText}
-				</div>
+				{this.state.outputText ? (
+					<div
+						id="output"
+						className={`text-gray-800 bg-white shadow-lg rounded-lg p-4 flex justify-center items-center absolute h-8`}
+						style={{
+							left: this.state.posX,
+							top: this.state.posY + 20,
+						}}
+					>
+						{this.state.outputText}
+					</div>
+				) : null}
 			</div>
 		);
 	}
