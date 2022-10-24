@@ -37,7 +37,6 @@ const Home: NextPage<HomePageProps> = ({
 					<div className="flex flex-col items-end w-11/12 md:w-6/12 h-full">
 						<div className="md:mr-4 p-4 w-full shadow rounded-lg bg-white">
 							<iframe
-								width="560"
 								height="315"
 								src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
 								title="YouTube video spelare för digitalskills video"
@@ -47,8 +46,7 @@ const Home: NextPage<HomePageProps> = ({
 								className="w-full"
 							></iframe>
 						</div>
-						<div className="flex-grow"></div>
-						<div className="px-4 mt-2 self-end">
+						<div className="mb-4 md:mb-0 md:mr-4 mt-2 self-end w-full flex-grow">
 							<AttentionCard />
 						</div>
 					</div>
