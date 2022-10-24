@@ -174,6 +174,12 @@ class Map extends Component {
 						{this.state.outputText}
 					</div>
 				) : null}
+				<div className="max-w-[150px] mx-auto">
+					<p className="flex justify-between text-xs">
+						<span>0 (min)</span> <span>{this.state.max} (max)</span>
+					</p>
+					<div className="p-2 from-[#f3f2f7] to-[#322882] rounded border border-gray-100 w-full bg-gradient-to-r"></div>
+				</div>
 			</div>
 		);
 	}
