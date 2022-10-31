@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import AttentionCard from "../components/AttentionCard";
 import Toplist from "../components/Toplist";
-import Heatmap from "../components/Heatmap";
 
 import {
 	getCompetencies,
@@ -14,8 +13,6 @@ import {
 import { DigspecData, IndustryData } from "../interfaces/Digspec";
 
 import MetaTags from "../components/MetaTags";
-
-const LATEST_DATA_POINT = "2022-07-01";
 
 interface HomePageProps {
 	competencies: DigspecData[];
@@ -33,30 +30,21 @@ const Home: NextPage<HomePageProps> = ({
 			<MetaTags title="Startsida" />
 			<article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
 				<h1 className="sr-only">digitalskills.se startsida</h1>
-				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 md:h-[740px]">
-					<div className="flex flex-col items-end w-11/12 md:w-6/12 h-full">
-						<div className="md:mr-4 p-4 w-full shadow rounded-lg bg-white">
-							<iframe
-								height="315"
-								src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
-								title="YouTube video spelare för digitalskills video"
-								frameBorder="0"
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen
-								className="w-full"
-							></iframe>
-						</div>
-						<div className="mb-4 md:mb-0 md:mr-4 mt-2 self-end w-full flex-grow">
-							<AttentionCard />
-						</div>
+				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 h-full">
+					<div className="md:mr-4 p-4 w-full shadow rounded-lg w-full">
+						<iframe
+							height="315"
+							src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
+							title="YouTube video spelare för digitalskills video"
+							frameBorder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen
+							className="w-full"
+						></iframe>
 					</div>
-					<Heatmap
-						label={
-							"Geografisk överblick av alla annonser inom Data/IT via FA-regioner"
-						}
-						geodata={industry["geos"]["faRegion"]}
-						date={LATEST_DATA_POINT}
-					/>
+					<div className="mb-4 md:mb-0 mt-2 md:mt-0 w-full">
+						<AttentionCard />
+					</div>
 				</div>
 
 				<div className="flex flex-col xl:flex-row justify-between">
