@@ -1,6 +1,6 @@
 const AttentionCard = () => {
 	return (
-		<div className="flex flex-col p-4 bg-white shadow  sm:rounded-lg">
+		<div className="flex flex-col p-4 bg-white shadow rounded-lg h-full">
 			<div className="flex items-center justify-between">
 				<div className="flex flex-col ml-3 mr-8">
 					<h2 className="font-medium text-sm leading-relaxed">

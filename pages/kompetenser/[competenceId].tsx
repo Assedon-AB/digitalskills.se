@@ -7,6 +7,8 @@ import GeoTable from "../../components/GeoTable";
 import MetaTags from "../../components/MetaTags";
 import InfoPopover from "../../components/InfoPopover";
 
+import Heatmap from "../../components/Heatmap";
+
 import { DigspecData } from "../../interfaces/Digspec";
 import {
 	transformLink,
@@ -17,6 +19,8 @@ import {
 const Chart = dynamic(() => import("../../components/Chart"), {
 	ssr: false,
 });
+
+const LATEST_DATA_POINT = "2022-07-01";
 
 interface CompetencePageProps {
 	competence: DigspecData;
@@ -71,7 +75,7 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 				) : null}
 
 				{competence.geos ? (
-					<>
+					<div className="flex flex-col">
 						<h2 className="text-2xl mb-4">Geografisk fördelning</h2>
 						<p className="mb-2 font-bold">
 							Visa geografiskfördelning över:
@@ -107,36 +111,58 @@ const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 							Vad är en FA-region?
 						</a>
 
-						<GeoTable
-							data={Object.keys(competence.geos[viewMode])
-								.map((geoName: string) => ({
-									name: geoName,
-									num:
-										competence.geos[viewMode][geoName][
-											"2021-12-01"
-										]["num"] ?? 0,
-									organisations_num:
-										competence.geos[viewMode][geoName][
-											"2021-12-01"
-										]["organisations_num"] ?? 0,
-									details: Object.keys(
-										competence.geos[viewMode][geoName][
-											"2021-12-01"
-										]["details"] ?? []
-									).map((employerName) => ({
-										name: employerName,
-										num: competence.geos[viewMode][geoName][
-											"2021-12-01"
-										]["details"][employerName],
-									})),
-								}))
-								.sort((a, b) => b.num - a.num)
-								.slice(0, 15)}
-							title={
-								viewMode === "faRegion" ? "FA-region" : "Stad"
-							}
-						/>
-					</>
+						<div className="flex flex-col lg:flex-row">
+							<div className="w-full lg:w-4/5 xl:w-4/5">
+								<GeoTable
+									data={Object.keys(competence.geos[viewMode])
+										.map((geoName: string) => ({
+											name: geoName,
+											num:
+												competence.geos[viewMode][
+													geoName
+												][LATEST_DATA_POINT]["num"] ??
+												0,
+											organisations_num:
+												competence.geos[viewMode][
+													geoName
+												][LATEST_DATA_POINT][
+													"organisations_num"
+												] ?? 0,
+											details: Object.keys(
+												competence.geos[viewMode][
+													geoName
+												][LATEST_DATA_POINT][
+													"details"
+												] ?? []
+											).map((employerName) => ({
+												name: employerName,
+												num: competence.geos[viewMode][
+													geoName
+												][LATEST_DATA_POINT]["details"][
+													employerName
+												],
+											})),
+										}))
+										.sort((a, b) => b.num - a.num)
+										.slice(0, 15)}
+									title={
+										viewMode === "faRegion"
+											? "FA-region"
+											: "Stad"
+									}
+								/>
+							</div>
+							<div className="mt-8 lg:ml-8 md:w-2/5 xl:w-1/5">
+								<Heatmap
+									label={
+										"Geografisk överblick via FA-regioner"
+									}
+									geodata={competence.geos.faRegion}
+									date={LATEST_DATA_POINT}
+								/>
+							</div>
+						</div>
+					</div>
 				) : null}
 
 				{competence.jobs ? (

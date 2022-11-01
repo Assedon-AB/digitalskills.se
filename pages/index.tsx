@@ -30,23 +30,20 @@ const Home: NextPage<HomePageProps> = ({
 			<MetaTags title="Startsida" />
 			<article className="max-w-6xl flex flex-col min-h-screen mx-auto pt-16">
 				<h1 className="sr-only">digitalskills.se startsida</h1>
-				<div className="flex flex-col items-center md:flex-row px-4">
-					<div className="flex flex-col w-12/12 md:w-6/12">
+				<div className="flex flex-col md:flex-row items-stretch justify-center px-4 h-full">
+					<div className="md:mr-4 p-4 w-full shadow rounded-lg w-full">
 						<iframe
-							width="560"
 							height="315"
 							src="https://www.youtube-nocookie.com/embed/Mzj01h8XKYo"
 							title="YouTube video spelare för digitalskills video"
 							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
-							className="md:pr-8 py-2 w-full"
+							className="w-full"
 						></iframe>
 					</div>
-					<div className="flex flex-col w-12/12 md:w-6/12">
-						<div className="py-2 px-4">
-							<AttentionCard />
-						</div>
+					<div className="mb-4 md:mb-0 mt-2 md:mt-0 w-full">
+						<AttentionCard />
 					</div>
 				</div>
 
