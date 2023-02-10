@@ -27,6 +27,10 @@ interface OccupationPageProps {
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 	const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
 
+	if (!occupation) {
+		return null;
+	}
+
 	return (
 		<div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
 			<MetaTags title={occupation.name} />
@@ -290,9 +294,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	const occupationIdSplitted =
 		typeof param === "string" ? param.split("-") : "";
 
-	const occupation = await getOccupation(
+	let occupation = await getOccupation(
 		occupationIdSplitted[occupationIdSplitted.length - 1]
 	);
+
+	if (!occupation.hasOwnProperty("error")) {
+		occupation = null;
+	}
 
 	return {
 		props: {

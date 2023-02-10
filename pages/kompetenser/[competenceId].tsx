@@ -29,6 +29,10 @@ interface CompetencePageProps {
 const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 	const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
 
+	if (!competence) {
+		return null;
+	}
+
 	return (
 		<div className="bg-[#fafafa] w-full h-full min-h-screen py-12">
 			<MetaTags title={competence.name} />
@@ -264,9 +268,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
 	const competenceIdSplitted =
 		typeof param === "string" ? param.split("-") : "";
 
-	const competence = await getCompetence(
+	let competence = await getCompetence(
 		competenceIdSplitted[competenceIdSplitted.length - 1]
 	);
+
+	if (!competence.hasOwnProperty("error")) {
+		competence = null;
+	}
+
 	return {
 		props: {
 			competence,

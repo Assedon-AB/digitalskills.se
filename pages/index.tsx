@@ -79,7 +79,13 @@ export async function getStaticProps() {
 	if (!competenciesRaw.hasOwnProperty("error")) {
 		competencies = competenciesRaw
 			.filter((s) => !SKILL_IDS_TO_HIDE.includes(s._id))
-			.sort((a, b) => b.num - a.num)
+			.sort((a, b) => {
+				if (!a.num || !b.num) {
+					return -1;
+				} else {
+					return b.num - a.num;
+				}
+			})
 			.slice(0, 100);
 	}
 
@@ -88,7 +94,13 @@ export async function getStaticProps() {
 		occupations = occupationsRaw
 			.filter((s) => s.model)
 			.filter((o) => !OCCUPATION_IDS_TO_HIDE.includes(o._id))
-			.sort((a, b) => b.num - a.num)
+			.sort((a, b) => {
+				if (!a.num || !b.num) {
+					return -1;
+				} else {
+					return b.num - a.num;
+				}
+			})
 			.slice(0, 100);
 	}
 

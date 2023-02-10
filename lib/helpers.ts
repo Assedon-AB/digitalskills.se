@@ -36,7 +36,7 @@ const getCompetencies = async () => {
 		.then((res) => res.json())
 		.catch((err) => {
 			console.log("Error:", err);
-			return [];
+			return err;
 		});
 
 	return competencies;
@@ -52,9 +52,12 @@ const getCompetence = async (competenceId: string) => {
 	})
 		.then((res) => res.json())
 		.catch((err) => {
-			console.log(err);
-			return [];
+			return err;
 		});
+
+	if (!competence.num) {
+		return { error: "No num" };
+	}
 
 	return competence;
 };
@@ -69,8 +72,7 @@ const getOccupations = async () => {
 	})
 		.then((res) => res.json())
 		.catch((err) => {
-			console.log(err);
-			return [];
+			return err;
 		});
 
 	return competencies;
@@ -87,8 +89,12 @@ const getOccupation = async (occupationId: string) => {
 		.then((res) => res.json())
 		.catch((err) => {
 			console.log(err);
-			return [];
+			return err;
 		});
+
+	if (!occupation.num) {
+		return { error: "No num" };
+	}
 
 	return occupation;
 };
@@ -103,9 +109,12 @@ const getIndustry = async () => {
 	})
 		.then((res) => res.json())
 		.catch((err) => {
-			console.log(err);
-			return null;
+			return err;
 		});
+
+	if (!industry.num) {
+		return { error: "No num" };
+	}
 
 	return industry;
 };

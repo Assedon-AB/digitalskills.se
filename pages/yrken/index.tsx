@@ -246,7 +246,13 @@ export async function getStaticProps() {
 	if (!occupationsRaw.hasOwnProperty("error")) {
 		occupations = occupationsRaw
 			.filter((o) => !OCCUPATION_IDS_TO_HIDE.includes(o._id))
-			.sort((a, b) => b.num - a.num)
+			.sort((a, b) => {
+				if (!a.num || !b.num) {
+					return -1;
+				} else {
+					return b.num - a.num;
+				}
+			})
 			.slice(0, 5000);
 	}
 
