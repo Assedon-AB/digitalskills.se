@@ -272,7 +272,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		competenceIdSplitted[competenceIdSplitted.length - 1]
 	);
 
-	if (!competence.hasOwnProperty("error")) {
+	if (competence.hasOwnProperty("error")) {
 		competence = null;
 	}
 

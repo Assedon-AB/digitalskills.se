@@ -298,7 +298,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		occupationIdSplitted[occupationIdSplitted.length - 1]
 	);
 
-	if (!occupation.hasOwnProperty("error")) {
+	if (occupation.hasOwnProperty("error")) {
 		occupation = null;
 	}
 

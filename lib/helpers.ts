@@ -35,7 +35,6 @@ const getCompetencies = async () => {
 	})
 		.then((res) => res.json())
 		.catch((err) => {
-			console.log("Error:", err);
 			return err;
 		});
 
