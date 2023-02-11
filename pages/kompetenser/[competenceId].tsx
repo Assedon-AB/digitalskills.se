@@ -20,7 +20,7 @@ const Chart = dynamic(() => import("../../components/Chart"), {
 	ssr: false,
 });
 
-const LATEST_DATA_POINT = "2022-09-30";
+const LATEST_DATA_POINT = "2022-08-31";
 
 interface CompetencePageProps {
 	competence: DigspecData;
