@@ -27,7 +27,7 @@ interface OccupationPageProps {
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 	const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
 
-	if (!occupation) {
+	if (true) {
 		return null;
 	}
 

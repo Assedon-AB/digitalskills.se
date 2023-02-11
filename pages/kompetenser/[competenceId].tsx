@@ -29,7 +29,7 @@ interface CompetencePageProps {
 const CompetencePage: NextPage<CompetencePageProps> = ({ competence }) => {
 	const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
 
-	if (!competence) {
+	if (true) {
 		return null;
 	}
 
