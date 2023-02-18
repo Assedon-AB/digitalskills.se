@@ -19,7 +19,7 @@ const Chart = dynamic(() => import("../../components/Chart"), {
 	ssr: false,
 });
 
-const LATEST_DATA_POINT = "2022-07-30";
+const LATEST_DATA_POINT = "2022-12-01";
 
 interface OccupationPageProps {
 	occupation: DigspecData;
@@ -27,7 +27,7 @@ interface OccupationPageProps {
 const OccupationPage: NextPage<OccupationPageProps> = ({ occupation }) => {
 	const [viewMode, setViewMode] = useState<"faRegion" | "citys">("faRegion");
 
-	if (true) {
+	if (!occupation) {
 		return null;
 	}
 
