@@ -13,10 +13,12 @@ const Navbar = () => {
 
 	return (
 		<>
+			{/*
 			<p className="bg-red-500 text-white p-4 text-center">
 				Vi upplever just nu en del tekniska problem. Data kan vara
 				missvisande.
 			</p>
+            */}
 			<nav className="p-4 max-w-6xl mx-auto flex items-center print:hidden">
 				<p className="text-2xl block min-w-max">
 					{" "}
