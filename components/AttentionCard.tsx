@@ -18,7 +18,7 @@ const AttentionCard = () => {
 							historiska jobbannonser från Platsbanken
 						</a>
 						. Hämtades senast 2023-04-25 och sträcker sig mellan
-						2006-01-01 till 2023-03-31
+						2006-01-01 till 2023-03-31.
 					</p>
 					<h2 className="font-medium text-sm leading-relaxed pt-4">
 						Så tolkar du tabellen
