@@ -4,7 +4,7 @@ const AttentionCard = () => {
 			<div className="flex items-center justify-between">
 				<div className="flex flex-col ml-3 mr-8">
 					<h2 className="font-medium text-sm leading-relaxed">
-						Data hämtad senast
+						UPPDATERING PÅGÅR
 					</h2>
 					<p className="text-xs text-gray-600 leading-relaxed mt-1">
 						Ingående data kommer från Arbetsförmedlingens dataset
@@ -17,8 +17,8 @@ const AttentionCard = () => {
 						>
 							historiska jobbannonser från Platsbanken
 						</a>
-						. Hämtades senast 2023-04-25 och sträcker sig mellan
-						2006-01-01 till 2023-05-31.
+						. Hämtades senast 2023-12-04 och sträcker sig mellan
+						2006-01-01 till 2023-09-30.
 					</p>
 					<h2 className="font-medium text-sm leading-relaxed pt-4">
 						Så tolkar du tabellen
