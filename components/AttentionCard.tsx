@@ -4,7 +4,7 @@ const AttentionCard = () => {
 			<div className="flex items-center justify-between">
 				<div className="flex flex-col ml-3 mr-8">
 					<h2 className="font-medium text-sm leading-relaxed">
-						UPPDATERING PÅGÅR
+						Data hämtad senast
 					</h2>
 					<p className="text-xs text-gray-600 leading-relaxed mt-1">
 						Ingående data kommer från Arbetsförmedlingens dataset
