@@ -16,6 +16,8 @@ export const SKILL_IDS_TO_HIDE = [
 	"64dcd061cbad1e5c138e0e48",
 	"64dcd029cbad1e5c138e0934",
 	"64dcd010cbad1e5c138e072c",
+	"65a732322a7a0d3c14e79850",
+	"65a732652a7a0d3c14e79dc8",
 ];
 
 export const OCCUPATION_IDS_TO_HIDE = [
@@ -29,6 +31,7 @@ export const OCCUPATION_IDS_TO_HIDE = [
 	"623babea39d0d1cfd8c204aa",
 	"623babd139d0d1cfd8c1fee6",
 	"64dcd1c7cbad1e5c138e41e0",
+	"65a733d12a7a0d3c14e7d566",
 ];
 
 const getCompetencies = async () => {
