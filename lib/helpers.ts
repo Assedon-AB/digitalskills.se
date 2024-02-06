@@ -18,6 +18,7 @@ export const SKILL_IDS_TO_HIDE = [
 	"64dcd010cbad1e5c138e072c",
 	"65a732322a7a0d3c14e79850",
 	"65a732652a7a0d3c14e79dc8",
+	"65c189ed5ed5103ff7eb145f",
 ];
 
 export const OCCUPATION_IDS_TO_HIDE = [
